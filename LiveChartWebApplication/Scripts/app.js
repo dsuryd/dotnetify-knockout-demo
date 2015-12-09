@@ -8,9 +8,7 @@
       "dotnetify": "dotnetify",
       "signalr": "jquery.signalR-2.2.0.min",
       "signalr-hub": "/signalr/hubs?",
-      "path": "path.min",
-      "chart": "LiveChart/chart.min",
-      "livechart": "LiveChart/LiveChart",
+      "path": "path.min"
    },
    shim: {
       "jquery": { exports: "$" },
@@ -21,7 +19,7 @@
    }
 });
 
-require(['jquery', 'dotnetify', 'path', 'chart', 'livechart'], function ($) {
+require(['jquery', 'dotnetify', 'path'], function ($) {
    $(function () {
    });
 });

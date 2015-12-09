@@ -6,13 +6,13 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <script src="/Scripts/require.js" data-main="/Scripts/app"></script>
+   <script src="/Scripts/Example/chart.min.js" type="text/javascript"></script>
+   <script src="/Scripts/Example/LiveChart.js" type="text/javascript"></script>
 </head>
 <body>
    <h3>Live Chart</h3>
    <div data-vm="LiveChartVM">
-      <center>
-         <canvas data-bind="vmOn: { Data: updateChart }" />
-      </center>
+      <canvas data-bind="vmOn: { Data: updateChart }" />
    </div>
 </body>
 </html>

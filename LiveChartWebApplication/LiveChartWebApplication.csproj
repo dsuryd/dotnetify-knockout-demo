@@ -130,8 +130,8 @@
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
-    <Content Include="Scripts\LiveChart\chart.min.js" />
-    <Content Include="Scripts\LiveChart\LiveChart.js" />
+    <Content Include="Scripts\Example\chart.min.js" />
+    <Content Include="Scripts\Example\LiveChart.js" />
     <Content Include="Scripts\path.min.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Views\LiveChart.html" />
