@@ -31,12 +31,10 @@
             datasets: [{
                label: "My live dataset",
                data: iData,
-               fillColor: "rgba(151,187,205,0.2)",
-               strokeColor: "rgba(151,187,205,1)",
-               pointColor: "rgba(151,187,205,1)",
-               pointStrokeColor: "#fff",
-               pointHighlightFill: "#fff",
-               pointHighlightStroke: "rgba(151,187,205,1)"
+               fillColor: "rgba(217,237,245,0.2)", 
+               strokeColor: "#9acfea", 
+               pointColor: "#9acfea", 
+               pointStrokeColor: "#fff" 
             }]
          };
 
