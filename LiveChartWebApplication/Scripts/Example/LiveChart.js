@@ -4,6 +4,8 @@
       updateChart: function (iItem, iElement) {
          var vm = this;
          var data = vm.Data();
+         if ( data == null)
+            return;
 
          if (vm._chart == null) {
             vm._chart = this.createChart(data, iElement);
