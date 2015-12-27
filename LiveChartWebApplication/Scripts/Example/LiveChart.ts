@@ -1,6 +1,4 @@
-﻿declare var Chart: any; // ChartJS library.
-
-class LiveChart {
+﻿class LiveChartVM {
 
    // On data update, update the chart.
    updateChart(iItem, iElement) {
@@ -46,5 +44,3 @@ class LiveChart {
       return new Chart(iElement.getContext('2d')).Line(chartData, { responsive: true, animation: false });
    }
 }
-
-var LiveChartVM = new LiveChart();

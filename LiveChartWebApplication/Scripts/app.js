@@ -8,7 +8,7 @@
       "dotnetify": "dotnetify",
       "signalr": "jquery.signalR-2.2.0.min",
       "signalr-hub": "/signalr/hubs?",
-      "path": "path.min"
+      "path": "path.min",
    },
    shim: {
       "jquery": { exports: "$" },
