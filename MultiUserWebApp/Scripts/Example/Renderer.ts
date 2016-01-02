@@ -75,19 +75,6 @@ module Renderer {
             sprite.buttonMode = true;
 
             // Handle the bunny dragging event.
-            sprite
-               // events for drag start
-               .on('mousedown', onDragStart)
-               .on('touchstart', onDragStart)
-               // events for drag end
-               .on('mouseup', onDragEnd)
-               .on('mouseupoutside', onDragEnd)
-               .on('touchend', onDragEnd)
-               .on('touchendoutside', onDragEnd)
-               // events for drag move
-               .on('mousemove', onDragMove)
-               .on('touchmove', onDragMove);
-
             function onDragStart(event) {
                this.data = event.data;
                this.alpha = 0.9;
@@ -119,6 +106,19 @@ module Renderer {
                      }, updateRate);
                }
             }
+
+            sprite
+               // events for drag start
+               .on('mousedown', onDragStart)
+               .on('touchstart', onDragStart)
+               // events for drag end
+               .on('mouseup', onDragEnd)
+               .on('mouseupoutside', onDragEnd)
+               .on('touchend', onDragEnd)
+               .on('touchendoutside', onDragEnd)
+               // events for drag move
+               .on('mousemove', onDragMove)
+               .on('touchmove', onDragMove);
          }
 
          this._stage.addChild(sprite);
