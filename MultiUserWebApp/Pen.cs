@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using winTimer = System.Timers;
-using System.Linq;
-using System.Web;
 
 namespace MultiUserWebApp
 {
@@ -66,7 +64,8 @@ namespace MultiUserWebApp
 
       private long _bunnySequence;
       private long _bunnyCount;
-      private object _listSync = new object();
+      private object _clientUpdateLock = new object();
+      private object _serverUpdateLock = new object();
       private List<Bunny> _allBunnies = new List<Bunny>();
       private List<Bunny> _changedBunnies = new List<Bunny>();
       private List<long> _departedBunnyIds = new List<long>();
@@ -79,8 +78,8 @@ namespace MultiUserWebApp
 
       protected Pen()
       {
-         _changedEventArgs.Bunnies = _changedBunnies;
-         _departedEventArgs.BunnyIds = _departedBunnyIds;
+         _changedEventArgs.Bunnies = new List<Bunny>();
+         _departedEventArgs.BunnyIds = new List<long>();
 
          _updateTimer.Elapsed += UpdateTimer_Elapsed;
          _updateTimer.Start();
@@ -99,7 +98,7 @@ namespace MultiUserWebApp
          var id = Interlocked.Increment(ref _bunnySequence);
          var bunny = new Bunny { Id = id, Whereabout = new Location { X = _random.Next(10, PEN_WIDTH - 10), Y = _random.Next(10, PEN_HEIGHT - 10) } };
 
-         lock (_listSync)
+         lock (_clientUpdateLock)
          {
             oOtherBunnies = new List<Bunny>(_allBunnies);
             _allBunnies.Add(bunny);
@@ -111,7 +110,7 @@ namespace MultiUserWebApp
 
       public void Remove(Bunny iBunny)
       {
-         lock (_listSync)
+         lock (_clientUpdateLock)
          {
             _allBunnies.Remove(iBunny);
             _departedBunnyIds.Add(iBunny.Id);
@@ -121,7 +120,7 @@ namespace MultiUserWebApp
 
       public void MarkAsChanged(Bunny iBunny)
       {
-         lock (_listSync)
+         lock (_clientUpdateLock)
          {
             if (_changedBunnies.IndexOf(iBunny) < 0)
                _changedBunnies.Add(iBunny);
@@ -134,16 +133,31 @@ namespace MultiUserWebApp
       /// </summary>
       private void UpdateTimer_Elapsed(object sender, winTimer.ElapsedEventArgs e)
       {
-         lock (_listSync)
+         lock (_clientUpdateLock)
          {
-            if (_changedBunnies.Count > 0 && ChangedBunnies != null)
-               ChangedBunnies(this, _changedEventArgs);
+            lock (_serverUpdateLock)
+            {
+               if (_changedBunnies.Count > 0)
+                  _changedEventArgs.Bunnies.AddRange(_changedBunnies);
 
-            if (_departedBunnyIds.Count > 0 && DepartedBunnies != null)
-               DepartedBunnies(this, _departedEventArgs);
+               if (_departedBunnyIds.Count > 0)
+                  _departedEventArgs.BunnyIds.AddRange(_departedBunnyIds);
+            }
 
             _changedBunnies.Clear();
             _departedBunnyIds.Clear();
+         }
+
+         lock (_serverUpdateLock)
+         {
+            if (ChangedBunnies != null && _changedEventArgs.Bunnies.Count > 0)
+               ChangedBunnies(this, _changedEventArgs);
+
+            if (DepartedBunnies != null && _departedEventArgs.BunnyIds.Count > 0)
+               DepartedBunnies(this, _departedEventArgs);
+
+            _changedEventArgs.Bunnies.Clear();
+            _departedEventArgs.BunnyIds.Clear();
          }
 
          // When there are no more users, dispose this singleton.

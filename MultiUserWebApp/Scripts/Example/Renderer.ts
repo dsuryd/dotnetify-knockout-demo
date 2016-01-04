@@ -97,12 +97,13 @@ module Renderer {
                   this.position.y = self._newPosition.y;
 
                   // Send the new drag location to the server.  We do it in an interval
-                  // of 100 ms, assuming average network latency is that.
+                  // of 100 ms to compensate for network latency.
                   if (self._interval == undefined)
                      self._interval = setInterval(() => {
-                        if (self._newPosition != null)
+                        if (self._newPosition != null) {
                            iMoveCallback(new Location(self._newPosition.x, self._newPosition.y, this.rotation.toFixed(1)));
-                        self._newPosition = null;
+                           self._newPosition = null;
+                        }
                      }, updateRate);
                }
             }
