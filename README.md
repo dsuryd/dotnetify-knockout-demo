@@ -3,7 +3,7 @@
 Example of using **[dotNetify](http://dotnetify.net)** to build an interactive, real-time, multi-user web application.  
 See live demo here: **[Bunny Pen](http://dotnetify.net/index/BunnyPen)**.
 
-This example extends the basic 2D web graphics rendering example seen in the **[Pixi.Js](http://pixijs.com)** website to allow multiple users see each other's bunny sprite as they drag it around the rendering area.
+This example extends the basic 2D web graphics rendering example seen in the **[Pixi.js](http://pixijs.com)** website to allow multiple users see each other's bunny sprite as they drag it around the rendering area.
 
 The principal source code files:
 
