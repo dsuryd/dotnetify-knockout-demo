@@ -5,7 +5,7 @@ See live demo here: **[Bunny Pen](http://dotnetify.net/index/BunnyPen)**.
 
 This example extends the basic 2D web graphics rendering example seen in the **[Pixi.js](http://pixijs.com)** website to allow multiple users see each other's bunny sprite as they drag it around the rendering area.
 
-The principal source code files:
+The principal source code files in this Visual Studio 2015 solution are:
 
 - The HTML view:
  [/Views/BunnyPen.html](https://github.com/dsuryd/dotNetify-example-bunnypen/blob/master/MultiUserWebApp/Views/BunnyPen.html)
