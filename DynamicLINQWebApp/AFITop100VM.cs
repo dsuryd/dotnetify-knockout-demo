@@ -19,9 +19,9 @@ namespace DynamicLINQWebApp
             IEnumerable<MovieRecord> results;
 
             if (!String.IsNullOrEmpty(Query))
-               results = AFITop100Model.AllRecords.Where(Query);
+               results = _model.AllRecords.Where(Query);
             else
-               results = AFITop100Model.AllRecords;
+               results = _model.AllRecords;
 
             return Paginate(results);
          }
@@ -80,6 +80,7 @@ namespace DynamicLINQWebApp
          }
       }
 
+      private readonly AFITop100Model _model;
       private static int _recordsPerPage = 10;
       private static readonly List<string> _propertyNames = typeof(MovieRecord).GetProperties().ToList().ConvertAll(i => i.Name);
       private List<MovieRecord> _queryTest = new List<MovieRecord>();
@@ -88,8 +89,9 @@ namespace DynamicLINQWebApp
       /// <summary>
       /// Constructor.
       /// </summary>
-      public AFITop100VM()
+      public AFITop100VM(AFITop100Model model)
       {
+         _model = model;
          EnableAutoComplete = true;
          AutoCompleteCaption = "Auto-complete";
       }

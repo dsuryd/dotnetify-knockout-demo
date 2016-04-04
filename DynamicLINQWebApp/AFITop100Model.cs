@@ -22,7 +22,6 @@ namespace DynamicLINQWebApp
 
    public class AFITop100Model
    {
-      private static List<MovieRecord> _allRecords = MovieRecord.GetData();
-      public static List<MovieRecord> AllRecords {  get { return _allRecords; } }
+      public List<MovieRecord> AllRecords => MovieRecord.GetData();
    }
 }
