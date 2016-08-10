@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title></title>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="/Scripts/Demo/MobileApp.js"></script>
+   <script src="/Scripts/require.min.js" data-main="/Scripts/Demo/demoApp"></script>
+
+   <!-- 1. Load webcomponents-lite.min.js for polyfill support. -->
+   <script src="/Scripts/lib/webcomponentsjs/webcomponents-lite.min.js"></script>
+   <!-- 2. Use an HTML Import to bring in some elements. -->
+   <link rel="import" href="/Scripts/lib/iron-collapse/iron-collapse.html">
+   <link rel="import" href="/Scripts/lib/iron-icons/iron-icons.html">
+   <link rel="import" href="/Scripts/lib/iron-image/iron-image.html">
+   <link rel="import" href="/Scripts/lib/iron-pages/iron-pages.html">
+   <link rel="import" href="/Scripts/lib/paper-badge/paper-badge.html">
+   <link rel="import" href="/Scripts/lib/paper-button/paper-button.html">
+   <link rel="import" href="/Scripts/lib/paper-card/paper-card.html">
+   <link rel="import" href="/Scripts/lib/paper-checkbox/paper-checkbox.html">
+   <link rel="import" href="/Scripts/lib/paper-drawer-panel/paper-drawer-panel.html">
+   <link rel="import" href="/Scripts/lib/paper-dropdown-menu/paper-dropdown-menu.html">
+   <link rel="import" href="/Scripts/lib/paper-icon-button/paper-icon-button.html">
+   <link rel="import" href="/Scripts/lib/paper-input/paper-input.html">
+   <link rel="import" href="/Scripts/lib/paper-item/paper-item.html">
+   <link rel="import" href="/Scripts/lib/paper-listbox/paper-listbox.html">
+   <link rel="import" href="/Scripts/lib/paper-menu-button/paper-menu-button.html">
+   <link rel="import" href="/Scripts/lib/paper-menu/paper-menu.html">
+   <link rel="import" href="/Scripts/lib/paper-menu/paper-submenu.html">
+   <link rel="import" href="/Scripts/lib/paper-progress/paper-progress.html">
+   <link rel="import" href="/Scripts/lib/paper-radio-button/paper-radio-button.html">
+   <link rel="import" href="/Scripts/lib/paper-radio-group/paper-radio-group.html">
+   <link rel="import" href="/Scripts/lib/paper-scroll-header-panel/paper-scroll-header-panel.html">
+   <link rel="import" href="/Scripts/lib/paper-slider/paper-slider.html">
+   <link rel="import" href="/Scripts/lib/paper-styles/paper-styles.html" />
+   <link rel="import" href="/Scripts/lib/paper-tabs/paper-tabs.html">
+   <link rel="import" href="/Scripts/lib/paper-toolbar/paper-toolbar.html">
+   <link rel="import" href="/Scripts/lib/paper-toast/paper-toast.html">
+   <link rel="import" href="/Scripts/lib/paper-toggle-button/paper-toggle-button.html">
+
+   <style>
+      #MainPanel {
+         background-color: #f6f6f6;
+      }
+      #MainContent {
+         margin: 1em;
+      }
+      paper-card {
+         width: calc( 100% - 1.5em ) !important;
+         margin: 1em;
+      }
+      paper-item.iron-selected
+       {
+         background: #f6f6f6;
+         box-shadow:2px 2px 4px rgba(0, 0, 0, 0.15);
+      }
+      paper-item.iron-selected:after,
+      paper-item.iron-selected:before {
+         opacity: 0 !important;
+      }
+      paper-menu paper-item span {
+         margin-left: 1em;
+      }
+   </style>
+</head>
+<body class="polymer" data-vm="MobileAppMainVM">
+   <paper-drawer-panel>
+      <paper-scroll-header-panel drawer fixed>
+         
+         <div height="171px">
+            <iron-image src="/Content/Images/appLogo.jpg" />
+         </div>
+
+         <paper-menu>
+            <paper-item data-bind="vmRoute: Page1">
+               <iron-icon icon="home"></iron-icon>
+               <span id="Page1Title"></span>
+            </paper-item>
+            <paper-item data-bind="vmRoute: Page2">
+               <iron-icon icon="info"></iron-icon>
+               <span id="Page2Title"></span>
+            </paper-item>
+            <paper-item data-bind="vmRoute: Page3">
+               <iron-icon icon="help"></iron-icon>
+               <span id="Page3Title"></span>
+            </paper-item>
+         </paper-menu>
+      </paper-scroll-header-panel>
+
+      <paper-scroll-header-panel id="MainPanel" main condenses keep-condensed-header>
+         <paper-toolbar>
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+            <span id="AppTitle" class="title"></span>
+            <paper-icon-button icon="refresh"></paper-icon-button>
+         </paper-toolbar>
+         <div id="MainContent"></div>
+         </paper-scroll-header-panel>
+</paper-drawer-panel>
+</body>
+</html>
