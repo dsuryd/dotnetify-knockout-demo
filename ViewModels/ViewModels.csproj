@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MobileAppMainVM.cs" />
-    <Compile Include="MobileAppPage3VM.cs" />
+    <Compile Include="IndexVM.cs" />
+    <Compile Include="Page3VM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

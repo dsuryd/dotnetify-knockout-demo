@@ -1,0 +1,7 @@
+{
+  "name": "ASP.NET",
+  "private": true,
+  "dependencies": {
+    "onsenui": "~1.3.17"
+  }
+}

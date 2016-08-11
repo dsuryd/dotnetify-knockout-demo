@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>DotNetify App</title>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="/css/ratchet.min.css" rel="stylesheet">
+   <link href="/css/ratchet-theme-ios.min.css" rel="stylesheet">
+   <link href="/css/snap.css" rel="stylesheet">
+   <script src="/scripts/require.min.js" data-main="/scripts/app"></script>
+   <style>
+      .table-view-cell .icon {
+         color: #007aff;
+      }
+   </style>
+</head>
+
+<body>
+
+   <div class="snap-drawers">
+      <div class="snap-drawer snap-drawer-left">
+         <div>
+            <h4>Demos</h4>
+            <ul>
+               <li><a href="default.html">Default</a></li>
+               <li><a href="noDrag.html">No Drag</a></li>
+               <li><a href="dragElement.html">Drag Element</a></li>
+               <li><a href="rightDisabled.html">Right Disabled</a></li>
+               <li><a href="hyperextend.html">Hyperextension Disabled</a></li>
+               <li><a href="skinnyThreshold.html">Skinny Threshold</a></li>
+               <li><a href="toggles.html">Toggles</a></li>
+               <li><a href="classNames.html">Class Names</a></li>
+               <li><a href="expand.html">Expanding</a></li>
+               <li><a href="settings.html">Settings</a></li>
+               <li><a href="ratchet/template.html">Ratchet</a></li>
+            </ul>
+            <div>
+               <p>The Default demo shows basic Snap.js functionality</p>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
+            </div>
+         </div>
+      </div>
+      <div class="snap-drawer snap-drawer-right"></div>
+   </div>
+
+   <div id="MainPage" class="snap-content">
+      <header class="bar bar-nav">
+         <a id="open-left" href="#" class="icon icon-bars pull-left" ></a>
+         <a class="icon icon-refresh pull-right"></a>
+         <h1 class="title">Mailboxes</h1>
+      </header>
+
+      <div class="bar bar-footer">
+         <a class="icon icon-compose pull-right" href="#composeModal"></a>
+         <small class="updated-text">Updated just now</small>
+      </div>
+
+      <div class="content">
+
+         <ul class="table-view">
+            <li class="table-view-cell media">
+               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
+                  <span class="media-object icon icon-pages pull-left"></span>
+                  <div class="media-body">
+                     All inboxes
+                  </div>
+               </a>
+            </li>
+            <li class="table-view-cell media">
+               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
+                  <span class="media-object icon icon-person pull-left"></span>
+                  <div class="media-body">
+                     Personal email
+                  </div>
+               </a>
+            </li>
+            <li class="table-view-cell media">
+               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
+                  <span class="media-object icon icon-star-filled pull-left"></span>
+                  <div class="media-body">
+                     Starred
+                  </div>
+               </a>
+            </li>
+            <li class="table-view-cell media">
+               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
+                  <span class="media-object icon icon-trash pull-left"></span>
+                  <div class="media-body">
+                     Trash
+                  </div>
+               </a>
+            </li>
+         </ul>
+
+         <h5 class="content-padded">Other accounts</h5>
+         <ul class="table-view">
+            <li class="table-view-cell media">
+               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
+                  <span class="media-object icon icon-more pull-left"></span>
+                  <div class="media-body">
+                     Misc
+                  </div>
+               </a>
+            </li>
+         </ul>
+      </div><!-- /.content -->
+      <!-- Compose modal -->
+      <div id="composeModal" class="modal">
+         <header class="bar bar-nav">
+            <a class="btn btn-link pull-right" href="#composeModal">
+               <strong>Send</strong>
+            </a>
+            <a class="btn btn-link pull-left" href="#composeModal">
+               Cancel
+            </a>
+            <h1 class="title">New message</h1>
+         </header>
+
+         <div class="content">
+            <form class="input-group">
+               <input type="text" placeholder="To:">
+               <input type="email" placeholder="From:">
+               <input type="text" placeholder="Subject:">
+               <textarea rows="20"></textarea>
+            </form>
+         </div>
+      </div><!-- /.modal -->
+
+   </div>
+
+
+</body>
+</html>
