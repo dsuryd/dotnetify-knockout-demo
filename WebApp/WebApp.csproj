@@ -126,7 +126,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\app.css" />
+    <Content Include="css\my-app.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -140,7 +140,6 @@
     <Content Include="views\help.html" />
     <Content Include="views\menus.html" />
     <Content Include="views\account.html" />
-    <Content Include="views\page1 - Copy.html" />
     <Content Include="views\page4.html" />
     <Content Include="views\web.config" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -160,7 +159,7 @@
     <Content Include="css\ratchet.min.css" />
     <Content Include="css\snap.css" />
     <Content Include="fonts\ratchicons.svg" />
-    <Content Include="scripts\app.js" />
+    <Content Include="scripts\my-app\app.js" />
     <Content Include="scripts\dotnetify.binder.js" />
     <Content Include="scripts\dotnetify.binder.polymer.js" />
     <Content Include="scripts\dotnetify.js" />
@@ -170,9 +169,8 @@
     <Content Include="scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="scripts\knockout-3.3.0.js" />
     <Content Include="scripts\knockout.mapping-latest.js" />
-    <Content Include="scripts\knockout.ratchet.components.js" />
+    <Content Include="scripts\my-app\components.js" />
     <Content Include="scripts\path.min.js" />
-    <Content Include="scripts\ratchet.min.js" />
     <Content Include="scripts\require.min.js" />
     <Content Include="scripts\snap.min.js" />
     <Content Include="views\index.html" />

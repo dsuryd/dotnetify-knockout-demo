@@ -1,5 +1,5 @@
 ﻿require.config({
-   baseUrl: '/Scripts',
+   baseUrl: '/scripts',
    paths: {
       "jquery": "jquery-1.11.3.min",
       "jquery-ui": "jquery-ui-widget-1.11.4.min",
@@ -12,9 +12,8 @@
       "signalr": "jquery.signalR-2.2.0.min",
       "signalr-hub": "/signalr/hubs?",
       "bootstrap": "bootstrap.min",
-      "ratchet": "ratchet.min",
       "snap": "snap.min",
-      "ko-ratchet": "knockout.ratchet.components"
+      "my-components": "my-app/components"
    },
    shim: {
       "jquery": { exports: "$" },
@@ -23,16 +22,22 @@
       "dnf-router": ["path"],
       "signalr": { deps: ["jquery"], exports: "$.connection" },
       "signalr-hub": ["signalr"],
-      "bootstrap": ["jquery"]
+      "bootstrap": ["jquery"],
+      "my-components": ["snap", "bootstrap"]
    }
 });
 
-require( ['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'bootstrap', 'ratchet', 'snap', 'ko-ratchet'], function ( $ )
-{
+require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'my-components'], function ($) {
    $(function () {
       dotnetify.debug = true;
 
-      var snapper = new Snap({ element: document.getElementById('MainPage') });
-      $("#MenuNav").click(function () {snapper.open("left") });
+      $("[data-vm]").on("ready", function () {
+         // On fresh view, find and init the designated button to open the side menu.
+         var snapper = new Snap({ element: document.getElementById('MainPage') });
+         $(".my-side-menu-btn").click(function () { snapper.open("left") });
+
+         setInterval(function () { $(".my-side-menu a").click(function () { snapper.close() }); }, 200);
+      });
+
    });
 });

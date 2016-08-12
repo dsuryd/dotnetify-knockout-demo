@@ -9,34 +9,41 @@
    <link href="/css/ratchet.min.css" rel="stylesheet">
    <link href="/css/ratchet-theme-ios.min.css" rel="stylesheet">
    <link href="/css/snap.css" rel="stylesheet">
-   <link href="/css/app.css" rel="stylesheet">
-   <script src="/scripts/require.min.js" data-main="/scripts/app"></script>
+   <link href="/css/my-app.css" rel="stylesheet">
+   <script src="/scripts/require.min.js" data-main="/scripts/my-app/app"></script>
 </head>
 
 <body data-vm="IndexVM">
 
+   <!-- Sliding side menu -->
    <div class="snap-drawers content">
       <div class="snap-drawer snap-drawer-left">
-         <ko-menu params="title: UserName, items: Menu"></ko-menu>
+         <!-- Menu title -->
+         <div class="table-view-cell" data-bind="html: UserName"></div>
+         <!-- Menu items -->
+         <ul class="my-side-menu table-view" data-bind="foreach: Menu">
+            <my-menu-item params="icon: Icon, caption: Caption, url: Route" />
+         </ul>
+         <!-- Sign out bar -->
          <nav class="bar bar-footer">
             <button class="btn btn-block btn-positive">Sign Out</button>
          </nav>
       </div>
    </div>
 
+   <!-- Main page  -->
    <div id="MainPage" class="snap-content">
-
-      <header class="bar bar-nav">
-         <a id="MenuNav" class="icon icon-bars pull-left"></a>
-         <a class="icon icon-refresh pull-right"></a>
-         <h1 class="title">Mailboxes</h1>
-      </header>
-
       <div id="Content" class="content">
-         <ul>
-            <li><a data-bind="text: Page1Title, vmRoute: Page1"></a></li>
-            <li><a data-bind="text: Page2Title, vmRoute: Page2"></a></li>
-            <li><a data-bind="text: Page3Title, vmRoute: Page3"></a></li>
+         <!-- Page title -->
+         <header class="bar bar-nav">
+            <a class="my-side-menu-btn icon icon-bars pull-left"></a>
+            <a class="icon icon-refresh pull-right"></a>
+            <h1 class="title">My Take-Out App</h1>
+         </header>
+         <ul class="table-view">
+            <my-menu-item params="caption: Page1Title, url: Page1, nav:'navigate-right'"></my-menu-item>
+            <my-menu-item params="caption: Page2Title, url: Page2"></my-menu-item>
+            <my-menu-item params="caption: Page3Title, url: Page3"></my-menu-item>
          </ul>
       </div>
    </div>

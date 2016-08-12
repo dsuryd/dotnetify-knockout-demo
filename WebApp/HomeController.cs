@@ -12,7 +12,7 @@ namespace WebApp.Controllers
          if ( string.IsNullOrEmpty(id) )
             id = "index";
 
-         return File(Server.MapPath("/Views/" + ( id.EndsWith(".html") ? id : id + ".html" )), "text/html");
+         return File(Server.MapPath("/views/" + ( id.EndsWith(".html") ? id : id + ".html" )), "text/html");
       }
 
       [Route("app/{*id}")]

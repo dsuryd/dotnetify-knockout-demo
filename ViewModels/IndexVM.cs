@@ -6,12 +6,13 @@ namespace ViewModels
 {
    public class IndexVM : BaseVM, IRoutable
    {
-      public class MenuItem
+      public class SideMenuItem
       {
          public Route Route { get; set; }
          public string Caption { get; set; }
          public string Icon { get; set; }
       }
+
       public RoutingState RoutingState { get; set; }
 
       public Route Page1 => this.GetRoute("Page1");
@@ -22,19 +23,21 @@ namespace ViewModels
       public string Page2Title => "Page 2";
       public string Page3Title => "My Settings";
 
+      public string Title => "My Take-out App";
+
       public string UserName { get; set; }
 
-      public List<MenuItem> Menu => new List<MenuItem>
+      public List<SideMenuItem> Menu => new List<SideMenuItem>
       {
-         new MenuItem { Route = this.GetRoute("Menus"), Caption = "Menus", Icon = "glyphicon glyphicon-list-alt btn-primary" },
-         new MenuItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "glyphicon glyphicon-user btn-primary" },
-         new MenuItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="glyphicon glyphicon-question-sign btn-positive" }
+         new SideMenuItem { Route = this.GetRoute("Menus"), Caption = "Menus", Icon = "glyphicon glyphicon-list-alt btn-primary" },
+         new SideMenuItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "glyphicon glyphicon-user btn-primary" },
+         new SideMenuItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="glyphicon glyphicon-question-sign btn-positive" }
       };
 
 
       public IndexVM()
       {
-         UserName = "Jane Doe";
+         UserName = "Travis Lee";
 
          this.RegisterRoutes("app", new List<RouteTemplate>
          {

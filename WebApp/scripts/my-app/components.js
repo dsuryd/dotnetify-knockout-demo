@@ -22,53 +22,24 @@ limitations under the License.
    }
 }
 (function (ko) {
-   ko.components.register("ko-chevron", {
-      viewModel: function (params) {
-         var self = this;
-         self.icon = params.icon;
-         self.url = params.url;
-         self.caption = params.caption;
-      },
-      template: "\
-         <li class='table-view-cell media'>\
-            <a data-bind='vmRoute: url' class='navigate-right' data-transition='slide-in'>\
-               <span data-bind='css: icon' class='media-object icon pull-left'></span>\
-               <div class='media-body' data-bind='html: caption'></div>\
-            </a>\
-         </li>\
-         <li style='display: none'/>"
-   });
 
    // Full-length menu item.
-   ko.components.register("ko-menu-item", {
+   ko.components.register("my-menu-item", {
       viewModel: function (params) {
          var self = this;
          self.icon = params.icon;
          self.url = params.url;
          self.caption = params.caption;
+         self.nav = params.nav;  // Set to 'navigate-right' to add right arrow at the end.
       },
       template: "\
          <li class='table-view-cell media'>\
-            <a data-bind='vmRoute: url'>\
+            <a data-bind='vmRoute: url, css: nav'>\
                <span class='media-object pull-left btn-round btn-xs' data-bind='css: icon'></span>\
                <span data-bind='html: caption'></span>\
             </a>\
          </li>\
          <li style='display: none'/>"
-   });
-
-   // Full-length menu.
-   ko.components.register("ko-menu", {
-      viewModel: function (params) {
-         var self = this;
-         self.title = params.title;
-         self.items = params.items;
-      },
-      template: "\
-         <div class='table-view-cell' data-bind='html: title'></div>\
-         <ul class='table-view' data-bind='foreach: items'>\
-            <ko-menu-item params='icon: Icon, caption: Caption, url: Route' />\
-         </ul>"
    });
 }))
 
