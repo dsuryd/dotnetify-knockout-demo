@@ -18,11 +18,11 @@ namespace ViewModels
 
       public IndexVM()
       {
-         this.RegisterRoutes("mobileapp", new List<RouteTemplate>
+         this.RegisterRoutes("app", new List<RouteTemplate>
       {
-         new RouteTemplate { Id = "Page1", UrlPattern = "page1", Target = "content", ViewUrl = "/views/page1.html" },
-         new RouteTemplate { Id = "Page2", UrlPattern = "page2", Target = "content", ViewUrl = "/views/page2.html" },
-         new RouteTemplate { Id = "Page3", UrlPattern = "page3", Target = "content", ViewUrl = "/views/page3.html" }
+         new RouteTemplate { Id = "Page1", UrlPattern = "page1", Target = "content", ViewUrl = "/page1" },
+         new RouteTemplate { Id = "Page2", UrlPattern = "page2", Target = "content", ViewUrl = "/page2" },
+         new RouteTemplate { Id = "Page3", UrlPattern = "page3", Target = "content", ViewUrl = "/page3" }
       });
 
       }

@@ -13,118 +13,18 @@
       .table-view-cell .icon {
          color: #007aff;
       }
-      div[data-vm] {
-         opacity: 1;
-      }
    </style>
 </head>
 
 <body>
-
-   <div class="snap-drawers" data-vm="Page3VM">
-      <div class="snap-drawer snap-drawer-left">
-         <div>
-            <h4>Demos</h4>
-            <ul>
-               <li><a href="default.html">Default</a></li>
-               <li><a href="noDrag.html">No Drag</a></li>
-               <li><a href="dragElement.html">Drag Element</a></li>
-               <li><a href="rightDisabled.html">Right Disabled</a></li>
-               <li><a href="hyperextend.html">Hyperextension Disabled</a></li>
-               <li><a href="skinnyThreshold.html">Skinny Threshold</a></li>
-               <li><a href="toggles.html">Toggles</a></li>
-               <li><a href="classNames.html">Class Names</a></li>
-               <li><a href="expand.html">Expanding</a></li>
-               <li><a href="settings.html">Settings</a></li>
-               <li><a href="ratchet/template.html">Ratchet</a></li>
-            </ul>
-            <div>
-               <p>The Default demo shows basic Snap.js functionality</p>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-            </div>
-         </div>
-      </div>
-      <div class="snap-drawer snap-drawer-right"></div>
+   <div data-vm="IndexVM">
+      <ul>
+         <li><a data-bind="text: Page1Title, vmRoute: Page1"></a></li>
+         <li><a data-bind="text: Page2Title, vmRoute: Page2"></a></li>
+         <li><a data-bind="text: Page3Title, vmRoute: Page3"></a></li>
+      </ul>
    </div>
-
-   <div id="MainPage" class="snap-content" data-vm="IndexVM">
-      <header class="bar bar-nav">
-         <a id="open-left" class="icon icon-bars pull-left" ></a>
-         <a class="icon icon-refresh pull-right"></a>
-         <h1 class="title">Mailboxes</h1>
-      </header>
-
-      <div class="bar bar-footer">
-         <a class="icon icon-compose pull-right" href="#composeModal"></a>
-         <small class="updated-text">Updated just now</small>
-      </div>
-
-      <div id="content" class="content">
-
-         <ul class="table-view">
-            <ko-chevron params="icon: 'icon-pages', url: Page1, caption: 'All Inboxes'"></ko-chevron>
-            <ko-chevron params="icon: 'icon-pages', url: Page2, caption: Page1Title"></ko-chevron>
-             
-            <li class="table-view-cell media">
-               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
-                  <span class="media-object icon icon-person pull-left"></span>
-                  <div class="media-body">
-                     Personal email
-                  </div>
-               </a>
-            </li>
-            <li class="table-view-cell media">
-               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
-                  <span class="media-object icon icon-star-filled pull-left"></span>
-                  <div class="media-body">
-                     Starred
-                  </div>
-               </a>
-            </li>
-            <li class="table-view-cell media">
-               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
-                  <span class="media-object icon icon-trash pull-left"></span>
-                  <div class="media-body">
-                     Trash
-                  </div>
-               </a>
-            </li>
-         </ul>
-
-         <h5 class="content-padded">Other accounts</h5>
-         <ul class="table-view">
-            <li class="table-view-cell media">
-               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
-                  <span class="media-object icon icon-more pull-left"></span>
-                  <div class="media-body">
-                     Misc
-                  </div>
-               </a>
-            </li>
-         </ul>
-      </div><!-- /.content -->
-      <!-- Compose modal -->
-      <div id="composeModal" class="modal">
-         <header class="bar bar-nav">
-            <a class="btn btn-link pull-right" href="#composeModal">
-               <strong>Send</strong>
-            </a>
-            <a class="btn btn-link pull-left" href="#composeModal">
-               Cancel
-            </a>
-            <h1 class="title">New message</h1>
-         </header>
-
-         <div class="content">
-            <form class="input-group">
-               <input type="text" placeholder="To:">
-               <input type="email" placeholder="From:">
-               <input type="text" placeholder="Subject:">
-               <textarea rows="20"></textarea>
-            </form>
-         </div>
-      </div><!-- /.modal -->
-
+   <div id="content">
    </div>
 </body>
 </html>
