@@ -127,6 +127,7 @@
     <Content Include="scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="scripts\knockout-3.3.0.js" />
     <Content Include="scripts\knockout.mapping-latest.js" />
+    <Content Include="scripts\knockout.ratchet.components.js" />
     <Content Include="scripts\path.min.js" />
     <Content Include="scripts\ratchet.min.js" />
     <Content Include="scripts\require.min.js" />

@@ -13,12 +13,15 @@
       .table-view-cell .icon {
          color: #007aff;
       }
+      div[data-vm] {
+         opacity: 1;
+      }
    </style>
 </head>
 
 <body>
 
-   <div class="snap-drawers">
+   <div class="snap-drawers" data-vm="Page3VM">
       <div class="snap-drawer snap-drawer-left">
          <div>
             <h4>Demos</h4>
@@ -44,9 +47,9 @@
       <div class="snap-drawer snap-drawer-right"></div>
    </div>
 
-   <div id="MainPage" class="snap-content">
+   <div id="MainPage" class="snap-content" data-vm="IndexVM">
       <header class="bar bar-nav">
-         <a id="open-left" href="#" class="icon icon-bars pull-left" ></a>
+         <a id="open-left" class="icon icon-bars pull-left" ></a>
          <a class="icon icon-refresh pull-right"></a>
          <h1 class="title">Mailboxes</h1>
       </header>
@@ -56,17 +59,12 @@
          <small class="updated-text">Updated just now</small>
       </div>
 
-      <div class="content">
+      <div id="content" class="content">
 
          <ul class="table-view">
-            <li class="table-view-cell media">
-               <a class="navigate-right" href="inbox.html" data-transition="slide-in">
-                  <span class="media-object icon icon-pages pull-left"></span>
-                  <div class="media-body">
-                     All inboxes
-                  </div>
-               </a>
-            </li>
+            <ko-chevron params="icon: 'icon-pages', url: Page1, caption: 'All Inboxes'"></ko-chevron>
+            <ko-chevron params="icon: 'icon-pages', url: Page2, caption: Page1Title"></ko-chevron>
+             
             <li class="table-view-cell media">
                <a class="navigate-right" href="inbox.html" data-transition="slide-in">
                   <span class="media-object icon icon-person pull-left"></span>
@@ -128,7 +126,5 @@
       </div><!-- /.modal -->
 
    </div>
-
-
 </body>
 </html>

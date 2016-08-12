@@ -12,26 +12,26 @@
       "signalr": "jquery.signalR-2.2.0.min",
       "signalr-hub": "/signalr/hubs?",
       "ratchet": "ratchet.min",
-      "snap": "snap.min"
+      "snap": "snap.min",
+      "ko-ratchet": "knockout.ratchet.components"
    },
    shim: {
       "jquery": { exports: "$" },
       "knockout": { exports: "ko" },
       "path": { exports: "Path" },
-      "router": ["path"],
+      "dnf-router": ["path"],
       "signalr": { deps: ["jquery"], exports: "$.connection" },
       "signalr-hub": ["signalr"]
    }
 });
 
-require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'ratchet', 'snap'], function ($) {
+require( ['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'ratchet', 'snap', 'ko-ratchet'], function ( $ )
+{
    $(function () {
       dotnetify.debug = true;
+      $( "[data-vm]" ).one( "ready", function () { $( this ).css( "opacity", 1 ) } );
 
-      var snapper = new Snap({
-         element: document.getElementById('MainPage')
-      });
-
+      var snapper = new Snap({ element: document.getElementById('MainPage') });
       $("#open-left").click(function () {snapper.open("left") });
    });
 });
