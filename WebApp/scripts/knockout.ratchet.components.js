@@ -13,20 +13,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-( function ( factory )
-{
-   if ( typeof define === "function" && define["amd"] ) {
-      define( ['knockout'], factory );
+(function (factory) {
+   if (typeof define === "function" && define["amd"]) {
+      define(['knockout'], factory);
    }
    else {
-      factory( ko );
+      factory(ko);
    }
 }
-( function ( ko )
-{
-   ko.components.register( "ko-chevron", {
-      viewModel: function ( params )
-      {
+(function (ko) {
+   ko.components.register("ko-chevron", {
+      viewModel: function (params) {
          var self = this;
          self.icon = params.icon;
          self.url = params.url;
@@ -40,6 +37,38 @@ limitations under the License.
             </a>\
          </li>\
          <li style='display: none'/>"
-   } );
-} ) )
+   });
+
+   // Full-length menu item.
+   ko.components.register("ko-menu-item", {
+      viewModel: function (params) {
+         var self = this;
+         self.icon = params.icon;
+         self.url = params.url;
+         self.caption = params.caption;
+      },
+      template: "\
+         <li class='table-view-cell media'>\
+            <a data-bind='vmRoute: url'>\
+               <span class='media-object pull-left btn-round btn-xs' data-bind='css: icon'></span>\
+               <span data-bind='html: caption'></span>\
+            </a>\
+         </li>\
+         <li style='display: none'/>"
+   });
+
+   // Full-length menu.
+   ko.components.register("ko-menu", {
+      viewModel: function (params) {
+         var self = this;
+         self.title = params.title;
+         self.items = params.items;
+      },
+      template: "\
+         <div class='table-view-cell' data-bind='html: title'></div>\
+         <ul class='table-view' data-bind='foreach: items'>\
+            <ko-menu-item params='icon: Icon, caption: Caption, url: Route' />\
+         </ul>"
+   });
+}))
 

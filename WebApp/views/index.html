@@ -5,26 +5,40 @@
    <meta charset="utf-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
    <link href="/css/ratchet.min.css" rel="stylesheet">
    <link href="/css/ratchet-theme-ios.min.css" rel="stylesheet">
    <link href="/css/snap.css" rel="stylesheet">
+   <link href="/css/app.css" rel="stylesheet">
    <script src="/scripts/require.min.js" data-main="/scripts/app"></script>
-   <style>
-      .table-view-cell .icon {
-         color: #007aff;
-      }
-   </style>
 </head>
 
-<body>
-   <div data-vm="IndexVM">
-      <ul>
-         <li><a data-bind="text: Page1Title, vmRoute: Page1"></a></li>
-         <li><a data-bind="text: Page2Title, vmRoute: Page2"></a></li>
-         <li><a data-bind="text: Page3Title, vmRoute: Page3"></a></li>
-      </ul>
+<body data-vm="IndexVM">
+
+   <div class="snap-drawers content">
+      <div class="snap-drawer snap-drawer-left">
+         <ko-menu params="title: UserName, items: Menu"></ko-menu>
+         <nav class="bar bar-footer">
+            <button class="btn btn-block btn-positive">Sign Out</button>
+         </nav>
+      </div>
    </div>
-   <div id="content">
+
+   <div id="MainPage" class="snap-content">
+
+      <header class="bar bar-nav">
+         <a id="MenuNav" class="icon icon-bars pull-left"></a>
+         <a class="icon icon-refresh pull-right"></a>
+         <h1 class="title">Mailboxes</h1>
+      </header>
+
+      <div id="Content" class="content">
+         <ul>
+            <li><a data-bind="text: Page1Title, vmRoute: Page1"></a></li>
+            <li><a data-bind="text: Page2Title, vmRoute: Page2"></a></li>
+            <li><a data-bind="text: Page3Title, vmRoute: Page3"></a></li>
+         </ul>
+      </div>
    </div>
 </body>
 </html>

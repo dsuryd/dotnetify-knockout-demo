@@ -6,6 +6,12 @@ namespace ViewModels
 {
    public class IndexVM : BaseVM, IRoutable
    {
+      public class MenuItem
+      {
+         public Route Route { get; set; }
+         public string Caption { get; set; }
+         public string Icon { get; set; }
+      }
       public RoutingState RoutingState { get; set; }
 
       public Route Page1 => this.GetRoute("Page1");
@@ -16,14 +22,30 @@ namespace ViewModels
       public string Page2Title => "Page 2";
       public string Page3Title => "My Settings";
 
+      public string UserName { get; set; }
+
+      public List<MenuItem> Menu => new List<MenuItem>
+      {
+         new MenuItem { Route = this.GetRoute("Menus"), Caption = "Menus", Icon = "glyphicon glyphicon-list-alt btn-primary" },
+         new MenuItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "glyphicon glyphicon-user btn-primary" },
+         new MenuItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="glyphicon glyphicon-question-sign btn-positive" }
+      };
+
+
       public IndexVM()
       {
+         UserName = "Jane Doe";
+
          this.RegisterRoutes("app", new List<RouteTemplate>
-      {
-         new RouteTemplate { Id = "Page1", UrlPattern = "page1", Target = "content", ViewUrl = "/page1" },
-         new RouteTemplate { Id = "Page2", UrlPattern = "page2", Target = "content", ViewUrl = "/page2" },
-         new RouteTemplate { Id = "Page3", UrlPattern = "page3", Target = "content", ViewUrl = "/page3" }
-      });
+         {
+            new RouteTemplate { Id = "Page1", UrlPattern = "page1", Target = "Content", ViewUrl = "/page1" },
+            new RouteTemplate { Id = "Page2", UrlPattern = "page2", Target = "Content", ViewUrl = "/page2" },
+            new RouteTemplate { Id = "Page3", UrlPattern = "page3", Target = "Content", ViewUrl = "/page3" },
+
+            new RouteTemplate { Id = "Menus", UrlPattern = "menus", Target = "Content", ViewUrl = "/menus" },
+            new RouteTemplate { Id = "Account", UrlPattern = "account", Target = "Content", ViewUrl = "/account" },
+            new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "Content", ViewUrl = "/help" }
+         });
 
       }
    }

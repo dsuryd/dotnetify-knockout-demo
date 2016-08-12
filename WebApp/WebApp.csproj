@@ -126,6 +126,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\app.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include=".bowerrc" />
@@ -133,8 +136,17 @@
     <Content Include="fonts\ratchicons.eot" />
     <Content Include="fonts\ratchicons.ttf" />
     <Content Include="fonts\ratchicons.woff" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="views\help.html" />
+    <Content Include="views\menus.html" />
+    <Content Include="views\account.html" />
+    <Content Include="views\page1 - Copy.html" />
     <Content Include="views\page4.html" />
     <Content Include="views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
