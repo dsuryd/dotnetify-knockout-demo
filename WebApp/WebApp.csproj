@@ -126,10 +126,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="css\my-app.css" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\breakfast_bagel.jpg" />
+    <Content Include="images\breakfast_cereal.jpg" />
+    <Content Include="images\breakfast_croissant.jpg" />
+    <Content Include="images\breakfast_sausage_egg.jpeg" />
+    <Content Include="images\dinner_broccoli_shrimp.jpg" />
+    <Content Include="images\dinner_grilled_chicken.jpg" />
+    <Content Include="images\dinner_salmon.jpg" />
+    <Content Include="images\dinner_steak.jpg" />
+    <Content Include="images\dinner_stir_fry.jpg" />
+    <Content Include="images\lunch_cheese_sandwich.jpg" />
+    <Content Include="images\lunch_hamburger.jpg" />
+    <Content Include="images\lunch_pizza.jpg" />
+    <Content Include="images\lunch_spaghetti.jpg" />
+    <Content Include="images\lunch_spinach_salad.jpg" />
     <Content Include="packages.config" />
     <Content Include=".bowerrc" />
     <Content Include="bower.json" />
@@ -138,14 +153,16 @@
     <Content Include="fonts\ratchicons.woff" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="views\help.html" />
+    <Content Include="views\home.html" />
     <Content Include="views\menus.html" />
     <Content Include="views\account.html" />
     <Content Include="views\page4.html" />
     <Content Include="views\web.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

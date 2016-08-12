@@ -9,6 +9,8 @@ a:focus
     width: 40px;
     height: 40px;
     border-radius: 18%;
+    text-align:center;
+    padding-top: 2px;
 }
 
 .btn-round.btn-lg {
@@ -24,4 +26,13 @@ a:focus
 .btn-round.btn-xs {
     width: 24px;
     height: 24px;
+}
+
+header.bar-nav + div {
+   padding-top: 50px;
+}
+
+
+.card img {
+   width: 100%;
 }

@@ -31,9 +31,11 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'my-comp
    $(function () {
       dotnetify.debug = true;
 
-      $("[data-vm]").on("ready", function () {
+      $( "[data-vm]" ).on( "ready", function ()
+      {
+         console.log( "ready" );
          // On fresh view, find and init the designated button to open the side menu.
-         var snapper = new Snap({ element: document.getElementById('MainPage') });
+         var snapper = new Snap({ element: $( ".snap-content").get(0) });
          $(".my-side-menu-btn").click(function () { snapper.open("left") });
 
          setInterval(function () { $(".my-side-menu a").click(function () { snapper.close() }); }, 200);

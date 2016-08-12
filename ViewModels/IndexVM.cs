@@ -29,9 +29,10 @@ namespace ViewModels
 
       public List<SideMenuItem> Menu => new List<SideMenuItem>
       {
-         new SideMenuItem { Route = this.GetRoute("Menus"), Caption = "Menus", Icon = "glyphicon glyphicon-list-alt btn-primary" },
-         new SideMenuItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "glyphicon glyphicon-user btn-primary" },
-         new SideMenuItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="glyphicon glyphicon-question-sign btn-positive" }
+         new SideMenuItem { Route = this.GetRoute("Home"), Caption = "Home", Icon = "fa fa-home btn-warning" },
+         new SideMenuItem { Route = this.GetRoute("Menus"), Caption = "Menus", Icon = "fa fa-list-alt btn-primary" },
+         new SideMenuItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "fa fa-user btn-primary" },
+         new SideMenuItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="fa fa-question-circle btn-positive" }
       };
 
 
@@ -41,13 +42,14 @@ namespace ViewModels
 
          this.RegisterRoutes("app", new List<RouteTemplate>
          {
-            new RouteTemplate { Id = "Page1", UrlPattern = "page1", Target = "Content", ViewUrl = "/page1" },
-            new RouteTemplate { Id = "Page2", UrlPattern = "page2", Target = "Content", ViewUrl = "/page2" },
-            new RouteTemplate { Id = "Page3", UrlPattern = "page3", Target = "Content", ViewUrl = "/page3" },
+            new RouteTemplate { Id = "Page1", UrlPattern = "page1", Target = "MainPage", ViewUrl = "/page1" },
+            new RouteTemplate { Id = "Page2", UrlPattern = "page2", Target = "MainPage", ViewUrl = "/page2" },
+            new RouteTemplate { Id = "Page3", UrlPattern = "page3", Target = "MainPage", ViewUrl = "/page3" },
 
-            new RouteTemplate { Id = "Menus", UrlPattern = "menus", Target = "Content", ViewUrl = "/menus" },
-            new RouteTemplate { Id = "Account", UrlPattern = "account", Target = "Content", ViewUrl = "/account" },
-            new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "Content", ViewUrl = "/help" }
+            new RouteTemplate { Id = "Home", UrlPattern = "home", Target = "MainPage", ViewUrl = "/home" },
+            new RouteTemplate { Id = "Menus", UrlPattern = "menus", Target = "MainPage", ViewUrl = "/menus" },
+            new RouteTemplate { Id = "Account", UrlPattern = "account", Target = "MainPage", ViewUrl = "/account" },
+            new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "MainPage", ViewUrl = "/help" }
          });
 
       }
