@@ -4,13 +4,31 @@
       "Name": "Bagels and Cream Cheese",
       "Decription": "Authentic New York-style bagels.  Start the day with freshly baked batches and your favorite cream cheese.",
       "Price": 7.49,
-      "Type": "Breakfast"
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_bagel.jpg"
    },
    {
       "Id": 2,
       "Name": "Kellog's Honey Buzz Cereal",
       "Decription": "A bowl of Honey Smacks with honey, toasted pecans and banana chips.",
       "Price": 6.99,
-      "Type": "Breakfast"
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_cereal.jpg"
+   },
+   {
+      "Id": 3,
+      "Name": "Chocolate Macadamia Croissant",
+      "Decription": "Chocolate croissant, sprinkled with macadmia nut cookie. Always baked fresh!",
+      "Price": 4.99,
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_croissant.jpg"
+   },
+   {
+      "Id": 4,
+      "Name": "King & Country's Breakfast",
+      "Decription": "A Southern-style sausage patty, fluffy eggs and aged Cheddar cheese are served on a perfectly toasty English muffin.",
+      "Price": 7.99,
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_sausage_egg.jpg"
    }
 ]

@@ -1,5 +1,5 @@
 ﻿require.config({
-   baseUrl: '/scripts',
+   baseUrl: '/scripts/libs',
    paths: {
       "jquery": "jquery-1.11.3.min",
       "jquery-ui": "jquery-ui-widget-1.11.4.min",
@@ -14,7 +14,7 @@
       "tether": "tether.min",
       "bootstrap": "bootstrap.min",
       "snap": "snap.min",
-      "my-components": "my-app/components"
+      "my-components": "/scripts/my-app/components"
    },
    shim: {
       "jquery": { exports: "$" },
@@ -39,11 +39,14 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'my-comp
 
       $( "[data-vm]" ).on( "ready", function ()
       {
-         // On fresh view, find and init the designated button to open the side menu.
-         var snapper = new Snap({ element: $( ".snap-content").get(0) });
-         $(".my-side-menu-btn").click(function () { snapper.open("left") });
-
-         setInterval(function () { $(".my-side-menu a").click(function () { snapper.close() }); }, 200);
+         // Must do this asynchronously to allow knockout render the nav components first.
+         setInterval(function () {
+            // On a new view, set up the menu button to open the side menu, and
+            // set up all nav links on the side menu to close the menu when clicked.
+            var snapper = new Snap({ element: $(".snap-content").get(0) });
+            $(".my-side-nav-btn").click(function () { snapper.open("left") });
+            $(".my-side-nav a").click(function () { snapper.close() });
+         }, 250);
       });
 
    });

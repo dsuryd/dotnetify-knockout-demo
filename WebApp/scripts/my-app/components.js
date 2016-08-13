@@ -23,8 +23,8 @@ limitations under the License.
 }
 (function (ko) {
 
-   // Full-length menu item.
-   ko.components.register("my-menu-item", {
+   // Full-length navigation item.
+   ko.components.register("my-nav-item", {
       viewModel: function (params) {
          var self = this;
          self.icon = params.icon;
@@ -35,11 +35,46 @@ limitations under the License.
       template: "\
          <li class='table-view-cell media'>\
             <a data-bind='vmRoute: url, css: nav'>\
-               <span class='media-object pull-left btn-round btn-xs' data-bind='css: icon'></span>\
+               <span class='media-object pull-left btn-round' data-bind='css: icon'></span>\
                <span data-bind='html: caption'></span>\
             </a>\
          </li>\
          <li style='display: none'/>"
+   });
+
+   // Full-length header bar.
+   ko.components.register("my-header-bar", {
+      viewModel: function (params) {
+         var self = this;
+         self.title = params.title;
+      },
+      template: "\
+         <header class='bar bar-nav'>\
+            <a class='my-side-nav-btn icon icon-bars pull-left'></a>\
+            <a class='icon icon-refresh pull-right'></a>\
+            <h1 data-bind='html: title' class='title'></h1>\
+         </header>"
+   });
+
+   // Menu item.
+   ko.components.register("my-menu-item", {
+      viewModel: function (params) {
+         var self = this;
+         self.imageUrl = params.imageUrl;
+         self.caption = params.caption;
+         self.price = params.price;
+      },
+      template: "\
+         <div class='col-lg-3 col-xs-6 col-sm-4'>\
+            <div class='card'>\
+               <img class='card-img-top' data-bind='attr: {src: imageUrl, alt: caption }'>\
+               <div class='card-block'>\
+                  <h4 class='card-title' data-bind='html: caption'></h4>\
+                  <div data-bind='html: price' class='pull-left'></div>\
+                  <a href='#' class='btn btn-primary pull-right'>+</a>\
+               </div>\
+            </div>\
+         </div>"
    });
 }))
 

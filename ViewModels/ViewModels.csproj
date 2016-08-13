@@ -37,9 +37,11 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MenuDetailsVM.cs" />
+    <Compile Include="HomeVM.cs" />
     <Compile Include="IndexVM.cs" />
     <Compile Include="MenuVM.cs" />
-    <Compile Include="Page3VM.cs" />
+    <Compile Include="AccountVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

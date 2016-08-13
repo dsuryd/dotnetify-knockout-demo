@@ -6,7 +6,7 @@ namespace ViewModels
 {
    public class IndexVM : BaseVM, IRoutable
    {
-      public class SideMenuItem
+      public class SideNavItem
       {
          public Route Route { get; set; }
          public string Caption { get; set; }
@@ -15,24 +15,16 @@ namespace ViewModels
 
       public RoutingState RoutingState { get; set; }
 
-      public Route Page1 => this.GetRoute("Page1");
-      public Route Page2 => this.GetRoute("Page2");
-      public Route Page3 => this.GetRoute("Page3");
-
-      public string Page1Title => "Home";
-      public string Page2Title => "Page 2";
-      public string Page3Title => "My Settings";
-
-      public string Title => "My Take-out App";
+      public string SignOut => "Sign Out";
 
       public string UserName { get; set; }
 
-      public List<SideMenuItem> Menu => new List<SideMenuItem>
+      public List<SideNavItem> SideNav => new List<SideNavItem>
       {
-         new SideMenuItem { Route = this.GetRoute("Home"), Caption = "Home", Icon = "fa fa-home btn-warning" },
-         new SideMenuItem { Route = this.GetRoute("Menu"), Caption = "Menu", Icon = "fa fa-list-alt btn-primary" },
-         new SideMenuItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "fa fa-user btn-primary" },
-         new SideMenuItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="fa fa-question-circle btn-positive" }
+         new SideNavItem { Route = this.GetRoute("Home"), Caption = "Home", Icon = "fa fa-home btn-warning" },
+         new SideNavItem { Route = this.GetRoute("Menu"), Caption = "Menu", Icon = "fa fa-list-alt btn-primary" },
+         new SideNavItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "fa fa-user btn-primary" },
+         new SideNavItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="fa fa-question-circle btn-positive" }
       };
 
 

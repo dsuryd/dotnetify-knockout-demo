@@ -13,16 +13,27 @@ namespace ViewModels
       public class MenuItem
       {
          public string Name;
-         public float Price;
+         public string Price;
+         public string ImageUrl;
       }
 
       public string PageTitle => "Our Menu";
 
-      public IEnumerable<MenuItem> MenuItems => _menuService.GetMenuItems().Select(i => new MenuItem { Name = i.Name, Price = i.Price });
+      public IEnumerable<MenuItem> MenuItems => GetMenuItems();
 
       public MenuVM( IMenuService menuService )
       {
          _menuService = menuService;
+      }
+
+      private IEnumerable<MenuItem> GetMenuItems()
+      {
+         return _menuService.GetMenuItems().Select(i => new MenuItem
+         {
+            Name = i.Name,
+            Price = $"${i.Price}",
+            ImageUrl = "/images/menu-items/" + i.ImageUri
+         });
       }
    }
 }

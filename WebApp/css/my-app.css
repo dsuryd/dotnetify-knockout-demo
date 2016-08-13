@@ -1,38 +1,37 @@
 ﻿a:hover,
 a:active,
-a:focus
- {
+a:focus {
    text-decoration: none;
 }
 
+#MainPage div.content {
+   background-color: white;
+}
+
 .btn-round {
-    width: 40px;
-    height: 40px;
-    border-radius: 18%;
-    text-align:center;
-    padding-top: 2px;
+   width: 24px;
+   height: 24px;
+   border-radius: 18%;
+   text-align: center;
+   padding-top: 2px;
 }
 
-.btn-round.btn-lg {
-    width: 48px;
-    height: 48px;
-}
-
-.btn-round.btn-sm {
-    width: 34px;
-    height: 34px;
-}
-
-.btn-round.btn-xs {
-    width: 24px;
-    height: 24px;
-}
-
-header.bar-nav + div {
+my-header-bar + div {
    padding-top: 50px;
 }
 
-
-.card img {
+my-menu-item .card img {
    width: 100%;
+}
+
+my-menu-item .card h4 {
+   font-weight: bold;
+   font-size: medium;
+   border-bottom: 1px solid silver;
+}
+
+@media (max-width: 544px) {
+   my-menu-item .card h4 {
+      font-size: small;
+   }
 }

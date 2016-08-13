@@ -11,5 +11,6 @@ namespace DataAccess.Entities
       public string Description { get; set; }
       public float Price { get; set; }
       public MenuTypes Type { get; set; }
+      public string ImageUri { get; set; }
    }
 }

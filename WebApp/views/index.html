@@ -11,23 +11,23 @@
    <link href="/css/ratchet-theme-ios.min.css" rel="stylesheet">
    <link href="/css/snap.css" rel="stylesheet">
    <link href="/css/my-app.css" rel="stylesheet">
-   <script src="/scripts/require.min.js" data-main="/scripts/my-app/app"></script>
+   <script src="/scripts/libs/require.min.js" data-main="/scripts/my-app/app"></script>
 </head>
 
 <body data-vm="IndexVM">
 
-   <!-- Sliding side menu -->
+   <!-- Side nav drawer panel -->
    <div class="snap-drawers content">
       <div class="snap-drawer snap-drawer-left">
-         <!-- Menu title -->
-         <div class="table-view-cell" data-bind="html: UserName"></div>
-         <!-- Menu items -->
-         <ul class="my-side-menu table-view" data-bind="foreach: Menu">
-            <my-menu-item params="icon: Icon, caption: Caption, url: Route" />
+         <!-- Side nav title -->
+         <div id="UserName" class="table-view-cell"></div>
+         <!-- Side nav items -->
+         <ul id="SideNav" class="my-side-nav table-view">
+            <my-nav-item params="icon: Icon, caption: Caption, url: Route, nav: 'navigate-right'" />
          </ul>
          <!-- Sign out bar -->
          <nav class="bar bar-footer">
-            <button class="btn btn-block btn-positive">Sign Out</button>
+            <button class="btn btn-block btn-positive"><span id="SignOut"></span></button>
          </nav>
       </div>
    </div>
@@ -35,11 +35,7 @@
    <!-- Main page  -->
    <div id="MainPage" class="snap-content">
       <div class="content">
-         <!-- Page title -->
-         <header class="bar bar-nav">
-            <a class="my-side-menu-btn icon icon-bars pull-left"></a>
-            <a class="icon icon-refresh pull-right"></a>
-         </header>
+         <my-header-bar />
       </div>
    </div>
 </body>

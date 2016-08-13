@@ -9,5 +9,6 @@ namespace Domain.Entity.Interfaces
       string Description { get; set; }
       float Price { get; set; }
       MenuTypes Type { get; set; }
+      string ImageUri { get; set; }
    }
 }

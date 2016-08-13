@@ -3,7 +3,7 @@ using DotNetify;
 
 namespace ViewModels
 {
-   public class Page3VM : BaseVM
+   public class AccountVM : BaseVM
    {
       public string FirstName
       {
@@ -68,7 +68,7 @@ namespace ViewModels
 
       public string AllowNotificationText => "Receive Notifications";
 
-      public Page3VM()
+      public AccountVM()
       {
          Language = 1;
       }
