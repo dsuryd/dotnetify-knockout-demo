@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Domain.Enums;
+﻿using Domain.Enums;
 
 namespace Domain.Entity.Interfaces
 {
@@ -8,6 +6,7 @@ namespace Domain.Entity.Interfaces
    {
       int Id { get; set; }
       string Name { get; set; }
+      string Description { get; set; }
       float Price { get; set; }
       MenuTypes Type { get; set; }
    }

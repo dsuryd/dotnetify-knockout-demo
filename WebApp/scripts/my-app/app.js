@@ -11,6 +11,7 @@
       "path": "path.min",
       "signalr": "jquery.signalR-2.2.0.min",
       "signalr-hub": "/signalr/hubs?",
+      "tether": "tether.min",
       "bootstrap": "bootstrap.min",
       "snap": "snap.min",
       "my-components": "my-app/components"
@@ -22,9 +23,14 @@
       "dnf-router": ["path"],
       "signalr": { deps: ["jquery"], exports: "$.connection" },
       "signalr-hub": ["signalr"],
-      "bootstrap": ["jquery"],
+      "bootstrap": ["jquery", "tether"],
       "my-components": ["snap", "bootstrap"]
    }
+});
+
+require(['tether'], function (Tether) {
+   // This is needed by bootstrap.
+   window.Tether = Tether;
 });
 
 require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'my-components'], function ($) {
@@ -33,7 +39,6 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'my-comp
 
       $( "[data-vm]" ).on( "ready", function ()
       {
-         console.log( "ready" );
          // On fresh view, find and init the designated button to open the side menu.
          var snapper = new Snap({ element: $( ".snap-content").get(0) });
          $(".my-side-menu-btn").click(function () { snapper.open("left") });

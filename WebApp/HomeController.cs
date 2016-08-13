@@ -10,7 +10,7 @@ namespace WebApp.Controllers
       public ActionResult Index( string id )
       {
          if ( string.IsNullOrEmpty(id) )
-            id = "index";
+            return RedirectToAction(nameof(App));
 
          return File(Server.MapPath("/views/" + ( id.EndsWith(".html") ? id : id + ".html" )), "text/html");
       }
@@ -18,7 +18,7 @@ namespace WebApp.Controllers
       [Route("app/{*id}")]
       public ActionResult App( string id )
       {
-         return Index(null);
+         return File(Server.MapPath("/views/index.html"), "text/html");
       }
    }
 }

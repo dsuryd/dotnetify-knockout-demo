@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "CordovaApp", "CordovaApp\CordovaApp.jsproj", "{736A2A76-AB21-43C9-A095-5E5128CB635F}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Interfaces", "Service.Interfaces\Service.Interfaces.csproj", "{E08FD72E-E5EE-411C-B8D3-C6F03F38E3C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{93B37C5F-6EC4-49FC-9C48-80E60D991A76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{9BEA6994-163C-4195-A8A4-19BAEB92279C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -267,6 +269,42 @@ Global
 		{93B37C5F-6EC4-49FC-9C48-80E60D991A76}.Release|Windows-x64.Build.0 = Release|Any CPU
 		{93B37C5F-6EC4-49FC-9C48-80E60D991A76}.Release|Windows-x86.ActiveCfg = Release|Any CPU
 		{93B37C5F-6EC4-49FC-9C48-80E60D991A76}.Release|Windows-x86.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Android.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|iOS.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|iOS.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows Phone (Universal).ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows Phone (Universal).Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows Phone 8.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows Phone 8.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-AnyCPU.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-AnyCPU.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-ARM.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-x64.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-x64.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-x86.ActiveCfg = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Debug|Windows-x86.Build.0 = Debug|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Android.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Android.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|iOS.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|iOS.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows Phone (Universal).ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows Phone (Universal).Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows Phone 8.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows Phone 8.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-AnyCPU.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-AnyCPU.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-ARM.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-ARM.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-x64.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-x64.Build.0 = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-x86.ActiveCfg = Release|Any CPU
+		{9BEA6994-163C-4195-A8A4-19BAEB92279C}.Release|Windows-x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

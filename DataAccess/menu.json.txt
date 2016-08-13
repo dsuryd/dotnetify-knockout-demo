@@ -1,0 +1,16 @@
+﻿[
+   {
+      "Id": 1,
+      "Name": "Bagels and Cream Cheese",
+      "Decription": "Authentic New York-style bagels.  Start the day with freshly baked batches and your favorite cream cheese.",
+      "Price": 7.49,
+      "Type": "Breakfast"
+   },
+   {
+      "Id": 2,
+      "Name": "Kellog's Honey Buzz Cereal",
+      "Decription": "A bowl of Honey Smacks with honey, toasted pecans and banana chips.",
+      "Price": 6.99,
+      "Type": "Breakfast"
+   }
+]
