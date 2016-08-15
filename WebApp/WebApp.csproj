@@ -139,6 +139,13 @@
     <Content Include="fonts\ratchicons.woff" />
     <Content Include="scripts\libs\bootstrap.min.js" />
     <Content Include="scripts\libs\tether.min.js" />
+    <Content Include="scripts\libs\text.js" />
+    <Content Include="scripts\my-app\component-my-tab.html" />
+    <Content Include="scripts\my-app\component-my-tab-panel.html" />
+    <Content Include="scripts\my-app\component-my-nav-item.html" />
+    <Content Include="scripts\my-app\component-my-header-bar.html" />
+    <Content Include="scripts\my-app\component-my-menu-item.html" />
+    <Content Include="scripts\my-app\component-my-menu.html" />
     <Content Include="views\help.html" />
     <Content Include="views\home.html" />
     <Content Include="views\menu.html" />

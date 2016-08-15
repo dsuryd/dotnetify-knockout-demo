@@ -6,6 +6,8 @@ namespace ViewModels
    {
       public string PageTitle => "Home";
 
+      public string Selected => "tab-lunch";
+
       public HomeVM()
       {
       }

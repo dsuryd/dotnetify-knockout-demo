@@ -2,7 +2,7 @@
 using System.Linq;
 using DotNetify;
 using Service.Interfaces;
-using Domain.Entity.Interfaces;
+using Domain.Enums;
 
 namespace ViewModels
 {
@@ -19,21 +19,29 @@ namespace ViewModels
 
       public string PageTitle => "Our Menu";
 
-      public IEnumerable<MenuItem> MenuItems => GetMenuItems();
+      public string BreakfastTabCaption => "Breakfast";
+      public string LunchTabCaption => "Lunch";
+      public string DinnerTabCaption => "Dinner";
+
+      public IEnumerable<MenuItem> BreakfastMenu => GetMenuItems(MenuTypes.Breakfast);
+      public IEnumerable<MenuItem> LunchMenu => GetMenuItems(MenuTypes.Lunch);
+      public IEnumerable<MenuItem> DinnerMenu => GetMenuItems(MenuTypes.Dinner);
 
       public MenuVM( IMenuService menuService )
       {
          _menuService = menuService;
       }
 
-      private IEnumerable<MenuItem> GetMenuItems()
+      private IEnumerable<MenuItem> GetMenuItems( MenuTypes menuType )
       {
-         return _menuService.GetMenuItems().Select(i => new MenuItem
-         {
-            Name = i.Name,
-            Price = $"${i.Price}",
-            ImageUrl = "/images/menu-items/" + i.ImageUri
-         });
+         return _menuService.GetMenuItems()
+            .Where(i => i.Type == menuType)
+            .Select(j => new MenuItem
+            {
+               Name = j.Name,
+               Price = $"${j.Price}",
+               ImageUrl = "/images/menu-items/" + j.ImageUri
+            });
       }
    }
 }

@@ -3,11 +3,30 @@
    <my-header-bar params="title: PageTitle"></my-header-bar>
 
    <div>
-      <div class="container-fluid">
-         <div class="row" data-bind="foreach: MenuItems">
-            <my-menu-item params="imageUrl: ImageUrl, caption: Name, price: Price"></my-menu-item>
-         </div>
-      </div>
+
+      <my-tab-panel params="selected: 'tab-breakfast'">
+
+         <my-tab params="id: 'tab-breakfast', caption: $root.BreakfastTabCaption">
+            <my-menu params="menuItems: $root.BreakfastMenu">
+               <my-menu-item params="imageUrl: ImageUrl, caption: Name, price: Price"></my-menu-item>
+            </my-menu>
+         </my-tab>
+
+         <my-tab params="id: 'tab-lunch', caption: $root.LunchTabCaption">
+            <my-menu params="menuItems: $root.LunchMenu">
+               <my-menu-item params="imageUrl: ImageUrl, caption: Name, price: Price"></my-menu-item>
+            </my-menu>
+         </my-tab>
+
+         <my-tab params="id: 'tab-dinner', caption: $root.DinnerTabCaption">
+            <my-menu params="menuItems: $root.DinnerMenu">
+               <my-menu-item params="imageUrl: ImageUrl, caption: Name, price: Price"></my-menu-item>
+            </my-menu>
+         </my-tab>
+
+      </my-tab-panel>
+
+
    </div>
 
 </div>
