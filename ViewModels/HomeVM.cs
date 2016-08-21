@@ -1,15 +1,19 @@
 ﻿using DotNetify;
+using DotNetify.Routing;
 
 namespace ViewModels
 {
-   public class HomeVM : BaseVM
+   public class HomeVM : BaseVM, IRoutable
    {
-      public string PageTitle => "Home";
+      public string PageTitle => "My Fake App";
 
-      public string Selected => "tab-lunch";
+      public Route MenuRoute;
+
+      public RoutingState RoutingState { get; set; }
 
       public HomeVM()
       {
+         MenuRoute = this.Redirect("app", "menu");
       }
    }
 }

@@ -58,8 +58,10 @@ limitations under the License.
       viewModel: function (params) {
          var self = this;
          self.imageUrl = params.imageUrl;
-         self.caption = params.caption;
+         self.name = params.name;
          self.price = params.price;
+         self.route = params.route;
+         self.add = params.add;
       },
       template: { require: 'text!/scripts/my-app/component-my-menu-item.html' }
    });
@@ -68,7 +70,7 @@ limitations under the License.
    ko.components.register('my-tab-panel', {
       viewModel: function (params) {
          var self = this;
-         self.selected = ko.isObservable( params.selected ) ? params.selected : ko.observable(params.selected);
+         self.selected = ko.isObservable(params.selected) ? params.selected : ko.observable(params.selected);
       },
       template: { require: 'text!/scripts/my-app/component-my-tab-panel.html' }
    });
@@ -79,7 +81,11 @@ limitations under the License.
          var self = this;
          self.id = params.id;
          self.caption = params.caption;
-         self.onClick = function (data, event) { ko.contextFor(event.target).$parent.selected(self.id); return true; };
+         self.onClick = function (data, event) {
+            var tabPanel = $(event.target).closest('.tab-panel').get(0);
+            ko.contextFor(tabPanel).$data.selected(self.id);
+            return true;
+         };
       },
       template: { require: 'text!/scripts/my-app/component-my-tab.html' }
    });

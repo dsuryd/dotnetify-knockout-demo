@@ -1,35 +1,19 @@
-﻿a:hover,
-a:active,
-a:focus {
-   text-decoration: none;
+﻿
+my-menu-item .card {
+   border-color: #bbb;
 }
 
-#MainPage div.content {
-   background-color: white;
-}
-
-.btn-round {
-   width: 24px;
-   height: 24px;
-   border-radius: 18%;
-   text-align: center;
-   padding-top: 2px;
-}
-
-my-header-bar + div {
-   padding-top: 50px;
-}
-
-my-menu-item .card img {
-   width: 100%;
-}
+   my-menu-item .card img {
+      width: 100%;
+      cursor: pointer;
+   }
 
 my-menu-item .card-title {
    font-weight: bold;
    font-size: medium;
    font-size: 1vw;
    padding-bottom: 10px;
-   border-bottom: 1px solid #e6e6e6;
+   border-bottom: 1px solid dimgray;
 }
 
 my-menu-item .card-price {
@@ -50,12 +34,6 @@ my-menu-item .card-price {
    }
 }
 
-.tab-breakfast input[id=tab-breakfast] ~ .tab-label-content .tab-content,
-.tab-lunch input[id=tab-lunch] ~ .tab-label-content .tab-content,
-.tab-dinner input[id=tab-dinner] ~ .tab-label-content .tab-content {
-   opacity: 1;
-}
-
 .tab-breakfast .slide {
    left: 2%;
 }
@@ -66,6 +44,20 @@ my-menu-item .card-price {
 
 .tab-dinner .slide {
    left: calc((90% / 3) * 2 + 8% );
+}
+
+.tab-breakfast input[id=tab-breakfast] ~ .tab-label-content label,
+.tab-lunch input[id=tab-lunch] ~ .tab-label-content label,
+.tab-dinner input[id=tab-dinner] ~ .tab-label-content label {
+   opacity: 1;
+}
+
+.tab-breakfast input[id=tab-breakfast] ~ .tab-label-content .tab-content,
+.tab-lunch input[id=tab-lunch] ~ .tab-label-content .tab-content,
+.tab-dinner input[id=tab-dinner] ~ .tab-label-content .tab-content {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0s;
 }
 
 my-tab-panel .tab-panel {
@@ -83,7 +75,7 @@ my-tab-panel .tab-panel {
    }
 
    my-tab-panel .tab-panel .slide {
-      background: #ffeb3b;
+      background: #00E17D;
       width: calc(90% / 3);
       height: 4px;
       position: absolute;
@@ -106,12 +98,17 @@ my-tab {
       width: 100%;
    }
 
+      my-tab .tab-label-content label {
+         opacity: .5;
+      }
+
       my-tab .tab-label-content .tab-content {
          position: absolute;
          top: 50px;
-         left: 16px;
+         left: 0px;
          line-height: 130%;
          opacity: 0;
-         transition: opacity .25s ease-in-out;
-         -webkit-transition: opacity .25s ease-in-out;
+         visibility: hidden;
+         transition: visibility 0s linear .25s, opacity .25s ease-in-out;
+         -webkit-transition: visibility 0s linear .25s, opacity .25s ease-in-out;
       }

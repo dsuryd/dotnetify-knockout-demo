@@ -1,0 +1,16 @@
+﻿<div id="MenuDetails" class="content" data-vm="MenuDetailsVM">
+
+   <my-header-bar params="title: PageTitle"></my-header-bar>
+
+   <div class="row" data-bind="with: MenuItem">
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+         <div class="card">
+            <img class="card-img-top" data-bind="attr: {src: ImageUrl, alt: Name }">
+         </div>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-xs-12">
+         <h1 data-bind="html: Name"></h1>
+         <p data-bind="html: Description"></p>
+      </div>
+   </div>
+</div>

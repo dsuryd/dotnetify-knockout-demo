@@ -37,16 +37,12 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'my-comp
    $(function () {
       dotnetify.debug = true;
 
-      $( "[data-vm]" ).on( "ready", function ()
-      {
-         // Must do this asynchronously to allow knockout render the nav components first.
-         setInterval(function () {
-            // On a new view, set up the menu button to open the side menu, and
-            // set up all nav links on the side menu to close the menu when clicked.
-            var snapper = new Snap({ element: $(".snap-content").get(0) });
-            $(".my-side-nav-btn").click(function () { snapper.open("left") });
-            $(".my-side-nav a").click(function () { snapper.close() });
-         }, 250);
+      $("[data-vm]").on("ready", function () {
+         // On a new view, set up the menu button to open the side menu, and
+         // set up all nav links on the side menu to close the menu when clicked.
+         var snapper = new Snap({ element: $(".snap-content").get(0) });
+         $(".my-side-nav-btn").click(function () { snapper.open("left") });
+         $(".my-side-nav a").click(function () { snapper.close() });
       });
 
    });

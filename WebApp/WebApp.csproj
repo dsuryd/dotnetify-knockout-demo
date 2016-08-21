@@ -113,10 +113,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\font-awesome.min.css" />
-    <Content Include="css\my-app.css" />
+    <Content Include="css\my-app\global.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\my-app\home.css" />
+    <Content Include="css\my-app\menu-details.css" />
+    <Content Include="css\my-app\_master.css" />
+    <Content Include="css\my-app\menu.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\home.jpg" />
     <Content Include="images\menu-items\breakfast_bagel.jpg" />
     <Content Include="images\menu-items\breakfast_cereal.jpg" />
     <Content Include="images\menu-items\breakfast_croissant.jpg" />
@@ -147,6 +152,7 @@
     <Content Include="scripts\my-app\component-my-menu-item.html" />
     <Content Include="scripts\my-app\component-my-menu.html" />
     <Content Include="views\help.html" />
+    <Content Include="views\menu-details.html" />
     <Content Include="views\home.html" />
     <Content Include="views\menu.html" />
     <Content Include="views\account.html" />

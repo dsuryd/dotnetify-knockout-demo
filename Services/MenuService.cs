@@ -23,7 +23,12 @@ namespace Services
 
       public IEnumerable<IMenuItemEntity> GetMenuItems( MenuTypes menuType )
       {
-         return _menuRepository.GetMenuItems().Where(i => i.Type == menuType);
+         return _menuRepository.GetMenuItems().Where(i => i.Type == menuType).OrderBy( i => i.Name );
+      }
+
+      public IMenuItemEntity GetMenuItem( int id )
+      {
+         return _menuRepository.GetMenuItem(id);
       }
    }
 }

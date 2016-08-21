@@ -9,5 +9,7 @@ namespace Service.Interfaces
       IEnumerable<IMenuItemEntity> GetMenuItems();
 
       IEnumerable<IMenuItemEntity> GetMenuItems( MenuTypes menuType );
+
+      IMenuItemEntity GetMenuItem( int Id );
    }
 }

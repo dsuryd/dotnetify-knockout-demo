@@ -6,5 +6,7 @@ namespace Domain.Repository.Interfaces
    public interface IMenuRepository
    {
       IEnumerable<IMenuItemEntity> GetMenuItems();
+
+      IMenuItemEntity GetMenuItem( int id );
    }
 }

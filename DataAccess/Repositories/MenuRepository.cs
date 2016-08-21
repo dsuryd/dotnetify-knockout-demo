@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Text;
+using System.Linq;
 using DataAccess.Entities;
 using DataAccess.Properties;
 using Domain.Entity.Interfaces;
@@ -21,6 +21,11 @@ namespace DataAccess.Repositories
       public IEnumerable<IMenuItemEntity> GetMenuItems()
       {
          return JsonConvert.DeserializeObject<List<MenuItemEntity>>(Resources.menu_json);
+      }
+
+      public IMenuItemEntity GetMenuItem( int id )
+      {
+         return GetMenuItems().ToList().FirstOrDefault(i => i.Id == id);
       }
    }
 }

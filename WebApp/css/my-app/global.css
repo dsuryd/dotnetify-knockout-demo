@@ -1,0 +1,36 @@
+﻿
+body {
+   font-family: roboto, sans-serif;
+}
+
+h1.title {
+   font-size: large;
+   font-weight: bold;
+   color: dimgray;
+}
+
+a:hover,
+a:active,
+a:focus {
+   text-decoration: none;
+}
+
+#MainPage div.content {
+   background-color: white;
+}
+
+.btn-round {
+   width: 24px;
+   height: 24px;
+   border-radius: 18%;
+   text-align: center;
+   padding-top: 2px;
+}
+
+my-header-bar header.bar {
+   box-shadow: 0 0 4px dimgray;
+}
+
+my-header-bar + div {
+   padding-top: 60px;
+}

@@ -34,10 +34,6 @@ namespace ViewModels
 
          this.RegisterRoutes("app", new List<RouteTemplate>
          {
-            new RouteTemplate { Id = "Page1", UrlPattern = "page1", Target = "MainPage", ViewUrl = "/page1" },
-            new RouteTemplate { Id = "Page2", UrlPattern = "page2", Target = "MainPage", ViewUrl = "/page2" },
-            new RouteTemplate { Id = "Page3", UrlPattern = "page3", Target = "MainPage", ViewUrl = "/page3" },
-
             new RouteTemplate { Id = "Home", UrlPattern = "", Target = "MainPage", ViewUrl = "/home" },
             new RouteTemplate { Id = "Menu", UrlPattern = "menu", Target = "MainPage", ViewUrl = "/menu" },
             new RouteTemplate { Id = "Account", UrlPattern = "account", Target = "MainPage", ViewUrl = "/account" },

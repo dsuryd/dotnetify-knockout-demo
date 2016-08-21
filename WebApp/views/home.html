@@ -1,7 +1,15 @@
-﻿<div class="content" data-vm="HomeVM">
+﻿<div id="Home" class="content" data-vm="HomeVM">
 
-   <my-header-bar params="title: 'Home'"></my-header-bar>
+   <my-header-bar params="title: PageTitle"></my-header-bar>
 
-   <div>
+   <div class="brochure">
+      <h1>Fresh meal delivered to your doorstep</h1>
+      <a data-bind="vmRoute: MenuRoute">See Our Menu</a>
+   </div>
+   <div id="HowItWorks">
+      <h1>How It Works</h1>
+      <p>
+         It's as easy as 1, 2, 3.  You hungry, you tap what you want, we deliver it to you!
+      </p>
    </div>
 </div>
