@@ -1,0 +1,46 @@
+﻿
+#Login .brochure {
+   margin-top: 45px;
+   height: 65%;
+   background-image: url("/images/home.jpg");
+   background-position: center center;
+   background-size: cover;
+   text-align: center;
+}
+
+   #Login .brochure > h1 {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      color: white;
+      font-size: xx-large;
+      font-weight: bolder;
+      text-shadow: 2px 2px rgba(0,0,0,.5);
+   }
+
+   #Login .brochure > div {
+      position: absolute;
+      left: 50%;
+      top: calc(35% + 6rem);
+   }
+
+      #Login .brochure > div button {
+         position: relative;
+         left: -50%;
+         padding: .75rem 1rem;
+         color: white;
+         border: none;
+         border-radius: 3px;
+      }
+
+#Google {
+   background-color: #df4930;
+}
+
+#Google span.fa {
+   background-color: white;
+   color: #df4930;
+   padding: 4px;
+   margin-right: 1em;
+   border-radius: 3px;
+}

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>DotNetify App</title>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="/css/my-app/_master.css" rel="stylesheet">
+   <script src="/scripts/libs/require.min.js" data-main="/scripts/my-app/app"></script>
+</head>
+
+<body>
+   <div id="Login" class="content" data-vm="LoginVM">
+
+      <header class="bar bar-nav">
+         <h1 class="title" data-bind="html: PageTitle"></h1>
+      </header>
+
+      <div class="brochure">
+         <h1>Fresh meal delivered to your doorstep</h1>
+         <div>
+            <form action="/auth" method="post">
+               <button id="Google" type="submit"><span class="fa fa-google"></span>Continue with Google</button>
+            </form>
+         </div>
+      </div>
+      <div id="HowItWorks">
+         <h1>How It Works</h1>
+         <p>
+            It's as easy as 1, 2, 3.  You hungry, you tap what you want, we deliver it to you!
+         </p>
+      </div>
+
+   </div>
+</body>
+</html>

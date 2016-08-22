@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="DTO\MenuDetailsDTO.cs" />
     <Compile Include="DTO\MenuItemDTO.cs" />
+    <Compile Include="LoginVM.cs" />
     <Compile Include="MenuDetailsVM.cs" />
     <Compile Include="HomeVM.cs" />
     <Compile Include="IndexVM.cs" />
