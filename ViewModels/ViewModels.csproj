@@ -30,13 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetify">
+    <Reference Include="DotNetify, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DotNetify.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\MenuDetailsDTO.cs" />
+    <Compile Include="DTO\MenuItemDTO.cs" />
     <Compile Include="MenuDetailsVM.cs" />
     <Compile Include="HomeVM.cs" />
     <Compile Include="IndexVM.cs" />

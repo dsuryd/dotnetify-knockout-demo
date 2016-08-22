@@ -11,6 +11,8 @@ namespace DataAccess.Repositories
 {
    public class MenuRepository : DbContext, IMenuRepository
    {
+      private IEnumerable<IMenuItemEntity> _cache;
+
       public MenuRepository()
            : base("name=MenuRepository")
       {
@@ -18,14 +20,8 @@ namespace DataAccess.Repositories
 
       public virtual DbSet<MenuItemEntity> MenuItemEntities { get; set; }
 
-      public IEnumerable<IMenuItemEntity> GetMenuItems()
-      {
-         return JsonConvert.DeserializeObject<List<MenuItemEntity>>(Resources.menu_json);
-      }
+      public IEnumerable<IMenuItemEntity> GetMenuItems() => _cache = _cache ?? JsonConvert.DeserializeObject<List<MenuItemEntity>>(Resources.menu_json);
 
-      public IMenuItemEntity GetMenuItem( int id )
-      {
-         return GetMenuItems().ToList().FirstOrDefault(i => i.Id == id);
-      }
+      public IMenuItemEntity GetMenuItem( int id ) => GetMenuItems().FirstOrDefault(i => i.Id == id);
    }
 }

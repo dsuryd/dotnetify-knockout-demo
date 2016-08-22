@@ -6,27 +6,13 @@ using Domain.Enums;
 using DotNetify;
 using DotNetify.Routing;
 using Service.Interfaces;
+using ViewModels.DTO;
 
 namespace ViewModels
 {
    public class MenuVM : BaseVM, IRoutable
    {
       private IMenuService _menuService;
-
-      public class MenuItemDTO
-      {
-         public int Id { get; set; }
-         public string Name { get; set; }
-         public string Price { get; set; }
-         public string ImageUrl { get; set; }
-         public Route Route { get; set; }
-         public bool AddCommand
-         {
-            get { return false; }
-            set { System.Diagnostics.Trace.WriteLine($"Add {Id}"); }
-         }
-
-      }
 
       public string PageTitle => "Daily Menu";
 
@@ -50,6 +36,14 @@ namespace ViewModels
          });
       }
 
+      // The following methods are required for dotNetify to handle client-side update on an item in an items property.
+      // By convention, the method name starts with the items property name and ends with '_get' suffix.
+
+      public MenuItemDTO BreakfastMenu_get( string key ) => BreakfastMenu.FirstOrDefault(i => i.Id.ToString() == key);
+      public MenuItemDTO LunchMenu_get( string key ) => LunchMenu.FirstOrDefault(i => i.Id.ToString() == key);
+      public MenuItemDTO DinnerMenu_get( string key ) => DinnerMenu.FirstOrDefault(i => i.Id.ToString() == key);
+
+
       private IEnumerable<MenuItemDTO> GetMenuItems( MenuTypes menuType )
       {
          return _menuService.GetMenuItems(menuType)
@@ -59,8 +53,9 @@ namespace ViewModels
                Name = i.Name,
                Price = $"${i.Price}",
                ImageUrl = "/images/menu-items/" + i.ImageUri,
-               Route = this.GetRoute("MenuItem", $"/{i.Id}")
-            });
+               Route = this.GetRoute("MenuItem", $"/{i.Id}"),
+               AddCommand = new Command(() => { System.Diagnostics.Trace.WriteLine($"Add {i.Id}"); })
+      });
       }
    }
 }

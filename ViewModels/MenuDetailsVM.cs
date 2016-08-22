@@ -1,6 +1,7 @@
 ﻿using DotNetify;
 using DotNetify.Routing;
 using Service.Interfaces;
+using ViewModels.DTO;
 
 namespace ViewModels
 {
@@ -9,7 +10,7 @@ namespace ViewModels
       private IMenuService _menuService;
 
       public string PageTitle { get; set; }
-      public MenuVM.MenuItemDTO MenuItem { get; set; }
+      public MenuDetailsDTO MenuDetails { get; set; }
 
       public RoutingState RoutingState { get; set; }
 
@@ -29,11 +30,13 @@ namespace ViewModels
             if ( menuItem != null )
             {
                PageTitle = menuItem.Name;
-               MenuItem = new MenuVM.MenuItemDTO
+               MenuDetails = new MenuDetailsDTO
                {
                   Name = menuItem.Name,
+                  Description = menuItem.Description,
                   Price = $"${menuItem.Price}",
-                  ImageUrl = "/images/menu-items/" + menuItem.ImageUri
+                  ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
+                  AddCommand = new Command(() => { })
                };
             }
          }
