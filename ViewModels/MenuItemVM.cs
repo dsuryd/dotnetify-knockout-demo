@@ -5,20 +5,21 @@ using ViewModels.DTO;
 
 namespace ViewModels
 {
-   public class MenuDetailsVM : BaseVM, IRoutable
+   public class MenuItemVM : BaseVM, IRoutable
    {
       private IMenuService _menuService;
 
       public string PageTitle { get; set; }
-      public MenuDetailsDTO MenuDetails { get; set; }
+      public MenuItemDTO MenuItem { get; set; }
+      public Route Back { get; set; } 
 
       public RoutingState RoutingState { get; set; }
 
-      public MenuDetailsVM( IMenuService menuService )
+      public MenuItemVM( IMenuService menuService )
       {
          _menuService = menuService;
 
-         this.OnRouted(( sender, e ) => LoadMenuItem(e.From.Replace("/", "")));
+         this.OnRouted(( sender, e ) => LoadMenuItem(e.From.Replace("item/", "")));
       }
 
       private void LoadMenuItem( string strId )
@@ -30,7 +31,7 @@ namespace ViewModels
             if ( menuItem != null )
             {
                PageTitle = menuItem.Name;
-               MenuDetails = new MenuDetailsDTO
+               MenuItem = new MenuItemDTO
                {
                   Name = menuItem.Name,
                   Description = menuItem.Description,
@@ -38,6 +39,8 @@ namespace ViewModels
                   ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
                   AddCommand = new Command(() => { })
                };
+
+               Back = this.Redirect("app", $"menu/{menuItem.Type}");
             }
          }
       }

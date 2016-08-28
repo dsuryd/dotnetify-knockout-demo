@@ -1,0 +1,35 @@
+﻿<div id="MenuDetails" class="content" data-vm="MenuItemVM">
+
+   <header class="bar bar-nav">
+      <a class="btn btn-link btn-nav pull-left" data-bind="vmRoute: Back">
+         <span class="icon icon-left-nav"></span>
+      </a>
+   </header>
+
+   <div class="container-fluid">
+      <div class="row" data-bind="with: MenuItem">
+         <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="card">
+               <img class="card-img-top" data-bind="attr: {src: ImageUrl, alt: Name }">
+            </div>
+         </div>
+         <div class="col-lg-6 col-sm-6 col-xs-12">
+
+            <div class="card">
+               <div class="card-block">
+                  <h3 class="card-title" data-bind="html: Name"></h3>
+
+                  <p class="card-text" data-bind="html: Description"></p>
+
+                  <div class="card-text" data-bind="html: Price"></div>
+                  <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: add">
+                     <span class="fa fa-plus"></span>Add
+                  </a>
+
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</div>

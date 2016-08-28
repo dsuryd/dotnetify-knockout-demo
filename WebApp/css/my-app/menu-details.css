@@ -1,3 +1,18 @@
-﻿#MenuDetails img {
+﻿#MenuDetails header + div {
+      padding-top: 60px;
+}
+
+#MenuDetails img {
    width: 100%;
 }
+
+#MenuDetails .card a {
+   font-family: Roboto, sans-serif;
+   font-size: medium;
+   margin-top: .5em;
+   padding: .5em 2em;
+}
+
+   #MenuDetails .card a > span.fa {
+      margin-right: 5px;
+   }

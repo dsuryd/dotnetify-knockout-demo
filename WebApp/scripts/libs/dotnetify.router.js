@@ -154,7 +154,12 @@ limitations under the License.
                vm.$router.initRoot();
 
                $.each(templates, function (idx, template) {
-                  dotnetify.router.mapTo(vm.$router.toUrl(template.UrlPattern()), function (iParams) {
+                  var mapUrl = vm.$router.toUrl(template.UrlPattern());
+
+                  if (dotnetify.debug)
+                     console.log("router> map " + mapUrl + " to template id=" + template.Id());
+
+                  dotnetify.router.mapTo(mapUrl, function (iParams) {
 
                      dotnetify.router.urlPath = "";
 
@@ -194,8 +199,7 @@ limitations under the License.
                   return;
                }
 
-               // Loads the view template to the target DOM element.
-               $(iTargetSelector).load(iViewUrl, null, function () {
+               var callbackFn = function () {
 
                   // If the view model supports routing, add the root path to the view, to be used
                   // to build the absolute route path, and view model argument if provided.
@@ -218,19 +222,14 @@ limitations under the License.
                   // Call the callback function.  
                   if (typeof iCallbackFn === "function")
                      iCallbackFn.apply(this);
+               };
 
-                  // Load the Javascript module if specified.
-                  if (iJsModuleUrl != null) {
-                     $.getScript(iJsModuleUrl, function () { dotnetify.init() });
-                  }
-                  else
-                     dotnetify.init();
-               });
+               vm.$loadView(iTargetSelector, iViewUrl, iJsModuleUrl, iVmArg, callbackFn);
+
             }.bind(iScope),
 
             // Routes to a path.
-            manualRouteTo: function( iPath, iTarget, iViewUrl, iJSModuleUrl )
-            {
+            manualRouteTo: function (iPath, iTarget, iViewUrl, iJSModuleUrl) {
                var template = {};
                template.Target = function () { return iTarget }
                template.ViewUrl = function () { return iViewUrl }
@@ -241,6 +240,9 @@ limitations under the License.
             // Routes to a path.
             routeTo: function (iPath, iTemplate, iDisableEvent) {
                var vm = this;
+
+               if (dotnetify.debug)
+                  console.log("router> route '" + iPath + "' to template id=" + iTemplate.Id());
 
                // We can determine whether the view has already been loaded by matching the 'RoutingState.Origin' argument
                // on the existing view model inside that target selector with the path.
@@ -284,6 +286,9 @@ limitations under the License.
 
                // Get the URL path to route.
                var urlPath = dotNetify.router.urlPath;
+
+               if (dotnetify.debug)
+                  console.log("router> routing " + urlPath);
 
                // If the URL path matches the root path of this view, use the template with a blank URL pattern if provided.
                if (utils.equal(urlPath, root)) {

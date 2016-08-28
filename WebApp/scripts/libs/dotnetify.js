@@ -42,6 +42,12 @@ var dotNetify = {};
             var hub = $.connection.dotNetifyHub;
             hub.client.response_VM = function (iVMId, iVMData) {
 
+               // Report unauthorized access.
+               if (iVMData == "403") {
+                  console.error("Unauthorized access to " + iVMId);
+                  return;
+               }
+
                // Construct a selector from iVMId to find the associated widget.
                // First parse the instance Id out of the string, if present.
                var vmType = iVMId;
@@ -205,7 +211,8 @@ var dotNetify = {};
                // Enable server update so that every changed value goes to server.
                self.VM.$serverUpdate = true;
 
-               // Signal ready asynchronously to allow knockout completes its processing.
+               // Do the following after a fraction of second to allow knockout completes its component rendering.
+               // This is a workaround until knockout issue #1533 is closed.
                setTimeout(function () {
 
                   // Call any plugin's $ready function if provided to give a chance to do
@@ -331,9 +338,9 @@ var dotNetify = {};
          self.VM.$loadView = function (iTargetSelector, iViewUrl, iJsModuleUrl, iVmArg, iCallbackFn) {
             var vm = this;
 
-            if (typeof iJsModuleUrl === "object") {
-               iCallbackFn = iVMArg;
-               iVMArg = iJsModuleUrl;
+            if (typeof iJsModuleUrl === "object" && iJsModuleUrl != null) {
+               iCallbackFn = iVmArg;
+               iVmArg = iJsModuleUrl;
                iJsModuleUrl = null;
             }
             else if (typeof iJsModuleUrl === "function") {
@@ -342,7 +349,7 @@ var dotNetify = {};
             }
             else if (typeof iVmArg === "function") {
                iCallbackFn = iVmArg;
-               iVMArg = null;
+               iVmArg = null;
             }
 
             // If no view URL is given, empty the target DOM element.

@@ -22,7 +22,7 @@ namespace ViewModels
       public List<SideNavItem> SideNav => new List<SideNavItem>
       {
          new SideNavItem { Route = this.GetRoute("Home"), Caption = "Home", Icon = "fa fa-home btn-warning" },
-         new SideNavItem { Route = this.GetRoute("Menu"), Caption = "Menu", Icon = "fa fa-list-alt btn-primary" },
+         new SideNavItem { Route = this.GetRoute("Menu", "menu"), Caption = "Menu", Icon = "fa fa-list-alt btn-primary" },
          new SideNavItem { Route = this.GetRoute("Account"), Caption = "Account", Icon = "fa fa-user btn-primary" },
          new SideNavItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="fa fa-question-circle btn-positive" }
       };
@@ -35,7 +35,7 @@ namespace ViewModels
          this.RegisterRoutes("app", new List<RouteTemplate>
          {
             new RouteTemplate { Id = "Home", UrlPattern = "", Target = "MainPage", ViewUrl = "/home" },
-            new RouteTemplate { Id = "Menu", UrlPattern = "menu", Target = "MainPage", ViewUrl = "/menu" },
+            new RouteTemplate { Id = "Menu", UrlPattern = "menu(/:tab)", Target = "MainPage", ViewUrl = "/menu" },
             new RouteTemplate { Id = "Account", UrlPattern = "account", Target = "MainPage", ViewUrl = "/account" },
             new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "MainPage", ViewUrl = "/help" }
          });

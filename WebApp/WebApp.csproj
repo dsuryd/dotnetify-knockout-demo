@@ -164,7 +164,7 @@
     <Content Include="scripts\my-app\component-my-menu.html" />
     <Content Include="views\help.html" />
     <Content Include="views\login.html" />
-    <Content Include="views\menu-details.html" />
+    <Content Include="views\menu-item.html" />
     <Content Include="views\home.html" />
     <Content Include="views\menu.html" />
     <Content Include="views\account.html" />

@@ -11,17 +11,18 @@ namespace WebApp.Controllers
    {
       [Route("{*id}")]
       [Authorize]
-      public ActionResult Index( string id )
+      public ActionResult Index(string id)
       {
-         if ( string.IsNullOrEmpty(id) )
-            return RedirectToAction(nameof(App));
+         if (string.IsNullOrEmpty(id))
 
-         return File(Server.MapPath("/views/" + ( id.EndsWith(".html") ? id : id + ".html" )), "text/html");
+            return RedirectToAction(nameof(App), "home");
+
+         return File(Server.MapPath("/views/" + (id.EndsWith(".html") ? id : id + ".html")), "text/html");
       }
 
       [Route("app/{*id}")]
       [Authorize]
-      public ActionResult App( string id )
+      public ActionResult App(string id)
       {
          return File(Server.MapPath("/views/index.html"), "text/html");
       }
@@ -50,13 +51,13 @@ namespace WebApp.Controllers
       public string LoginProvider { get; set; }
       public string RedirectUri { get; set; }
 
-      public ChallengeResult( string provider, string redirectUri )
+      public ChallengeResult(string provider, string redirectUri)
       {
          LoginProvider = provider;
          RedirectUri = redirectUri;
       }
 
-      public override void ExecuteResult( ControllerContext context )
+      public override void ExecuteResult(ControllerContext context)
       {
          var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
          context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
