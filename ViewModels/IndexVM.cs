@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using DotNetify;
 using DotNetify.Routing;
 
@@ -17,7 +18,7 @@ namespace ViewModels
 
       public string SignOut => "Sign Out";
 
-      public string UserName { get; set; }
+      public string UserName => Thread.CurrentPrincipal?.Identity?.Name;
 
       public List<SideNavItem> SideNav => new List<SideNavItem>
       {
@@ -27,17 +28,15 @@ namespace ViewModels
          new SideNavItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="fa fa-question-circle btn-positive" }
       };
 
-
       public IndexVM()
       {
-         UserName = "Travis Lee";
-
          this.RegisterRoutes("app", new List<RouteTemplate>
          {
             new RouteTemplate { Id = "Home", UrlPattern = "", Target = "MainPage", ViewUrl = "/home" },
             new RouteTemplate { Id = "Menu", UrlPattern = "menu(/:tab)", Target = "MainPage", ViewUrl = "/menu" },
             new RouteTemplate { Id = "Account", UrlPattern = "account", Target = "MainPage", ViewUrl = "/account" },
-            new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "MainPage", ViewUrl = "/help" }
+            new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "MainPage", ViewUrl = "/help" },
+            new RouteTemplate { Id = "Login", UrlPattern = "login", Target = "MainPage", ViewUrl = "/login" }
          });
 
       }
