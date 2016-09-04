@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
-using Domain.Entity.Interfaces;
+using Domain;
 using Domain.Enums;
 
 namespace Service.Interfaces
 {
    public interface IMenuService
    {
-      IEnumerable<IMenuItemEntity> GetMenuItems();
+      IEnumerable<MenuItem> GetMenuItems();
 
-      IEnumerable<IMenuItemEntity> GetMenuItems( MenuTypes menuType );
+      IEnumerable<MenuItem> GetMenuItems( MenuTypes menuType );
 
-      IMenuItemEntity GetMenuItem( int Id );
+      MenuItem GetMenuItem( int Id );
    }
 }

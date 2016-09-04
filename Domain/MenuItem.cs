@@ -1,12 +1,8 @@
-﻿using System;
-using Domain.Enums;
+﻿using Domain.Enums;
 
-namespace DataAccess.Entities
+namespace Domain
 {
-   /// <summary>
-   /// Persistence model of MenuItem.
-   /// </summary>
-   public partial class MenuItemEntity
+   public class MenuItem
    {
       public int Id { get; set; }
       public string Name { get; set; }

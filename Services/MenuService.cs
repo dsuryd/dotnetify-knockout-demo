@@ -2,7 +2,7 @@
 using System.Linq;
 using Service.Interfaces;
 using Domain.Repository.Interfaces;
-using Domain.Entity.Interfaces;
+using Domain;
 using Domain.Enums;
 
 namespace Services
@@ -16,17 +16,17 @@ namespace Services
          _menuRepository = menuRepository;
       }
 
-      public IEnumerable<IMenuItemEntity> GetMenuItems()
+      public IEnumerable<MenuItem> GetMenuItems()
       {
          return _menuRepository.GetMenuItems();
       }
 
-      public IEnumerable<IMenuItemEntity> GetMenuItems( MenuTypes menuType )
+      public IEnumerable<MenuItem> GetMenuItems( MenuTypes menuType )
       {
          return _menuRepository.GetMenuItems().Where(i => i.Type == menuType).OrderBy( i => i.Name );
       }
 
-      public IMenuItemEntity GetMenuItem( int id )
+      public MenuItem GetMenuItem( int id )
       {
          return _menuRepository.GetMenuItem(id);
       }
