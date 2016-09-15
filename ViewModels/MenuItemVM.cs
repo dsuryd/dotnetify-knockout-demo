@@ -11,7 +11,6 @@ namespace ViewModels
 
       public string PageTitle { get; set; }
       public MenuItemDTO MenuItem { get; set; }
-      public Route Back { get; set; } 
 
       public RoutingState RoutingState { get; set; }
 
@@ -39,8 +38,6 @@ namespace ViewModels
                   ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
                   AddCommand = new Command(() => { })
                };
-
-               Back = this.Redirect("app", $"menu/{menuItem.Type}");
             }
          }
       }

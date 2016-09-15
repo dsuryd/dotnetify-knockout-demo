@@ -1,18 +1,18 @@
-﻿#MenuDetails header + div {
+﻿#MenuItem header + div {
       padding-top: 60px;
 }
 
-#MenuDetails img {
+#MenuItem img {
    width: 100%;
 }
 
-#MenuDetails .card a {
+#MenuItem .card a {
    font-family: Roboto, sans-serif;
    font-size: medium;
    margin-top: .5em;
    padding: .5em 2em;
 }
 
-   #MenuDetails .card a > span.fa {
+   #MenuItem .card a > span.fa {
       margin-right: 5px;
    }

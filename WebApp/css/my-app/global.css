@@ -15,8 +15,17 @@ a:focus {
    text-decoration: none;
 }
 
+.icon-bars {
+   cursor: pointer;
+}
+
 #MainPage div.content {
    background-color: white;
+}
+
+#RightDrawer {
+   display: none;
+   z-index: 2;
 }
 
 .btn-round {

@@ -34,7 +34,7 @@ namespace ViewModels
 
          this.RegisterRoutes("menu", new List<RouteTemplate>
          {
-            new RouteTemplate { Id = "MenuItem", UrlPattern = "item(/:id)", Target = "MainPage", ViewUrl = "/menu-item" }
+            new RouteTemplate { Id = "MenuItem", UrlPattern = "item(/:id)", Target = "RightDrawer", ViewUrl = "/menu-item" }
          });
 
          this.OnRouted((sender, e) =>
