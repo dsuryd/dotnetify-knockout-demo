@@ -7,3 +7,4 @@ var MenuItemVM = (function () {
     };
     return MenuItemVM;
 }());
+//# sourceMappingURL=MenuItemVM.js.map
