@@ -27,8 +27,10 @@ namespace WebApp
          DotNetify.VMController.CreateInstance = ( type, args ) => TinyIoCContainer.Current.Resolve(type);
 
          var container = TinyIoCContainer.Current;
-         container.Register<IMenuRepository, MenuRepository>();
-         container.Register<IMenuService, MenuService>();
+         container.Register<IMenuRepository, MenuRepository>().AsPerRequestSingleton();
+         container.Register<IMenuService, MenuService>().AsPerRequestSingleton();
+         container.Register<IShoppingCartService, ShoppingCartService>().AsPerRequestSingleton();
+         container.Register<ISessionCache, SessionCache>();
       }
 
       public void ConfigureAuth( IAppBuilder app )

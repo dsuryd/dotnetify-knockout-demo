@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using DotNetify;
 using DotNetify.Routing;
+using Service.Interfaces;
 
 namespace ViewModels
 {
    public class IndexVM : BaseVM, IRoutable
    {
+      private readonly IShoppingCartService _shoppingCartService;
+
       public class SideNavItem
       {
          public Route Route { get; set; }
@@ -20,6 +24,12 @@ namespace ViewModels
 
       public string UserName => Thread.CurrentPrincipal?.Identity?.Name;
 
+      public string ShoppingCartLocalData
+      {
+         get { return Get<string>(); }
+         set { _shoppingCartService.DeserializeShoppingCart(value); }
+      }
+
       public List<SideNavItem> SideNav => new List<SideNavItem>
       {
          new SideNavItem { Route = this.GetRoute("Home"), Caption = "Home", Icon = "fa fa-home btn-warning" },
@@ -28,8 +38,10 @@ namespace ViewModels
          new SideNavItem { Route = this.GetRoute("Help"), Caption = "Help", Icon ="fa fa-question-circle btn-positive" }
       };
 
-      public IndexVM()
+      public IndexVM(IShoppingCartService shoppingCartService)
       {
+         _shoppingCartService = shoppingCartService;
+
          this.RegisterRoutes("app", new List<RouteTemplate>
          {
             new RouteTemplate { Id = "Home", UrlPattern = "", Target = "MainPage", ViewUrl = "/home" },
@@ -38,7 +50,6 @@ namespace ViewModels
             new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "MainPage", ViewUrl = "/help" },
             new RouteTemplate { Id = "Login", UrlPattern = "login", Target = "MainPage", ViewUrl = "/login" }
          });
-
       }
    }
 }

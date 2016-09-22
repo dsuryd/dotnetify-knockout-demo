@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Domain;
 using Domain.Enums;
 
@@ -8,8 +9,8 @@ namespace Service.Interfaces
    {
       IEnumerable<MenuItem> GetMenuItems();
 
-      IEnumerable<MenuItem> GetMenuItems( MenuTypes menuType );
+      IEnumerable<MenuItem> GetMenuItems(MenuTypes menuType);
 
-      MenuItem GetMenuItem( int Id );
+      MenuItem GetMenuItem(int Id);
    }
 }

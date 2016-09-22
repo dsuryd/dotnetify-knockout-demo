@@ -4,7 +4,7 @@
       // DotNetify's dependencies.
       "jquery": "jquery-1.11.3.min",
       "jquery-ui": "jquery-ui-widget-1.11.4.min",
-      "knockout": "knockout-3.3.0",
+      "knockout": "knockout-3.4.0",
       "ko-mapping": "knockout.mapping-latest",
       "dotnetify": "dotnetify",
       "dnf-router": "dotnetify.router",

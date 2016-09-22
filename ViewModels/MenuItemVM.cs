@@ -7,16 +7,19 @@ namespace ViewModels
 {
    public class MenuItemVM : BaseVM, IRoutable
    {
-      private IMenuService _menuService;
+      private readonly IMenuService _menuService;
+      private readonly IShoppingCartService _shoppingCartService;
 
       public string PageTitle { get; set; }
+
       public MenuItemDTO MenuItem { get; set; }
 
       public RoutingState RoutingState { get; set; }
 
-      public MenuItemVM( IMenuService menuService )
+      public MenuItemVM( IMenuService menuService, IShoppingCartService shoppingCartService )
       {
          _menuService = menuService;
+         _shoppingCartService = shoppingCartService;
 
          this.OnRouted(( sender, e ) => LoadMenuItem(e.From.Replace("item/", "")));
       }
@@ -36,10 +39,16 @@ namespace ViewModels
                   Description = menuItem.Description,
                   Price = $"${menuItem.Price}",
                   ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
-                  AddCommand = new Command(() => { })
+                  AddCommand = new Command(() => AddToShoppingCart(menuItem.Id))
                };
             }
          }
+      }
+
+      private void AddToShoppingCart(int menuItemId)
+      {
+         var cart = _shoppingCartService.GetShoppingCart();
+         cart.AddOrder(_menuService.GetMenuItem(menuItemId));
       }
    }
 }

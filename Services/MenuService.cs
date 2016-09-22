@@ -9,7 +9,7 @@ namespace Services
 {
    public class MenuService : IMenuService
    {
-      private IMenuRepository _menuRepository;
+      private readonly IMenuRepository _menuRepository;
 
       public MenuService( IMenuRepository menuRepository )
       {
