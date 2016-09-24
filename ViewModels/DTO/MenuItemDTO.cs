@@ -12,5 +12,6 @@ namespace ViewModels.DTO
       public string ImageUrl { get; set; }
       public Route Route { get; set; }
       public ICommand AddCommand { get; set; }
+      public string ItemAdded { get; set; }
    }
 }

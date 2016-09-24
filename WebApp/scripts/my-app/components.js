@@ -57,11 +57,8 @@ limitations under the License.
    ko.components.register('my-menu-item', {
       viewModel: function (params) {
          var self = this;
-         self.imageUrl = params.imageUrl;
-         self.name = params.name;
-         self.price = params.price;
-         self.route = params.route;
-         self.add = params.add;
+         for (prop in params)
+            self[prop] = params[prop];
       },
       template: { require: 'text!/scripts/my-app/component-my-menu-item.html' }
    });

@@ -54,6 +54,8 @@ namespace ViewModels
 
       private IEnumerable<MenuItemDTO> GetMenuItems(MenuTypes menuType)
       {
+         var cart = _shoppingCartService.GetShoppingCart();
+
          return _menuService.GetMenuItems(menuType)
             .Select(i => new MenuItemDTO
             {
@@ -62,14 +64,35 @@ namespace ViewModels
                Price = $"${i.Price}",
                ImageUrl = "/images/menu-items/" + i.ImageUri,
                Route = this.GetRoute("MenuItem", $"item/{i.Id}"),
-               AddCommand = new Command(() => AddToShoppingCart(i.Id))
+               AddCommand = new Command(() => AddToShoppingCart(i.Id)),
+               ItemAdded = cart.GetOrderCount(i) > 0 ? $"{cart.GetOrderCount(i)} in cart" : null
             });
       }
 
       private void AddToShoppingCart(int menuItemId)
       {
          var cart = _shoppingCartService.GetShoppingCart();
-         cart.AddOrder(_menuService.GetMenuItem(menuItemId));
+         var menuItem = _menuService.GetMenuItem(menuItemId);
+         if (menuItem != null)
+         {
+            cart.AddOrder(menuItem);
+
+            var itemAdded = $"{cart.GetOrderCount(menuItem)} in cart";
+            switch (menuItem.Type)
+            {
+               case MenuTypes.Breakfast:
+                  this.UpdateList(() => BreakfastMenu, new { Id = menuItem.Id, ItemAdded = itemAdded });
+                  break;
+
+               case MenuTypes.Lunch:
+                  this.UpdateList(() => LunchMenu, new { Id = menuItem.Id, ItemAdded = itemAdded });
+                  break;
+
+               case MenuTypes.Dinner:
+                  this.UpdateList(() => DinnerMenu, new { Id = menuItem.Id, ItemAdded = itemAdded });
+                  break;
+            }
+         }
       }
    }
 }
