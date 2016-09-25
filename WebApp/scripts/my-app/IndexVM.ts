@@ -6,8 +6,8 @@
       // Get any existing shopping cart data in local storage and send it to the server.
       localStorage.getItem("ShoppingCart");
       var cart = "[{ \"ItemId\": 1, \"Qty\": 1 }, { \"ItemId\": 2, \"Qty\": 3 } ]";
-      vm.ShoppingCartLocalData(cart);
-      vm.$on(vm.ShoppingCartLocalData, data => localStorage.setItem("ShoppingCart", data));
+      vm.CartLocalData(cart);
+      vm.$on(vm.CartLocalData, data => localStorage.setItem("ShoppingCart", data));
    }
 
    // This function is called by dotnetify.router on start of routing.

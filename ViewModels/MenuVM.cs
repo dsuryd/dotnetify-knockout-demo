@@ -15,6 +15,9 @@ namespace ViewModels
 
       public string PageTitle => "Daily Menu";
 
+      public Route CartRoute => this.Redirect("app", "cart");
+      public int OrderCount => _shoppingCartService.GetShoppingCart().OrderCount;
+
       public string BreakfastTabCaption => "Breakfast";
       public string LunchTabCaption => "Lunch";
       public string DinnerTabCaption => "Dinner";
@@ -77,19 +80,19 @@ namespace ViewModels
          {
             cart.AddOrder(menuItem);
 
-            var itemAdded = $"{cart.GetOrderCount(menuItem)} in cart";
+            var update = new { Id = menuItem.Id, ItemAdded = $"{cart.GetOrderCount(menuItem)} in cart" };
             switch (menuItem.Type)
             {
                case MenuTypes.Breakfast:
-                  this.UpdateList(() => BreakfastMenu, new { Id = menuItem.Id, ItemAdded = itemAdded });
+                  this.UpdateList(() => BreakfastMenu, update);
                   break;
 
                case MenuTypes.Lunch:
-                  this.UpdateList(() => LunchMenu, new { Id = menuItem.Id, ItemAdded = itemAdded });
+                  this.UpdateList(() => LunchMenu, update);
                   break;
 
                case MenuTypes.Dinner:
-                  this.UpdateList(() => DinnerMenu, new { Id = menuItem.Id, ItemAdded = itemAdded });
+                  this.UpdateList(() => DinnerMenu, update);
                   break;
             }
          }

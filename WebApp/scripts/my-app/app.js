@@ -22,7 +22,7 @@
       "velocity": "velocity.min",
 
       // Application-specific scripts.
-      "my-components": "/scripts/my-app/components",
+      "my-components": "/scripts/my-components/components",
       "IndexVM": "/scripts/my-app/IndexVM",
       "MenuVM": "/scripts/my-app/MenuVM",
       "MenuItemVM": "/scripts/my-app/MenuItemVM",

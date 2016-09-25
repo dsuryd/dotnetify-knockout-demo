@@ -1,6 +1,8 @@
 ﻿<div id="Menu" class="content" data-vm="MenuVM">
 
-   <my-header-bar params="title: PageTitle"></my-header-bar>
+   <my-header-bar params="title: PageTitle">
+      <my-cart-icon params="route: CartRoute, orderCount: OrderCount"></my-cart-icon>
+   </my-header-bar>
 
    <div>
       <my-tab-panel params="selected: ActiveTab">

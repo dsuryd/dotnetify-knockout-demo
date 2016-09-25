@@ -43,3 +43,23 @@ my-header-bar header.bar {
 my-header-bar + div {
    padding-top: 60px;
 }
+
+my-header-bar a.fa.fa-shopping-cart {
+   font-size: 1.25em;
+   margin-top: 10px;
+   margin-right: 8px;
+   color: gray;
+}
+
+   my-header-bar a.fa.fa-shopping-cart .tag {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 50%;
+      font-weight: normal;
+      border-radius: 50%;
+      padding: .25em .45em;
+      opacity: 0.8;
+      background-color: yellow;
+      color: black;
+   }

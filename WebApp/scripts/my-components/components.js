@@ -26,65 +26,70 @@ limitations under the License.
    // Full-length navigation item.
    ko.components.register('my-nav-item', {
       viewModel: function (params) {
-         var self = this;
-         self.icon = params.icon;
-         self.url = params.url;
-         self.caption = params.caption;
-         self.nav = params.nav;  // Set to 'navigate-right' to add right arrow at the end.
+         for (prop in params)
+            this[prop] = params[prop];
       },
-      template: { require: 'text!/scripts/my-app/component-my-nav-item.html' }
+      template: { require: 'text!/scripts/my-components/component-my-nav-item.html' }
    });
 
    // Full-length header bar.
    ko.components.register('my-header-bar', {
       viewModel: function (params) {
-         var self = this;
-         self.title = params.title;
+         for (prop in params)
+            this[prop] = params[prop];
       },
-      template: { require: 'text!/scripts/my-app/component-my-header-bar.html' }
+      template: { require: 'text!/scripts/my-components/component-my-header-bar.html' }
+   });
+
+   // Shopping cart.
+   ko.components.register('my-cart-icon', {
+      viewModel: function (params) {
+         for (prop in params)
+            this[prop] = params[prop];
+      },
+      template: { require: 'text!/scripts/my-components/component-my-cart-icon.html' }
    });
 
    // Menu item.
    ko.components.register('my-menu', {
       viewModel: function (params) {
-         var self = this;
-         self.menuItems = params.menuItems;
+         for (prop in params)
+            this[prop] = params[prop];
       },
-      template: { require: 'text!/scripts/my-app/component-my-menu.html' }
+      template: { require: 'text!/scripts/my-components/component-my-menu.html' }
    });
 
    // Menu item.
    ko.components.register('my-menu-item', {
       viewModel: function (params) {
-         var self = this;
          for (prop in params)
-            self[prop] = params[prop];
+            this[prop] = params[prop];
       },
-      template: { require: 'text!/scripts/my-app/component-my-menu-item.html' }
+      template: { require: 'text!/scripts/my-components/component-my-menu-item.html' }
    });
 
    // Tab panel with slider to indicate tab selection.
    ko.components.register('my-tab-panel', {
       viewModel: function (params) {
-         var self = this;
-         self.selected = ko.isObservable(params.selected) ? params.selected : ko.observable(params.selected);
+         this.selected = ko.isObservable(params.selected) ? params.selected : ko.observable(params.selected);
       },
-      template: { require: 'text!/scripts/my-app/component-my-tab-panel.html' }
+      template: { require: 'text!/scripts/my-components/component-my-tab-panel.html' }
    });
 
    // Tab.
    ko.components.register('my-tab', {
       viewModel: function (params) {
          var self = this;
-         self.id = params.id;
-         self.caption = params.caption;
+         for (prop in params)
+            self[prop] = params[prop];
+
          self.onClick = function (data, event) {
             var tabPanel = $(event.target).closest('.tab-panel').get(0);
             ko.contextFor(tabPanel).$data.selected(self.id);
             return true;
          };
       },
-      template: { require: 'text!/scripts/my-app/component-my-tab.html' }
+      template: { require: 'text!/scripts/my-components/component-my-tab.html' }
    });
 
 }))

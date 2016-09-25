@@ -28,6 +28,7 @@ namespace Services
          try
          {
             var shoppingCart = GetShoppingCart();
+            shoppingCart.Clear();
             var items = JsonConvert.DeserializeObject<List<ShoppingCartItem>>(jsonData);
             foreach (var item in items)
             {

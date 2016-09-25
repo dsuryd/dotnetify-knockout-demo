@@ -24,7 +24,7 @@ namespace ViewModels
 
       public string UserName => Thread.CurrentPrincipal?.Identity?.Name;
 
-      public string ShoppingCartLocalData
+      public string CartLocalData
       {
          get { return Get<string>(); }
          set { _shoppingCartService.DeserializeShoppingCart(value); }
@@ -48,7 +48,8 @@ namespace ViewModels
             new RouteTemplate { Id = "Menu", UrlPattern = "menu(/:tab)", Target = "MainPage", ViewUrl = "/menu" },
             new RouteTemplate { Id = "Account", UrlPattern = "account", Target = "MainPage", ViewUrl = "/account" },
             new RouteTemplate { Id = "Help", UrlPattern = "help", Target = "MainPage", ViewUrl = "/help" },
-            new RouteTemplate { Id = "Login", UrlPattern = "login", Target = "MainPage", ViewUrl = "/login" }
+            new RouteTemplate { Id = "Login", UrlPattern = "login", Target = "MainPage", ViewUrl = "/login" },
+            new RouteTemplate { Id = "Cart", UrlPattern = "cart", Target = "MainPage", ViewUrl = "/cart" }
          });
       }
    }
