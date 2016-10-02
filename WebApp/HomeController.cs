@@ -14,7 +14,6 @@ namespace WebApp.Controllers
       public ActionResult Index(string id)
       {
          if (string.IsNullOrEmpty(id))
-
             return RedirectToAction(nameof(App), "home");
 
          return File(Server.MapPath("/views/" + (id.EndsWith(".html") ? id : id + ".html")), "text/html");

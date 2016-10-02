@@ -377,7 +377,7 @@ limitations under the License.
                   route.Path(path);
                }
             }
-            else
+            else if(route.RedirectRoot() == null)
                throw new Error("vmRoute cannot find route template '" + route.TemplateId() + "' at " + element.outerHTML);
          }
 

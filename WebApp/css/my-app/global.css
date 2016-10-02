@@ -49,12 +49,14 @@ my-header-bar a.fa.fa-shopping-cart {
    margin-top: 10px;
    margin-right: 8px;
    color: gray;
+   position: relative;
+   
 }
 
    my-header-bar a.fa.fa-shopping-cart .tag {
       position: absolute;
-      top: 5px;
-      right: 10px;
+      top: -5px;
+      right: -5px;
       font-size: 50%;
       font-weight: normal;
       border-radius: 50%;

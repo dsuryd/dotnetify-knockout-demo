@@ -30,6 +30,8 @@ namespace ViewModels
          set { _shoppingCartService.DeserializeShoppingCart(value); }
       }
 
+      public Route CartRoute => this.GetRoute("Cart");
+
       public List<SideNavItem> SideNav => new List<SideNavItem>
       {
          new SideNavItem { Route = this.GetRoute("Home"), Caption = "Home", Icon = "fa fa-home btn-warning" },
