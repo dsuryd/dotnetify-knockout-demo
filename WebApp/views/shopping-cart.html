@@ -1,0 +1,35 @@
+﻿<div id="ShoppingCart" class="content" data-vm="ShoppingCartVM">
+
+   <my-header-bar params="title: 'Shopping Cart'"></my-header-bar>
+
+   <div class="container-fluid">
+      <div class="card">
+         <div class="card-block">
+            <h3 class="card-title text-xs-center">Review your order</h3>
+
+            <table id="ShoppingCartList">
+               <tbody data-bind="foreach: ShoppingCartItems, vmItemKey: 'Id'">
+                  <tr>
+                     <td>
+                        <img data-bind="attr: {src: ImageUrl, alt: Name }">
+                     </td>
+                     <td>
+                        <span data-bind="html: Name"></span><br />
+                        <span data-bind="html: Price"></span>
+                     </td>
+                     <td>
+                        <span>QTY&nbsp;&nbsp;</span><span data-bind="html: Qty"></span>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}">Remove</a>
+                     </td>
+                     <td>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}">Remove</a>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <a href="#" class="btn btn-block btn-positive" data-bind="vmCommand: PlaceOrder">Place Order</a>
+   </div>
+
+</div>

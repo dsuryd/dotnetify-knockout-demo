@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\MenuItemDTO.cs" />
+    <Compile Include="DTO\ShoppingCartItemDTO.cs" />
     <Compile Include="ShoppingCartVM.cs" />
     <Compile Include="LoginVM.cs" />
     <Compile Include="MenuItemVM.cs" />

@@ -35,6 +35,8 @@ namespace ViewModels
          _menuService = menuService;
          _shoppingCartService = shoppingCartService;
 
+         _shoppingCartService.GetShoppingCart().Changed += OnShoppingCartChanged;
+
          this.RegisterRoutes("menu", new List<RouteTemplate>
          {
             new RouteTemplate { Id = "MenuItem", UrlPattern = "item(/:id)", Target = "RightDrawer", ViewUrl = "/menu-item" }
@@ -72,14 +74,34 @@ namespace ViewModels
             });
       }
 
+      private void OnShoppingCartChanged( object sender, int menuItemId)
+      {
+         Changed(() => OrderCount);
+         if (menuItemId > 0)
+            UpdateOrderCount(menuItemId);
+         else
+         {
+            Changed(() => BreakfastMenu);
+            Changed(() => LunchMenu);
+            Changed(() => DinnerMenu);
+         }
+      }
+
       private void AddToShoppingCart(int menuItemId)
+      {
+         var cart = _shoppingCartService.GetShoppingCart();
+         var menuItem = _menuService.GetMenuItem(menuItemId);
+         cart.AddOrder(menuItem);
+
+         UpdateOrderCount(menuItemId);
+      }
+
+      private void UpdateOrderCount(int menuItemId)
       {
          var cart = _shoppingCartService.GetShoppingCart();
          var menuItem = _menuService.GetMenuItem(menuItemId);
          if (menuItem != null)
          {
-            cart.AddOrder(menuItem);
-
             var update = new { Id = menuItem.Id, ItemAdded = $"{cart.GetOrderCount(menuItem)} in cart" };
             switch (menuItem.Type)
             {

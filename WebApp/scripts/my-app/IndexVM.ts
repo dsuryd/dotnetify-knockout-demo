@@ -4,8 +4,8 @@
       var vm: any = this;
 
       // Get any existing shopping cart data in local storage and send it to the server.
-      localStorage.getItem("ShoppingCart");
-      var cart = "[{ \"ItemId\": 1, \"Qty\": 1 }, { \"ItemId\": 2, \"Qty\": 3 } ]";
+      var cart = localStorage.getItem("ShoppingCart");
+      //var cart = "[{ \"ItemId\": 1, \"Qty\": 1 }, { \"ItemId\": 2, \"Qty\": 3 } ]";
       vm.CartLocalData(cart);
       vm.$on(vm.CartLocalData, data => localStorage.setItem("ShoppingCart", data));
    }

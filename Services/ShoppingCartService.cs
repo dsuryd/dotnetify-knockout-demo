@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Domain;
@@ -39,6 +40,16 @@ namespace Services
          }
          catch (Exception)
          { }
+      }
+
+      public string SerializeShoppingCart()
+      {
+         return JsonConvert.SerializeObject(
+            GetShoppingCart()
+            .GetOrders()
+            .ToList()
+            .Select(i => new { ItemId = i.Key, Qty = i.Value })
+         );
       }
 
       public ShoppingCart GetShoppingCart()

@@ -141,6 +141,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\my-app\login.css" />
     <Content Include="css\my-app\home.css" />
+    <Content Include="css\my-app\shopping-cart.css" />
     <Content Include="css\my-app\menu-item.css" />
     <Content Include="css\my-app\_master.css" />
     <Content Include="css\my-app\menu.css" />
@@ -179,8 +180,7 @@
     <Content Include="scripts\my-components\component-my-header-bar.html" />
     <Content Include="scripts\my-components\component-my-menu-item.html" />
     <Content Include="scripts\my-components\component-my-menu.html" />
-    <Content Include="views\cart.html" />
-    <Content Include="views\help.html" />
+    <Content Include="views\shopping-cart.html" />
     <Content Include="views\login.html" />
     <Content Include="views\menu-item.html" />
     <Content Include="views\home.html" />

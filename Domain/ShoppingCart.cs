@@ -10,7 +10,7 @@ namespace Domain
 
       public int OrderCount => _orders.Select(i => i.Value).Sum();
 
-      public event EventHandler Changed;
+      public event EventHandler<int> Changed;
 
       public void AddOrder(MenuItem menuItem, int quantity = 1)
       {
@@ -19,14 +19,16 @@ namespace Domain
          else
             _orders.Add(menuItem.Id, quantity);
 
-         Changed?.Invoke(this, new EventArgs());
+         Changed?.Invoke(this, menuItem.Id);
       }
 
       public void Clear()
       {
          _orders.Clear();
-         Changed?.Invoke(this, new EventArgs());
+         Changed?.Invoke(this, 0);
       }
+
+      public IEnumerable<KeyValuePair<int, int>> GetOrders() => _orders.AsEnumerable();
 
       public int GetOrderCount(MenuItem menuItem)
       {
@@ -40,7 +42,7 @@ namespace Domain
             if (--_orders[menuItem.Id] == 0)
                _orders.Remove(menuItem.Id);
 
-            Changed?.Invoke(this, new EventArgs());
+            Changed?.Invoke(this, menuItem.Id);
          }
       }
    }

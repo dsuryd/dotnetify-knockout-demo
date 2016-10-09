@@ -7,5 +7,7 @@ namespace Service.Interfaces
       ShoppingCart GetShoppingCart();
 
       void DeserializeShoppingCart(string jsonData);
+
+      string SerializeShoppingCart();
    }
 }
