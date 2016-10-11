@@ -35,7 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMenuService.cs" />
-    <Compile Include="ISessionCache.cs" />
+    <Compile Include="IUserCache.cs" />
     <Compile Include="IShoppingCartService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

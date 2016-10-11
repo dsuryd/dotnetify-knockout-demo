@@ -12,13 +12,25 @@ namespace ViewModels
       private readonly IShoppingCartService _shoppingCartService;
       private readonly IMenuService _menuService;
 
+      // All text displayed on this page.
       public string PageTitle => "My Fake App";
+      public string ReviewOrderCaption => "Review your order";
+      public string RemoveCaption => "Remove";
+      public string QtyCaption => "QTY";
+      public string PlaceOrderCaption => "Place Order";
 
+      // Shopping cart item list.
       public IEnumerable<ShoppingCartItemDTO> ShoppingCartItems => GetShoppingCartItems();
 
+      // Required by IRoutable.
       public RoutingState RoutingState { get; set; }
 
-      public ShoppingCartVM( IShoppingCartService shoppingCartService, IMenuService menuService )
+      /// <summary>
+      /// Constructor.
+      /// </summary>
+      /// <param name="menuService">Service for getting menu info.</param>
+      /// <param name="shoppingCartService">Service for getting shopping cart info.</param>
+      public ShoppingCartVM(IMenuService menuService, IShoppingCartService shoppingCartService)
       {
          _shoppingCartService = shoppingCartService;
          _menuService = menuService;

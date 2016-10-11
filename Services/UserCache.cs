@@ -4,11 +4,11 @@ using Service.Interfaces;
 
 namespace Services
 {
-   public class SessionCache : ISessionCache
+   public class UserCache : IUserCache
    {
       private static readonly TimeSpan DEFAULT_CACHE_EXPIRATION = new TimeSpan(0, 20, 0);
 
-      private readonly MemoryCache _cache = new MemoryCache(nameof(SessionCache));
+      private readonly MemoryCache _cache = new MemoryCache(nameof(UserCache));
       private readonly TimeSpan _cacheExpiration;
 
 
@@ -22,10 +22,10 @@ namespace Services
          _cache.Set(iKey, iValue, GetCacheItemPolicy());
       }
 
-      public SessionCache() : this(DEFAULT_CACHE_EXPIRATION)
+      public UserCache() : this(DEFAULT_CACHE_EXPIRATION)
       { }
 
-      public SessionCache(TimeSpan cacheExpiration)
+      public UserCache(TimeSpan cacheExpiration)
       {
          _cacheExpiration = cacheExpiration;
       }

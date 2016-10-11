@@ -30,7 +30,7 @@ namespace WebApp
          container.Register<IMenuRepository, MenuRepository>();
          container.Register<IMenuService, MenuService>();
          container.Register<IShoppingCartService, ShoppingCartService>();
-         container.Register<ISessionCache, SessionCache>();
+         container.Register<IUserCache, UserCache>().AsSingleton();
       }
 
       public void ConfigureAuth( IAppBuilder app )

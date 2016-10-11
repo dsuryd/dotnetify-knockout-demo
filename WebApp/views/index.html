@@ -15,14 +15,14 @@
    <div class="snap-drawers content">
       <div class="snap-drawer snap-drawer-left">
          <!-- Title -->
-         <div id="UserName" class="table-view-cell"></div>
+         <div class="table-view-cell" data-bind="text: UserName"></div>
          <!-- Navigation items -->
-         <ul id="SideNav" class="my-side-nav table-view">
+         <ul class="my-side-nav table-view" data-bind="foreach: SideNav">
             <my-nav-item params="icon: Icon, caption: Caption, url: Route, nav: 'navigate-right'" />
          </ul>
          <!-- Sign out button -->
          <nav class="bar bar-footer">
-            <a class="btn btn-block btn-primary" href="/login"><span id="SignOut"></span></a>
+            <a class="btn btn-block btn-primary" href="/login"><span>Sign Out</span></a>
          </nav>
       </div>
    </div>

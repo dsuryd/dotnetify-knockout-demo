@@ -5,8 +5,9 @@
    <div class="container-fluid">
       <div class="card">
          <div class="card-block">
-            <h3 class="card-title text-xs-center">Review your order</h3>
+            <h3 class="card-title text-xs-center" data-bind="text: ReviewOrderCaption"></h3>
 
+            <!-- Table of shopping cart items -->
             <table id="ShoppingCartList">
                <tbody data-bind="foreach: ShoppingCartItems, vmItemKey: 'Id'">
                   <tr>
@@ -18,18 +19,20 @@
                         <span data-bind="html: Price"></span>
                      </td>
                      <td>
-                        <span>QTY&nbsp;&nbsp;</span><span data-bind="html: Qty"></span>
-                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}">Remove</a>
+                        <span data-bind="text: $root.QtyCaption"></span>&nbsp;&nbsp;<span data-bind="html: Qty"></span>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}, text: $root.RemoveCaption"></a>
                      </td>
                      <td>
-                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}">Remove</a>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}, text: $root.RemoveCaption"></a>
                      </td>
                   </tr>
                </tbody>
             </table>
          </div>
       </div>
-      <a href="#" class="btn btn-block btn-positive" data-bind="vmCommand: PlaceOrder">Place Order</a>
+
+      <!-- Place Order button -->
+      <a href="#" class="btn btn-block btn-positive" data-bind="vmCommand: PlaceOrder, text: PlaceOrderCaption"></a>
    </div>
 
 </div>

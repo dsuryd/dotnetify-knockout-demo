@@ -16,19 +16,21 @@
          <h1 class="title" data-bind="html: PageTitle"></h1>
       </header>
 
+      <!-- Brochure image with a center button that initiates Google authentication -->
       <div class="brochure">
-         <h1>Fresh meal delivered to your doorstep</h1>
+         <h1 data-bind="text: Slogan">Fresh meal delivered to your doorstep</h1>
          <div>
             <form action="/auth" method="post">
-               <button id="Google" type="submit"><span class="fa fa-google"></span>Continue with Google</button>
+               <button id="Google" type="submit">
+                  <span class="fa fa-google"></span>
+                  <span data-bind="text: GoogleAuthCaption">Continue with Google</span>
+               </button>
             </form>
          </div>
       </div>
       <div id="HowItWorks">
-         <h1>How It Works</h1>
-         <p>
-            It's as easy as 1, 2, 3.  You hungry, you tap what you want, we deliver it to you!
-         </p>
+         <h1 data-bind="text: HowItWorksTitle">How It Works</h1>
+         <p data-bind="text: HowItWorksText"></p>
       </div>
 
    </div>

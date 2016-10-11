@@ -10,7 +10,7 @@ namespace Services
    public class ShoppingCartService : IShoppingCartService
    {
       private readonly IMenuService _menuService;
-      private readonly ISessionCache _cache;
+      private readonly IUserCache _cache;
 
       private class ShoppingCartItem
       {
@@ -18,7 +18,7 @@ namespace Services
          public int Qty { get; set; }
       }
 
-      public ShoppingCartService(ISessionCache cache, IMenuService menuService)
+      public ShoppingCartService(IUserCache cache, IMenuService menuService)
       {
          _cache = cache;
          _menuService = menuService;

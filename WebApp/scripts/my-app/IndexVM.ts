@@ -5,8 +5,9 @@
 
       // Get any existing shopping cart data in local storage and send it to the server.
       var cart = localStorage.getItem("ShoppingCart");
-      //var cart = "[{ \"ItemId\": 1, \"Qty\": 1 }, { \"ItemId\": 2, \"Qty\": 3 } ]";
       vm.CartLocalData(cart);
+
+      // When data on the server is changed, save it to the local storage.
       vm.$on(vm.CartLocalData, data => localStorage.setItem("ShoppingCart", data));
    }
 

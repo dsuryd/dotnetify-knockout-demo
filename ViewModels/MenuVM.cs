@@ -13,46 +13,51 @@ namespace ViewModels
       private readonly IMenuService _menuService;
       private readonly IShoppingCartService _shoppingCartService;
 
+      // All text that get displayed on this page.
       public string PageTitle => "Daily Menu";
-
-      public Route CartRoute => this.Redirect("app", "cart");
-      public int OrderCount => _shoppingCartService.GetShoppingCart().OrderCount;
-
       public string BreakfastTabCaption => "Breakfast";
       public string LunchTabCaption => "Lunch";
       public string DinnerTabCaption => "Dinner";
 
-      public string ActiveTab { get; set; } = "tab-breakfast";
-
+      // List of menu items for each tab.
       public IEnumerable<MenuItemDTO> BreakfastMenu => GetMenuItems(MenuTypes.Breakfast);
       public IEnumerable<MenuItemDTO> LunchMenu => GetMenuItems(MenuTypes.Lunch);
       public IEnumerable<MenuItemDTO> DinnerMenu => GetMenuItems(MenuTypes.Dinner);
 
+      // The active tab.
+      public string ActiveTab { get; set; } = "tab-breakfast";
+
+      // Used with the shopping cart icon to route to the shopping cart page.
+      public Route CartRoute => this.Redirect("app", "cart");
+
+      // Required by IRoutable.
       public RoutingState RoutingState { get; set; }
 
+      // Order count shown on the shopping cart icon.
+      public int OrderCount => _shoppingCartService.GetShoppingCart().OrderCount;
+
+      /// <summary>
+      /// Constructor.
+      /// </summary>
+      /// <param name="menuService">Service for getting menu info.</param>
+      /// <param name="shoppingCartService">Service for getting shopping cart info.</param>
       public MenuVM(IMenuService menuService, IShoppingCartService shoppingCartService)
       {
          _menuService = menuService;
          _shoppingCartService = shoppingCartService;
 
+         // If the shopping cart is changed, show the order count on the affected menu items.
          _shoppingCartService.GetShoppingCart().Changed += OnShoppingCartChanged;
 
+         // Register the route that originates from this page.
          this.RegisterRoutes("menu", new List<RouteTemplate>
          {
             new RouteTemplate { Id = "MenuItem", UrlPattern = "item(/:id)", Target = "RightDrawer", ViewUrl = "/menu-item" }
-         });
-
-         this.OnRouted((sender, e) =>
-         {
-            var tab = e.From.Replace("menu/", "").ToLower();
-            if (tab == "lunch" || tab == "dinner")
-               ActiveTab = "tab-" + tab;
          });
       }
 
       // The following methods are required for dotNetify to handle client-side update on an item in an items property.
       // By convention, the method name starts with the items property name and ends with '_get' suffix.
-
       public MenuItemDTO BreakfastMenu_get(string key) => BreakfastMenu.FirstOrDefault(i => i.Id.ToString() == key);
       public MenuItemDTO LunchMenu_get(string key) => LunchMenu.FirstOrDefault(i => i.Id.ToString() == key);
       public MenuItemDTO DinnerMenu_get(string key) => DinnerMenu.FirstOrDefault(i => i.Id.ToString() == key);

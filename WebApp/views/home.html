@@ -4,16 +4,19 @@
       <my-cart-icon params="route: CartRoute, orderCount: OrderCount"></my-cart-icon>
    </my-header-bar>
 
+   <!-- Brochure image with a center button that routes to the menu page -->
    <div class="brochure">
-      <h1>Fresh meal delivered to your doorstep</h1>
+      <h1 data-bind="text: Slogan" />
       <div>
-         <a data-bind="vmRoute: MenuRoute">See Our Menu</a>
+         <a data-bind="vmRoute: MenuRoute">
+            <span data-bind="text: MenuCaption" />
+         </a>
       </div>
    </div>
+
    <div id="HowItWorks">
-      <h1>How It Works</h1>
-      <p>
-         It's as easy as 1, 2, 3.  You hungry, you tap what you want, we deliver it to you!
-      </p>
+      <h1 data-bind="text: HowItWorksTitle" />
+      <p data-bind="text: HowItWorksText" />
    </div>
+
 </div>
