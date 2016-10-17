@@ -20,10 +20,10 @@
                      </td>
                      <td>
                         <span data-bind="text: $root.QtyCaption"></span>&nbsp;&nbsp;<span data-bind="html: Qty"></span>
-                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}, text: $root.RemoveCaption"></a>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: RemoveCommand, text: $root.RemoveCaption"></a>
                      </td>
                      <td>
-                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: { Remove: Id}, text: $root.RemoveCaption"></a>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: RemoveCommand, text: $root.RemoveCaption"></a>
                      </td>
                   </tr>
                </tbody>
@@ -32,7 +32,7 @@
       </div>
 
       <!-- Place Order button -->
-      <a href="#" class="btn btn-block btn-positive" data-bind="vmCommand: PlaceOrder, text: PlaceOrderCaption"></a>
+      <a href="#" class="btn btn-block btn-positive" data-bind="vmCommand: PlaceOrderCommand, text: PlaceOrderCaption"></a>
    </div>
 
 </div>

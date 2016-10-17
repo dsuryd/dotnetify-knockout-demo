@@ -32,9 +32,13 @@ namespace ViewModels
          _menuService = menuService;
          _shoppingCartService = shoppingCartService;
 
+         // When this VM is invoked due to routing, use the item ID given in the URL to load and display the menu item.
          this.OnRouted(( sender, e ) => LoadMenuItem(e.From.Replace("item/", "")));
       }
 
+      /// <summary>
+      /// Loads a menu item data to be delivered to front-end for display.
+      /// </summary>
       private void LoadMenuItem( string strId )
       {
          int id;
@@ -50,16 +54,15 @@ namespace ViewModels
                   Description = menuItem.Description,
                   Price = $"${menuItem.Price}",
                   ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
-                  AddCommand = new Command(() => AddToShoppingCart(menuItem.Id))
+                  AddCommand = new Command(() => OnAdded(menuItem.Id))
                };
             }
          }
       }
 
-      private void AddToShoppingCart(int menuItemId)
-      {
-         var cart = _shoppingCartService.GetShoppingCart();
-         cart.AddOrder(_menuService.GetMenuItem(menuItemId));
-      }
+      /// <summary>
+      /// Adds a menu item to the shopping cart in response to the Add button click.
+      /// </summary>
+      private void OnAdded(int menuItemId) => _shoppingCartService.GetShoppingCart().AddOrder(_menuService.GetMenuItem(menuItemId));
    }
 }

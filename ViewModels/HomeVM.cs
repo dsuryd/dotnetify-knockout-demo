@@ -34,6 +34,7 @@ namespace ViewModels
       public HomeVM( IShoppingCartService shoppingCartService )
       {
          _shoppingCartService = shoppingCartService;
+         _shoppingCartService.GetShoppingCart().Changed += (sender, e) => Changed(() => OrderCount);
       }
    }
 }

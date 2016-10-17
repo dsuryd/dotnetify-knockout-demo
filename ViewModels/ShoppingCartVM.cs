@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using System.Linq;
 using DotNetify;
 using DotNetify.Routing;
@@ -25,6 +26,8 @@ namespace ViewModels
       // Required by IRoutable.
       public RoutingState RoutingState { get; set; }
 
+      public ICommand PlaceOrderCommand => new Command(() => OnPlaceOrder());
+
       /// <summary>
       /// Constructor.
       /// </summary>
@@ -36,6 +39,13 @@ namespace ViewModels
          _menuService = menuService;
       }
 
+      // The following methods are required for dotNetify to handle client-side update on an item in an items property.
+      // By convention, the method name starts with the items property name and ends with '_get' suffix.
+      public ShoppingCartItemDTO ShoppingCartItems_get(string key) => ShoppingCartItems.FirstOrDefault(i => i.Id.ToString() == key);
+
+      /// <summary>
+      /// Build the shopping cart item data to be delivered to the front-end for display.
+      /// </summary>
       private IEnumerable<ShoppingCartItemDTO> GetShoppingCartItems()
       {
          var cartItems = _shoppingCartService.GetShoppingCart().GetOrders();
@@ -48,9 +58,26 @@ namespace ViewModels
                Qty = i.Value,
                Name = menuItem.Name,
                Price = $"${menuItem.Price}",
-               ImageUrl = "/images/menu-items/" + menuItem.ImageUri
+               ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
+               RemoveCommand = new Command(() => OnRemove(i.Key))
             };
          });
+      }
+
+      /// <summary>
+      /// Removes an item from the shopping cart in response to the Remove button click.
+      /// </summary>
+      private void OnRemove(int iMenuItemId)
+      {
+         _shoppingCartService.GetShoppingCart().RemoveOrder(_menuService.GetMenuItem(iMenuItemId));
+         Changed(() => ShoppingCartItems);
+      }
+
+      /// <summary>
+      /// Places the order.
+      /// </summary>
+      private void OnPlaceOrder()
+      {
       }
    }
 }

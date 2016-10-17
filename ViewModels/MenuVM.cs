@@ -62,6 +62,10 @@ namespace ViewModels
       public MenuItemDTO LunchMenu_get(string key) => LunchMenu.FirstOrDefault(i => i.Id.ToString() == key);
       public MenuItemDTO DinnerMenu_get(string key) => DinnerMenu.FirstOrDefault(i => i.Id.ToString() == key);
 
+      /// <summary>
+      /// Build the menu item data to be delivered to front-end for display.
+      /// </summary>
+      /// <param name="menuType">Type of menu - breakfast, lunch, or dinner.</param>
       private IEnumerable<MenuItemDTO> GetMenuItems(MenuTypes menuType)
       {
          var cart = _shoppingCartService.GetShoppingCart();
@@ -74,11 +78,14 @@ namespace ViewModels
                Price = $"${i.Price}",
                ImageUrl = "/images/menu-items/" + i.ImageUri,
                Route = this.GetRoute("MenuItem", $"item/{i.Id}"),
-               AddCommand = new Command(() => AddToShoppingCart(i.Id)),
+               AddCommand = new Command(() => OnAdd(i.Id)),
                ItemAdded = cart.GetOrderCount(i) > 0 ? $"{cart.GetOrderCount(i)} in cart" : null
             });
       }
 
+      /// <summary>
+      /// When shopping cart changed, raise changed events of properties associated with the visuals requiring update.
+      /// </summary>
       private void OnShoppingCartChanged( object sender, int menuItemId)
       {
          Changed(() => OrderCount);
@@ -86,13 +93,17 @@ namespace ViewModels
             UpdateOrderCount(menuItemId);
          else
          {
+            // If shopping cart is cleared, update the visuals of all menu.
             Changed(() => BreakfastMenu);
             Changed(() => LunchMenu);
             Changed(() => DinnerMenu);
          }
       }
 
-      private void AddToShoppingCart(int menuItemId)
+      /// <summary>
+      /// Adds a menu item to the shopping cart in response to the Add button click.
+      /// </summary>
+      private void OnAdd(int menuItemId)
       {
          var cart = _shoppingCartService.GetShoppingCart();
          var menuItem = _menuService.GetMenuItem(menuItemId);
@@ -101,6 +112,9 @@ namespace ViewModels
          UpdateOrderCount(menuItemId);
       }
 
+      /// <summary>
+      /// Updates the order count text that's overlaid on a menu item image.
+      /// </summary>
       private void UpdateOrderCount(int menuItemId)
       {
          var cart = _shoppingCartService.GetShoppingCart();
