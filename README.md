@@ -10,5 +10,5 @@ The design strategy being used here are:
 - MVVM pattern with view models at the back-end.
 - Knockout web components to increase front-end reusability and readability.
 
-The application featured in this template is a single-page-application for ordering food delivery.
+The application featured in this template is a single-page-application for ordering food delivery.  Visual Studio 2015 is required.
 
