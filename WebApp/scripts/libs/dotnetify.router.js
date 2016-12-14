@@ -377,14 +377,14 @@ limitations under the License.
                   route.Path(path);
                }
             }
-            else if(route.RedirectRoot() == null)
+            else if (route.RedirectRoot() == null)
                throw new Error("vmRoute cannot find route template '" + route.TemplateId() + "' at " + element.outerHTML);
          }
 
          // If the path has a redirect root, the path doesn't belong to the current root and needs to be
          // redirected to a different one.  Set the absolute path to the HREF attribute, and prevent the
-         // default behavior of the anchor click event and instead do push to HTML5 history state and 
-         // call redirect, which would attempt to resolve the path first before resorting to hard browser redirect.
+         // default behavior of the anchor click event and instead do push to HTML5 history state, which 
+         // would attempt to resolve the path first before resorting to hard browser redirect.
          if (route.RedirectRoot() != null) {
 
             // Combine the redirect root with the view model's root.
@@ -410,7 +410,6 @@ limitations under the License.
                .click(function (iEvent) {
                   iEvent.preventDefault();
                   dotnetify.router.pushState({}, "", $(this).attr("href"));
-                  dotnetify.router.redirect(url);
                })
             return;
          }
