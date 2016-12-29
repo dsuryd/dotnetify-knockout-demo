@@ -39,6 +39,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.Interfaces\IMenuRepository.cs" />
     <Compile Include="ShoppingCart.cs" />
+    <Compile Include="UserAccount.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

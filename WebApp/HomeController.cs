@@ -21,10 +21,7 @@ namespace WebApp.Controllers
 
       [Route("app/{*id}")]
       [Authorize]
-      public ActionResult App(string id)
-      {
-         return File(Server.MapPath("/views/index.html"), "text/html");
-      }
+      public ActionResult App(string id) => File(Server.MapPath("/views/index.html"), "text/html");
 
       [Route("login")]
       public ActionResult Login()
@@ -36,10 +33,7 @@ namespace WebApp.Controllers
       }
 
       [Route("auth")]
-      public ActionResult AuthenticateGoogle()
-      {
-         return new ChallengeResult("Google", Url.Action("Index"));
-      }
+      public ActionResult AuthenticateGoogle() => new ChallengeResult("Google", Url.Action("Index"));
    }
 
    /// <summary>

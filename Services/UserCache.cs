@@ -11,17 +11,6 @@ namespace Services
       private readonly MemoryCache _cache = new MemoryCache(nameof(UserCache));
       private readonly TimeSpan _cacheExpiration;
 
-
-      public T Get<T>(string iKey)
-      {
-         return (T)_cache.Get(iKey);
-      }
-
-      public void Set<T>(string iKey, T iValue)
-      {
-         _cache.Set(iKey, iValue, GetCacheItemPolicy());
-      }
-
       public UserCache() : this(DEFAULT_CACHE_EXPIRATION)
       { }
 
@@ -30,13 +19,14 @@ namespace Services
          _cacheExpiration = cacheExpiration;
       }
 
-      private CacheItemPolicy GetCacheItemPolicy()
+      public T Get<T>(string iKey) => (T)_cache.Get(iKey);
+
+      public void Set<T>(string iKey, T iValue) => _cache.Set(iKey, iValue, GetCacheItemPolicy());
+
+      private CacheItemPolicy GetCacheItemPolicy() => new CacheItemPolicy
       {
-         return new CacheItemPolicy
-         {
-            SlidingExpiration = _cacheExpiration,
-            RemovedCallback = i => (i.CacheItem.Value as IDisposable)?.Dispose()
-         };
-      }
+         SlidingExpiration = _cacheExpiration,
+         RemovedCallback = i => (i.CacheItem.Value as IDisposable)?.Dispose()
+      };
    }
 }

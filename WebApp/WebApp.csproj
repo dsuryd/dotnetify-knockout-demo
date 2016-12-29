@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\my-app\account.css" />
     <Content Include="css\my-app\global.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\my-app\login.css" />

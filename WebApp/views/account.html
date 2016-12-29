@@ -1,35 +1,50 @@
-﻿<div class="content" data-vm="AccountVM">
+﻿<div id="Account" class="content" data-vm="AccountVM">
 
-   <my-header-bar params="title: 'Account'"></my-header-bar>
+    <my-header-bar params="title: 'Account'"></my-header-bar>
 
-   <div>
-      <paper-input id="FirstName" required char-counter maxlength=20 auto-validate></paper-input>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-block">
+                <div class="form-group">
+                    <label for="FirstNameInput" data-bind="text: FirstName_label"></label>
+                    <input type="text" class="form-control" id="FirstNameInput" data-bind="value: FirstName, attr: { placeholder: FirstName_placeholder }">
+                </div>
 
-      <paper-input id="LastName" required char-counter maxlength=20 auto-validate></paper-input>
+                <div class="form-group">
+                    <label for="LastNameInput" data-bind="text: LastName_label"></label>
+                    <input type="text" class="form-control" id="LastNameInput" data-bind="value: LastName, attr: { placeholder: LastName_placeholder }">
+                </div>
 
-      <div>
-         <paper-dropdown-menu id="Language">
-            <paper-listbox class="dropdown-content menu-width">
-               <paper-item></paper-item>
-            </paper-listbox>
-         </paper-dropdown-menu>
-      </div>
+                <div class="form-group">
+                    <label for="EmailInput" data-bind="text: Email_label"></label>
+                    <input type="email" class="form-control" id="EmailInput" data-bind="value: Email, attr: { placeholder: Email_placeholder }">
+                    <small id="EmailInputHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
 
-      <div>
-         <paper-checkbox id="OptOutNotice">
-            <span id="OptOutNoticeText"></span>
-         </paper-checkbox>
-      </div>
+                <div class="form-group">
+                    <label for="LanguageInput" data-bind="text: Language_optionsCaption"></label>
+                    <select class="form-control" id="LanguageInput" data-bind="options: Language_options, optionsText: 'Text', optionsValue: 'Id', value: Language"></select>
+                </div>
 
-      <div>
-         <paper-toggle-button id="TrackMyLocation">
-            <span id="TrackMyLocationText"></span>
-         </paper-toggle-button>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" data-bind="checked: OptOutNotice">
+                        <span data-bind="text: OptOutNoticeText"></span>
+                    </label>
+                </div>
 
-         <paper-toggle-button id="AllowNotification">
-            <span id="AllowNotificationsText"></span>
-         </paper-toggle-button>
-      </div>
-   </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" data-bind="checked: TrackMyLocation">
+                        <span data-bind="text: TrackMyLocationText"></span>
+                    </label>
+                </div>
 
+                <!-- Save Account button -->
+                <a href="#" class="btn btn-block btn-primary" data-bind="vmCommand: SaveCommand, text: SaveCaption"-->></a>
+            </div>
+
+
+        </div>
+    </div>
 </div>

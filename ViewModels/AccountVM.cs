@@ -1,30 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using DotNetify;
 
 namespace ViewModels
 {
    public class AccountVM : BaseVM
    {
-      public string FirstName
+      public enum Languages
       {
-         get { return Get<string>(); }
-         set { Set(value); }
-      }
-
-      public string FirstName_label => "First name";
-
-      public string LastName
-      {
-         get { return Get<string>(); }
-         set { Set(value); }
-      }
-
-      public string LastName_label => "Last name";
-
-      public int Language
-      {
-         get { return Get<int>(); }
-         set { Set(value); }
+         English = 1,
+         French,
+         Spanish,
+         Japanese
       }
 
       public class LanguageOption
@@ -33,44 +20,74 @@ namespace ViewModels
          public string Text { get; set; }
       }
 
+      public string FirstName_label => "First name";
+      public string FirstName_placeholder => "Enter first name";
+      public string FirstName
+      {
+         get { return Get<string>(); }
+         set { Set(value); }
+      }
+
+      public string LastName_label => "Last name";
+      public string LastName_placeholder => "Enter last name";
+      public string LastName
+      {
+         get { return Get<string>(); }
+         set { Set(value); }
+      }
+
+      public string Email_label => "Email address";
+      public string Email_placeholder => "Enter email";
+      public string Email
+      {
+         get { return Get<string>(); }
+         set { Set(value); }
+      }
+
+      public int Language
+      {
+         get { return Get<int>(); }
+         set { Set(value); }
+      }
+
       public string Language_optionsCaption => "Select a language";
       public string Language_optionsText => nameof(LanguageOption.Text);
       public string Language_optionsValue => nameof(LanguageOption.Id);
       public List<LanguageOption> Language_options => new List<LanguageOption>
          {
-            new LanguageOption { Id = 1, Text = "English" },
-            new LanguageOption { Id = 2, Text = "French" },
-            new LanguageOption { Id = 3, Text = "Spanish" },
-            new LanguageOption { Id = 4, Text = "Japanese" }
+            new LanguageOption { Id = (int) Languages.English, Text = "English" },
+            new LanguageOption { Id = (int) Languages.French, Text = "French" },
+            new LanguageOption { Id = (int) Languages.Spanish, Text = "Spanish" },
+            new LanguageOption { Id = (int) Languages.Japanese, Text = "Japanese" }
          };
 
+      public string OptOutNoticeText => "Allow this app to periodically send promotional offers";
       public bool OptOutNotice
       {
          get { return Get<bool>(); }
          set { Set(value); }
       }
 
-      public string OptOutNoticeText => "Allow this app to periodically send promotional offers";
-
+      public string TrackMyLocationText => "Track my location";
       public bool TrackMyLocation
       {
          get { return Get<bool>(); }
          set { Set(value); }
       }
+      
+      public string SaveCaption => "Save";
+      public ICommand SaveCommand => new Command(() => Save());
 
-      public string TrackMyLocationText => "Track My Location";
-
-      public bool AllowNotification
-      {
-         get { return Get<bool>(); }
-         set { Set(value); }
-      }
-
-      public string AllowNotificationText => "Receive Notifications";
-
+      /// <summary>
+      /// Constructor.
+      /// </summary>
       public AccountVM()
       {
-         Language = 1;
+         Language = (int)Languages.English;
+      }
+
+      public void Save()
+      {
       }
    }
 }

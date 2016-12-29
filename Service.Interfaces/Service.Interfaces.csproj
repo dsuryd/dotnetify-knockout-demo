@@ -34,6 +34,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountService.cs" />
     <Compile Include="IMenuService.cs" />
     <Compile Include="IUserCache.cs" />
     <Compile Include="IShoppingCartService.cs" />
