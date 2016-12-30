@@ -34,6 +34,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Languages.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="Enums\MenuTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

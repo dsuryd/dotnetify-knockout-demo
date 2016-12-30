@@ -1,18 +1,26 @@
 ﻿#MenuItem header + div {
-      padding-top: 60px;
+    padding-top: 60px;
 }
 
 #MenuItem img {
-   width: 100%;
+    width: 100%;
 }
 
 #MenuItem .card a {
-   font-family: Roboto, sans-serif;
-   font-size: medium;
-   margin-top: .5em;
-   padding: .5em 2em;
+    font-family: Roboto, sans-serif;
+    font-size: medium;
+    margin-top: .5em;
+    padding: .5em 2em;
 }
 
-   #MenuItem .card a > span.fa {
-      margin-right: 5px;
-   }
+    #MenuItem .card a > span.fa {
+        margin-right: 5px;
+    }
+
+#MenuItem .card .card-added {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255,187,51,.6);
+}

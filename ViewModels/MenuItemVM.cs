@@ -27,26 +27,28 @@ namespace ViewModels
       /// </summary>
       /// <param name="menuService">Service for getting menu info.</param>
       /// <param name="shoppingCartService">Service for getting shopping cart info.</param>
-      public MenuItemVM( IMenuService menuService, IShoppingCartService shoppingCartService )
+      public MenuItemVM(IMenuService menuService, IShoppingCartService shoppingCartService)
       {
          _menuService = menuService;
          _shoppingCartService = shoppingCartService;
 
          // When this VM is invoked due to routing, use the item ID given in the URL to load and display the menu item.
-         this.OnRouted(( sender, e ) => LoadMenuItem(e.From.Replace("item/", "")));
+         this.OnRouted((sender, e) => LoadMenuItem(e.From.Replace("item/", "")));
       }
 
       /// <summary>
       /// Loads a menu item data to be delivered to front-end for display.
       /// </summary>
-      private void LoadMenuItem( string strId )
+      private void LoadMenuItem(string strId)
       {
          int id;
-         if ( int.TryParse(strId, out id) )
+         if (int.TryParse(strId, out id))
          {
             var menuItem = _menuService.GetMenuItem(id);
-            if ( menuItem != null )
+            if (menuItem != null)
             {
+               var cart = _shoppingCartService.GetShoppingCart();
+
                PageTitle = menuItem.Name;
                MenuItem = new MenuItemDTO
                {
@@ -54,7 +56,8 @@ namespace ViewModels
                   Description = menuItem.Description,
                   Price = $"${menuItem.Price}",
                   ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
-                  AddCommand = new Command(() => OnAdded(menuItem.Id))
+                  AddCommand = new Command(() => OnAdded(menuItem.Id)),
+                  ItemAdded = cart.GetOrderCount(menuItem) > 0 ? $"{cart.GetOrderCount(menuItem)} in cart" : null
                };
             }
          }
@@ -63,6 +66,15 @@ namespace ViewModels
       /// <summary>
       /// Adds a menu item to the shopping cart in response to the Add button click.
       /// </summary>
-      private void OnAdded(int menuItemId) => _shoppingCartService.GetShoppingCart().AddOrder(_menuService.GetMenuItem(menuItemId));
+      private void OnAdded(int menuItemId)
+      {
+         var menuItem = _menuService.GetMenuItem(menuItemId);
+         _shoppingCartService.GetShoppingCart().AddOrder(menuItem);
+
+         // Update the order count that's displayed on the menu item.
+         var cart = _shoppingCartService.GetShoppingCart();
+         MenuItem.ItemAdded = cart.GetOrderCount(menuItem) > 0 ? $"{cart.GetOrderCount(menuItem)} in cart" : null;
+         Changed(() => MenuItem);
+      }
    }
 }

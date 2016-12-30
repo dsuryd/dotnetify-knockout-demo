@@ -175,6 +175,7 @@
     <Content Include="scripts\libs\text.js" />
     <Content Include="scripts\libs\velocity.min.js" />
     <Content Include="scripts\my-components\component-my-cart-icon.html" />
+    <Content Include="scripts\my-components\component-my-toaster.html" />
     <Content Include="scripts\my-components\component-my-tab.html" />
     <Content Include="scripts\my-components\component-my-tab-panel.html" />
     <Content Include="scripts\my-components\component-my-nav-item.html" />

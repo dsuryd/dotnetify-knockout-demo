@@ -50,7 +50,6 @@ my-header-bar a.fa.fa-shopping-cart {
    margin-right: 8px;
    color: gray;
    position: relative;
-   
 }
 
    my-header-bar a.fa.fa-shopping-cart .tag {
@@ -64,4 +63,30 @@ my-header-bar a.fa.fa-shopping-cart {
       opacity: 0.8;
       background-color: #ffbb33;
       color: black;
+   }
+
+my-toaster div.toaster {
+   visibility: hidden;
+   opacity: 0;
+   color: white;
+   background-color: #5bc0de;
+   padding: 1.5rem;
+   border: 1px solid #46b8da;
+   border-radius: 4px;
+   box-shadow: 0 0 8px dimgray;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
+   transform: translateX(-50%) translateY(-50%) scale(0.7);
+   transition: visibility 0s linear .25s, opacity .25s ease-in-out, all .25s;
+   -webkit-transition: visibility 0s linear .25s, opacity .25s ease-in-out, all .25s;
+}
+
+   my-toaster div.toaster.show {
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
+      -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+      transform: translateX(-50%) translateY(-50%) scale(1);
    }

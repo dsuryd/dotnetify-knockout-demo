@@ -26,7 +26,15 @@ namespace ViewModels
       // Required by IRoutable.
       public RoutingState RoutingState { get; set; }
 
+      public bool DisablePlaceOrder => ShoppingCartItems.Count() == 0;
       public ICommand PlaceOrderCommand => new Command(() => OnPlaceOrder());
+
+      public string OrderPlacedToaster => "Thank you for your order!";
+      public int OrderPlacedToasterTrigger
+      {
+         get { return Get<int>(); }
+         set { Set(value); }
+      }
 
       /// <summary>
       /// Constructor.
@@ -71,6 +79,7 @@ namespace ViewModels
       {
          _shoppingCartService.GetShoppingCart().RemoveOrder(_menuService.GetMenuItem(iMenuItemId));
          Changed(() => ShoppingCartItems);
+         Changed(() => DisablePlaceOrder);
       }
 
       /// <summary>
@@ -78,6 +87,10 @@ namespace ViewModels
       /// </summary>
       private void OnPlaceOrder()
       {
+         _shoppingCartService.GetShoppingCart().Clear();
+         Changed(() => ShoppingCartItems);
+         Changed(() => DisablePlaceOrder);
+         OrderPlacedToasterTrigger++;
       }
    }
 }

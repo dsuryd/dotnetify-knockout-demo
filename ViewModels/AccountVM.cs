@@ -1,18 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
 using DotNetify;
+using Domain;
+using Domain.Enums;
+using Service.Interfaces;
 
 namespace ViewModels
 {
    public class AccountVM : BaseVM
    {
-      public enum Languages
-      {
-         English = 1,
-         French,
-         Spanish,
-         Japanese
-      }
+      private readonly IAccountService _accountService;
 
       public class LanguageOption
       {
@@ -74,20 +71,49 @@ namespace ViewModels
          get { return Get<bool>(); }
          set { Set(value); }
       }
-      
+
       public string SaveCaption => "Save";
       public ICommand SaveCommand => new Command(() => Save());
+
+      public string SavedToaster => "Account saved";
+      public int SavedToasterTrigger
+      {
+         get { return Get<int>(); }
+         set { Set(value); }
+      }
 
       /// <summary>
       /// Constructor.
       /// </summary>
-      public AccountVM()
+      public AccountVM(IAccountService accountService)
       {
-         Language = (int)Languages.English;
+         _accountService = accountService;
+
+         var userAccount = _accountService.GetAccount();
+         FirstName = userAccount.FirstName;
+         LastName = userAccount.LastName;
+         Email = userAccount.Email;
+         Language = (int)userAccount.Language;
+         OptOutNotice = !userAccount.OptOut;
+         TrackMyLocation = userAccount.TrackLocation;
       }
 
       public void Save()
       {
+         var userAccount = new UserAccount()
+         {
+            FirstName = FirstName,
+            LastName = LastName,
+            Email = Email,
+            Language = (Languages)Language,
+            OptOut = OptOutNotice,
+            TrackLocation = TrackMyLocation
+         };
+
+         _accountService.SaveAccount(userAccount);
+
+         // Send notification back that the account was saved.
+         SavedToasterTrigger++;
       }
    }
 }

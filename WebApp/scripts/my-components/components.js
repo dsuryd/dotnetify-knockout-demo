@@ -13,7 +13,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
  */
-(function (factory) {
+(function (factory)
+{
    if (typeof define === 'function' && define['amd']) {
       define(['knockout'], factory);
    }
@@ -21,11 +22,12 @@ limitations under the License.
       factory(ko);
    }
 }
-(function (ko) {
-
+(function (ko)
+{
    // Full-length navigation item.
    ko.components.register('my-nav-item', {
-      viewModel: function (params) {
+      viewModel: function (params)
+      {
          for (prop in params)
             this[prop] = params[prop];
       },
@@ -34,7 +36,8 @@ limitations under the License.
 
    // Full-length header bar.
    ko.components.register('my-header-bar', {
-      viewModel: function (params) {
+      viewModel: function (params)
+      {
          for (prop in params)
             this[prop] = params[prop];
       },
@@ -43,7 +46,8 @@ limitations under the License.
 
    // Shopping cart.
    ko.components.register('my-cart-icon', {
-      viewModel: function (params) {
+      viewModel: function (params)
+      {
          for (prop in params)
             this[prop] = params[prop];
       },
@@ -52,7 +56,8 @@ limitations under the License.
 
    // Menu item.
    ko.components.register('my-menu', {
-      viewModel: function (params) {
+      viewModel: function (params)
+      {
          for (prop in params)
             this[prop] = params[prop];
       },
@@ -61,7 +66,8 @@ limitations under the License.
 
    // Menu item.
    ko.components.register('my-menu-item', {
-      viewModel: function (params) {
+      viewModel: function (params)
+      {
          for (prop in params)
             this[prop] = params[prop];
       },
@@ -70,7 +76,8 @@ limitations under the License.
 
    // Tab panel with slider to indicate tab selection.
    ko.components.register('my-tab-panel', {
-      viewModel: function (params) {
+      viewModel: function (params)
+      {
          this.selected = ko.isObservable(params.selected) ? params.selected : ko.observable(params.selected);
       },
       template: { require: 'text!/scripts/my-components/component-my-tab-panel.html' }
@@ -78,18 +85,44 @@ limitations under the License.
 
    // Tab.
    ko.components.register('my-tab', {
-      viewModel: function (params) {
+      viewModel: function (params)
+      {
          var self = this;
          for (prop in params)
             self[prop] = params[prop];
 
-         self.onClick = function (data, event) {
+         self.onClick = function (data, event)
+         {
             var tabPanel = $(event.target).closest('.tab-panel').get(0);
             ko.contextFor(tabPanel).$data.selected(self.id);
             return true;
          };
       },
       template: { require: 'text!/scripts/my-components/component-my-tab.html' }
+   });
+
+   // Toaster.
+   ko.components.register('my-toaster', {
+      viewModel: function (params)
+      {
+         var self = this;
+         self.state = ko.observable(null);
+         self.timeout = 2000;
+
+         for (prop in params)
+            self[prop] = params[prop];
+
+         self.show = function (vm)
+         {
+            if (self.state() !== null) {
+               self.state('show');
+               setTimeout(function () { self.state('') }, self.timeout);
+            }
+            else
+               self.state('');
+         };
+      },
+      template: { require: 'text!/scripts/my-components/component-my-toaster.html' }
    });
 
 }))

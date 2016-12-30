@@ -27,9 +27,10 @@ namespace WebApp
          DotNetify.VMController.CreateInstance = ( type, args ) => TinyIoCContainer.Current.Resolve(type);
 
          var container = TinyIoCContainer.Current;
-         container.Register<IMenuRepository, MenuRepository>();
-         container.Register<IMenuService, MenuService>();
-         container.Register<IShoppingCartService, ShoppingCartService>();
+         container.Register<IMenuRepository, MenuRepository>().AsMultiInstance();
+         container.Register<IMenuService, MenuService>().AsMultiInstance();
+         container.Register<IShoppingCartService, ShoppingCartService>().AsMultiInstance();
+         container.Register<IAccountService, AccountService>().AsMultiInstance();
          container.Register<IUserCache, UserCache>().AsSingleton();
       }
 

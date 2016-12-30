@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
 using Newtonsoft.Json;
 using Domain;
 using Service.Interfaces;
@@ -24,6 +25,9 @@ namespace Services
          _menuService = menuService;
       }
 
+      /// <summary>
+      /// Deserializes the previous shopping cart data in json format that was stored in the client's HTML5 storage.
+      /// </summary>
       public void DeserializeShoppingCart(string jsonData)
       {
          try
@@ -54,7 +58,8 @@ namespace Services
 
       public ShoppingCart GetShoppingCart()
       {
-         var key = nameof(ShoppingCart);
+         var userName = Thread.CurrentPrincipal?.Identity.Name;
+         var key = $"{nameof(ShoppingCart)}_{userName}";
 
          var shoppingCart = _cache.Get<ShoppingCart>(key);
          if (shoppingCart == null)
