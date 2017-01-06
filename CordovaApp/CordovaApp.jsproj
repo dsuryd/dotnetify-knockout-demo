@@ -66,6 +66,9 @@
       <Platform>Windows Phone (Universal)</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>736a2a76-ab21-43c9-a095-5e5128cb635f</ProjectGuid>
   </PropertyGroup>

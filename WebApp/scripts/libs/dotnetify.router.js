@@ -28,7 +28,7 @@ limitations under the License.
    // Add plugin functions.
    dotnetify.router =
       {
-         version: "1.0.5",
+         version: "1.0.6",
 
          // URL path that will be parsed when performing routing.
          urlPath: document.location.pathname,
@@ -62,6 +62,9 @@ limitations under the License.
             }
             return false;
          },
+
+         // Optional callback to override a URL before performing routing.
+         overrideUrl: function (iUrl) { return iUrl },
 
          // Push state to HTML history.
          pushState: function (iState, iTitle, iPath) {
@@ -223,6 +226,9 @@ limitations under the License.
                   if (typeof iCallbackFn === "function")
                      iCallbackFn.apply(this);
                };
+
+               // Provide the opportunity to override the URL.
+               iViewUrl = dotnetify.router.overrideUrl(iViewUrl);
 
                vm.$loadView(iTargetSelector, iViewUrl, iJsModuleUrl, iVmArg, callbackFn);
 

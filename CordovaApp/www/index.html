@@ -1,30 +1,46 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-    <head>
-    <!--
-        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
-        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-       <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://www.dotnetify.net https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>CordovaMobileApp</title>
-    </head>
-    <body>
-       Verifying connectivity..
-       <a id="bkpLink" href="http://www.dotnetify.net/polymer">dotNetify.net</a>
+<head>
+   <title>DotNetify App</title>
+   <meta name="format-detection" content="telephone=no">
+   <meta name="msapplication-tap-highlight" content="no">
+   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://169.254.80.80:5500 ws://169.254.80.80:5500 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; media-src *">
 
-       <div class="app">
-          <h1>Apache Cordova</h1>
-          <div id="deviceready" class="blink">
-             <p class="event listening">Connecting to Device</p>
-             <p class="event received">Device is Ready</p>
-          </div>
-       </div>
-       <script type="text/javascript" src="cordova.js"></script>
-       <script type="text/javascript" src="scripts/index.js"></script>
-    </body>
+   <link href="css/my-app/_master.css" rel="stylesheet">
+   <script type="text/javascript" src="cordova.js"></script>
+   <script src="scripts/libs/require.min.js" data-main="scripts/my-app/app"></script>
+</head>
+
+<body data-vm="IndexVM">
+
+   <!-- Side navigation drawer (courtesy of snap.js) -->
+   <div class="snap-drawers content">
+      <div class="snap-drawer snap-drawer-left">
+         <!-- Title -->
+         <div class="table-view-cell" data-bind="text: UserName"></div>
+         <!-- Navigation items -->
+         <ul class="my-side-nav table-view" data-bind="foreach: SideNav">
+            <my-nav-item params="icon: Icon, caption: Caption, url: Route, nav: 'navigate-right'" />
+         </ul>
+         <!-- Sign out button -->
+         <nav class="bar bar-footer">
+            <a class="btn btn-block btn-primary" href="/login"><span>Sign Out</span></a>
+         </nav>
+      </div>
+   </div>
+
+   <!-- Main page  -->
+   <div id="MainPage" class="snap-content">
+      <div class="content">
+      </div>
+   </div>
+
+    <!-- Right drawer -->
+   <div id="RightDrawer" class="snap-content">
+   </div>
+
+   <!-- Required for client-side routing to shopping cart page -->
+   <input type="hidden" data-bind="vmRoute: CartRoute" />
+</body>
 </html>

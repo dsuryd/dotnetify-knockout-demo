@@ -1,0 +1,39 @@
+﻿<div id="MenuItem" class="content" data-vm="MenuItemVM">
+
+   <header class="bar bar-nav">
+      <a class="btn btn-link btn-nav pull-left" data-bind="vmCommand: back">
+         <span class="icon icon-left-nav"></span>
+      </a>
+   </header>
+
+   <div class="container-fluid">
+      <div class="row" data-bind="with: MenuItem">
+
+         <!-- Menu item image -->
+         <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="card">
+                <span class="card-added" data-bind="html: ItemAdded"></span>
+               <img class="card-img-top" data-bind="attr: {src: gServerUrl + $data.ImageUrl(), alt: Name }">
+            </div>
+         </div>
+
+         <!-- Menu item info -->
+         <div class="col-lg-6 col-sm-6 col-xs-12">
+            <div class="card">
+               <div class="card-block">
+                  <h3 class="card-title" data-bind="html: Name"></h3>
+
+                  <p class="card-text" data-bind="html: Description"></p>
+
+                  <div class="card-text" data-bind="html: Price"></div>
+                  <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: AddCommand">
+                     <span class="fa fa-plus"></span>
+                     <span data-bind="text: $root.AddCaption"></span>
+                  </a>
+               </div>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>

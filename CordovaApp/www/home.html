@@ -1,0 +1,22 @@
+﻿<div id="Home" class="content" data-vm="HomeVM">
+
+   <my-header-bar params="title: PageTitle">
+      <my-cart-icon params="route: CartRoute, orderCount: OrderCount"></my-cart-icon>
+   </my-header-bar>
+
+   <!-- Brochure image with a center button that routes to the menu page -->
+   <div class="brochure">
+      <h1 data-bind="text: Slogan" />
+      <div>
+         <a data-bind="vmRoute: MenuRoute">
+            <span data-bind="text: MenuCaption" />
+         </a>
+      </div>
+   </div>
+
+   <div id="HowItWorks">
+      <h1 data-bind="text: HowItWorksTitle" />
+      <p data-bind="text: HowItWorksText" />
+   </div>
+
+</div>

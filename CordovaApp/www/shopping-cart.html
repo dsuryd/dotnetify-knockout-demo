@@ -1,0 +1,40 @@
+﻿<div id="ShoppingCart" class="content" data-vm="ShoppingCartVM">
+
+   <my-header-bar params="title: 'Shopping Cart'"></my-header-bar>
+
+   <div class="container-fluid">
+      <div class="card">
+         <div class="card-block">
+            <h3 class="card-title text-xs-center" data-bind="text: ReviewOrderCaption"></h3>
+
+            <!-- Table of shopping cart items -->
+            <table id="ShoppingCartList">
+               <tbody data-bind="foreach: ShoppingCartItems, vmItemKey: 'Id'">
+                  <tr>
+                     <td>
+                        <img data-bind="attr: {src: gServerUrl + $data.ImageUrl(), alt: Name }">
+                     </td>
+                     <td>
+                        <span data-bind="html: Name"></span><br />
+                        <span data-bind="html: Price"></span>
+                     </td>
+                     <td>
+                        <span data-bind="text: $root.QtyCaption"></span>&nbsp;&nbsp;<span data-bind="html: Qty"></span>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: RemoveCommand, text: $root.RemoveCaption"></a>
+                     </td>
+                     <td>
+                        <a href="#" class="btn btn-primary pull-right" data-bind="vmCommand: RemoveCommand, text: $root.RemoveCaption"></a>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      <!-- Place Order button -->
+      <a href="#" class="btn btn-block btn-positive" data-bind="vmCommand: PlaceOrderCommand, text: PlaceOrderCaption, css: { disabled: DisablePlaceOrder }"></a>
+
+      <my-toaster params="text: OrderPlacedToaster, trigger: OrderPlacedToasterTrigger"></my-toaster>
+   </div>
+
+</div>

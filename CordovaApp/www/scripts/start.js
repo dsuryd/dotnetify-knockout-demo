@@ -10,10 +10,7 @@
       app.receivedEvent('deviceready');
 
       // Here, we redirect to the web site.
-      var targetUrl = "http://www.dotnetify.net/polymer";
-      var bkpLink = document.getElementById("bkpLink");
-      bkpLink.setAttribute("href", targetUrl);
-      bkpLink.text = targetUrl;
+      var targetUrl = "index.html";
       window.location.replace(targetUrl);
    },
    // Note: This code is taken from the Cordova CLI template.
