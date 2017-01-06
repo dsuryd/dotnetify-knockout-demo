@@ -7,16 +7,15 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-compat": {
             "PACKAGE_NAME": "io.cordova.myapp0d326e"
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "io.cordova.myapp0d326e"
-        }
-    },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.myapp0d326e"
         }
-    }
+    },
+    "dependent_plugins": {}
 }
