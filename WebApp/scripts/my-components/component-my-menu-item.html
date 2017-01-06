@@ -2,7 +2,7 @@
    <div class="card">
       <div>
          <span class="card-added" data-bind="html: itemAdded"></span>
-         <img class="card-img-top" data-bind="attr: {src: imageUrl, alt: name }, vmRoute: route">
+         <img class="card-img-top" data-bind="attr: {src: gServerUrl + $data.imageUrl(), alt: name }, vmRoute: route">
       </div>
       <div class="card-block">
          <h4 class="card-title" data-bind="html: name"></h4>

@@ -1,4 +1,8 @@
-﻿require.config({
+﻿// Base server URL used by menu item components to build absolute path for images.
+// In cordova app, this should be set to specific server address.
+var gServerUrl = "";
+
+require.config({
    baseUrl: '/scripts',
    paths: {
       // DotNetify's dependencies.

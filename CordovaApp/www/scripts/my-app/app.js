@@ -1,4 +1,5 @@
-﻿// Set the server URL to point to signalR hub location.
+﻿// Base server URL used by menu item components to build absolute path for images,
+// as well as the location of signalR hub.
 var gServerUrl = "http://169.254.80.80:5500/";
 
 require.config({

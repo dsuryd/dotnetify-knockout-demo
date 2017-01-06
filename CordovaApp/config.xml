@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myapp0d326e" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
-  <name>CordovaMobileApp</name>
+  <name>DotNetify Hybrid App</name>
   <description>
   </description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">
