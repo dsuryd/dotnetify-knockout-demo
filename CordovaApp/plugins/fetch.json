@@ -10,7 +10,7 @@
     "cordova-plugin-file": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-file"
+            "id": "cordova-plugin-file@4.3.1"
         },
         "is_top_level": true,
         "variables": {}
@@ -18,9 +18,9 @@
     "cordova-plugin-compat": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-compat"
+            "id": "cordova-plugin-compat@1.1.0"
         },
-        "is_top_level": false,
+        "is_top_level": true,
         "variables": {}
     }
 }
