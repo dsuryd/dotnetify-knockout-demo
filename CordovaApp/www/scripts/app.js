@@ -16,6 +16,7 @@ require.config({
       "path": "libs/path.min",
       "signalr": "libs/jquery.signalR-2.2.0.min",
       "signalr-hub": "dotnetify-hub",
+      "offline": "offline",   // *** addition to support offline mode in disconnected devices ***
 
       // Layout styling libraries.
       "bootstrap": "libs/bootstrap.min",
@@ -54,18 +55,9 @@ require(['signalr-hub'], function () { $.connection.hub.url = gServerUrl + "sign
 // This is needed by bootstrap.
 require(['tether'], function (Tether) { window.Tether = Tether; });
 
-require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'IndexVM'], function ($) {
+require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'offline', 'IndexVM'], function ($) {
    $(function () {
       dotnetify.debug = true;
-
-      // Enable offline mode.
-      dotnetify.offline = true;
-      $.connection.hub.stateChanged(function (state) {
-         if (state.newState != 1)
-            $(".offline").show();
-         else
-            $(".offline").hide();
-      });
 
       // Set requireJs's base url to absolute path so the web components can be loaded correctly.
       require.config({
@@ -77,6 +69,8 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'IndexVM
          return cordova.file.applicationDirectory + "www/views" + iUrl + ".html"
       };
 
+      // On initial load of the Index page, navigate to the Home section.
+      // On ASP.NET web server, this is done by the controller, but must be done manually on Cordova.
       $("[data-vm='IndexVM'").one("ready", function () {
          $(".my-side-nav #Home").click();
       });
