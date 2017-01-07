@@ -25,4 +25,3 @@ var MenuVM = (function () {
     };
     return MenuVM;
 }());
-//# sourceMappingURL=MenuVM.js.map
