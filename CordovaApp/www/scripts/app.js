@@ -65,7 +65,7 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'IndexVM
 
       // Override routed URL in mobile devices to point to local device path.
       dotnetify.router.overrideUrl = function (iUrl) {
-         return cordova.file.applicationDirectory + "www" + iUrl + ".html"
+         return cordova.file.applicationDirectory + "www/views" + iUrl + ".html"
       };
 
       $("[data-vm='IndexVM'").one("ready", function () {

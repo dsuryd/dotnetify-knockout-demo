@@ -15,6 +15,15 @@ a:focus {
    text-decoration: none;
 }
 
+.bar-nav {
+   background-color: rgba(247,247,247,.98);
+   border-bottom: 0;
+}
+
+.content {
+   background-color: #efeff4;
+}
+
 .icon-bars {
    cursor: pointer;
 }

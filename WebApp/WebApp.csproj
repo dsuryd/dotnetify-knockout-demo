@@ -210,12 +210,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\ratchet-theme-android.min.css" />
-    <Content Include="css\ratchet-theme-ios.min.css" />
     <Content Include="css\ratchet.min.css" />
     <Content Include="css\snap.css" />
     <Content Include="fonts\ratchicons.svg" />
-    <Content Include="scripts\my-app\app.js" />
+    <Content Include="scripts\app.js" />
     <Content Include="scripts\libs\dotnetify.binder.js" />
     <Content Include="scripts\libs\dotnetify.binder.polymer.js" />
     <Content Include="scripts\libs\dotnetify.js" />
