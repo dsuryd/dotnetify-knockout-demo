@@ -48,10 +48,15 @@ limitations under the License.
             if (snapper == null) {
                snapper = new Snap({ element: snapContent.get(0), disable: 'right' });
                snapContent.data("snap", snapper);
-
-               // Set up all nav links on the side menu to close the menu when clicked.
-               $(".my-side-nav a").click(function () { console.log('test'); snapper.close() });
             }
+
+            // Set up all nav links on the side menu to close the menu when clicked.
+            $.each($(".my-side-nav a"), function (idx, elem) {
+               var navLink = $(this);
+               if (!navLink.hasClass("snap-close"))
+                  navLink.addClass("snap-close").click(function () { snapper.close() });
+            });
+
             snapper.open("left");
          };
       },

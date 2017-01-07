@@ -1,5 +1,5 @@
 ﻿/* 
-Copyright 2015 Dicky Suryadi
+Copyright 2015-2017 Dicky Suryadi
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -35,7 +35,9 @@ var dotNetify = {};
       hub: null,
       debug: false,
       debugFn: null,
+      offline: false,
       init: function () {
+         var applyWidget = function () { $.each($("[data-vm]"), function () { $(this).dotnetify() }); };
 
          if (dotnetify.hub === null) {
             // Setup SignalR server method handler.
@@ -89,9 +91,13 @@ var dotNetify = {};
                var hub = $.connection.hub.start();
                hub.done(function () {
                   dotnetify._connectRetry = 0;
-                  $.each($("[data-vm]"), function () { $(this).dotnetify() });
+                  applyWidget();
                })
-               .fail(function (e) { console.error(e); });
+               .fail(function (e) {
+                  console.error(e);
+                  if (dotnetify.offline)
+                     applyWidget();
+               });
                return hub;
             }
             dotnetify.hub = startHub();
@@ -105,9 +111,18 @@ var dotNetify = {};
                if (dotnetify._connectRetry < 3)
                   dotnetify._connectRetry++;
             });
+
+            // Log SignalR connection state change.
+            $.connection.hub.stateChanged(function (state) {
+               var stateText = { 0: 'connecting', 1: 'connected', 2: 'reconnecting', 4: 'disconnected' };
+               console.log("SignalR: " + stateText[state.newState]);
+            });
          }
-         else
-            dotnetify.hub.done(function () { $.each($("[data-vm]"), function () { $(this).dotnetify() }) });
+         else if ($.connection.hub.state == $.signalR.connectionState.connected)
+            dotnetify.hub.done(applyWidget);
+         else if (dotnetify.offline)
+            applyWidget();
+
       },
       widget: function (iElement) {
          return $(iElement).data("ko-dotnetify");
@@ -146,7 +161,27 @@ var dotNetify = {};
          if (self.VMId != null) {
             var vmArg = self.element.attr("data-vm-arg");
             vmArg = vmArg != null ? $.parseJSON(vmArg.replace(/'/g, "\"")) : null;
-            self.Hub.server.request_VM(self.VMId, vmArg);
+
+            if ($.connection.hub.state == $.signalR.connectionState.connected) {
+               try {
+                  self.Hub.server.request_VM(self.VMId, vmArg);
+               }
+               catch (e) {
+                  console.error(e);
+               }
+            }
+            else if (dotnetify.offline) {
+               // SignalR connection isn't available; use cached VM data for offline mode.
+               var cachedData = sessionStorage.getItem(self.VMId + self.element.attr("data-vm-arg"));
+               if (cachedData == null)
+                  cachedData = sessionStorage.getItem(self.VMId);
+
+               if (cachedData != null) {
+                  if (dotnetify.debug)
+                     console.warn("[" + self.VMId + "] using offline data");
+                  self.UpdateVM(cachedData);
+               }
+            }
          }
          else
             console.error("ERROR: dotnetify - failed to find 'data-vm' attribute in the element where .dotnetify() was applied.")
@@ -231,6 +266,10 @@ var dotNetify = {};
                   // Send 'ready' event after a new view model was received.
                   self.element.trigger("ready", { VMId: self.VMId, VM: self.VM });
                });
+
+               // Cache the VM data in case of offline mode.
+               if (dotnetify.offline)
+                  sessionStorage.setItem(self.VMId + self.element.attr("data-vm-arg"), iVMData);
             }
             else {
                // Disable server update because we're going to update the value in the knockout VM
@@ -550,14 +589,22 @@ var dotNetify = {};
       _OnValueChanged: function (iVMPath, iNewValue) {
          var update = {};
          update[iVMPath] = iNewValue instanceof Object ? $.extend({}, iNewValue) : iNewValue;
-         this.Hub.server.update_VM(this.VMId, update);
 
-         if (dotnetify.debug) {
-            console.log("[" + this.VMId + "] sent> ");
-            console.log(update);
+         if ($.connection.hub.state == $.signalR.connectionState.connected) {
+            try {
+               this.Hub.server.update_VM(this.VMId, update);
 
-            if (dotnetify.debugFn != null)
-               dotnetify.debugFn(this.VMId, "sent", update);
+               if (dotnetify.debug) {
+                  console.log("[" + this.VMId + "] sent> ");
+                  console.log(update);
+
+                  if (dotnetify.debugFn != null)
+                     dotnetify.debugFn(this.VMId, "sent", update);
+               }
+            }
+            catch (e) {
+               console.error(e);
+            }
          }
       }
    });

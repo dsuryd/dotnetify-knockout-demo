@@ -15,7 +15,7 @@ require.config({
       "dnf-binder": "libs/dotnetify.binder",
       "path": "libs/path.min",
       "signalr": "libs/jquery.signalR-2.2.0.min",
-      "signalr-hub": gServerUrl + "signalr/hubs?",
+      "signalr-hub": "dotnetify-hub",
 
       // Layout styling libraries.
       "bootstrap": "libs/bootstrap.min",
@@ -57,6 +57,15 @@ require(['tether'], function (Tether) { window.Tether = Tether; });
 require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'IndexVM'], function ($) {
    $(function () {
       dotnetify.debug = true;
+
+      // Enable offline mode.
+      dotnetify.offline = true;
+      $.connection.hub.stateChanged(function (state) {
+         if (state.newState != 1)
+            $(".offline").show();
+         else
+            $(".offline").hide();
+      });
 
       // Set requireJs's base url to absolute path so the web components can be loaded correctly.
       require.config({
