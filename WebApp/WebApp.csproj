@@ -190,6 +190,7 @@
     <Content Include="scripts\my-components\component-my-header-bar.html" />
     <Content Include="scripts\my-components\component-my-menu-item.html" />
     <Content Include="scripts\my-components\component-my-menu.html" />
+    <Content Include="scripts\offline.js" />
     <Content Include="views\shopping-cart.html" />
     <Content Include="views\login.html" />
     <Content Include="views\menu-item.html" />

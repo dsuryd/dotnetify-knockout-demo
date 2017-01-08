@@ -16,7 +16,7 @@ require.config({
       "path": "libs/path.min",
       "signalr": "libs/jquery.signalR-2.2.0.min",
       "signalr-hub": "dotnetify-hub",
-      "offline": "offline",   // *** addition to support offline mode in disconnected devices ***
+      "offline": "offline",    
 
       // Layout styling libraries.
       "bootstrap": "libs/bootstrap.min",

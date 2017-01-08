@@ -16,6 +16,7 @@ require.config({
       "path": "libs/path.min",
       "signalr": "libs/jquery.signalR-2.2.0.min",
       "signalr-hub": "/signalr/hubs?",
+      "offline": "offline",
 
       // Layout styling libraries.
       "bootstrap": "libs/bootstrap.min",
@@ -51,7 +52,7 @@ require.config({
 // This is needed by bootstrap.
 require(['tether'], function (Tether) { window.Tether = Tether; });
 
-require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'dnf-binder', 'IndexVM'], function ($) {
+require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'offline', 'IndexVM'], function ($) {
    $(function () {
       dotnetify.debug = true;
    });
