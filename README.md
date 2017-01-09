@@ -5,7 +5,7 @@ Coupled with Apache Cordova, dotNetify enables rapid development of SignalR-powe
 
 * No need for complicated JS client-side framework to manage your front-end - it's just that simple.
 * No fat controllers nor REST APIs to write - your data is auto-delivered right from/to your C# view models.
-* Bult-in bi-directional real-time communication on top of WebSocket technology, courtesy of SignalR.
+* Built-in bi-directional real-time communication on top of WebSocket technology, courtesy of SignalR.
 * Built-in offline support for mobile apps - state of visited pages can be cached and used when disconnected.
 * Exact-same codebase for the most part between hosted web app and hybrid mobile app.
 
