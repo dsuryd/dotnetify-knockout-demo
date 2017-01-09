@@ -183,21 +183,16 @@ var dotNetify = {};
             self.VMId = $(this).attr("data-master-vm") + "." + self.VMId;
          });
 
+         // Handle offline mode.
+         if (dotnetify.offline)
+            self._ListenToOfflineEvent();
+
          // Request the server VM. 
          if (self.VMId != null) {
-            var vmArg = self.element.attr("data-vm-arg");
-            vmArg = vmArg != null ? $.parseJSON(vmArg.replace(/'/g, "\"")) : null;
-
-            if (dotnetify.isConnected()) {
-               try {
-                  self.Hub.server.request_VM(self.VMId, vmArg);
-               }
-               catch (e) {
-                  console.error(e);
-               }
-            }
+            if (dotnetify.isConnected())
+               self._RequestVM();
             else if (dotnetify.offline)
-               self._HandleOffline();
+               self._GetOfflineVM();
          }
          else
             console.error("ERROR: dotnetify - failed to find 'data-vm' attribute in the element where .dotnetify() was applied.")
@@ -207,6 +202,10 @@ var dotNetify = {};
       _destroy: function () {
          try {
             var self = this;
+
+            // Stop listening to offline event.
+            if (typeof self.OfflineFn === "function")
+               $(document).off("offline", self.OfflineFn);
 
             // Call any plugin's $destroy function if provided.
             $.each(dotnetify.plugins, function (pluginId, plugin) {
@@ -236,6 +235,10 @@ var dotNetify = {};
                // Set essential info to the view model.
                self.VM.$vmId = self.VMId;
                self.VM.$element = self.element;
+
+               // Add an observable to carry the offline state.
+               if (dotnetify.offline)
+                  self.VM.$vmOffline = ko.observable(self.IsOffline);
 
                // Add built-in functions to the view model.
                this._AddBuiltInFunctions();
@@ -463,8 +466,8 @@ var dotNetify = {};
          });
       },
 
-      // Handles offline mode.
-      _HandleOffline: function () {
+      // Gets offline view model data from the local cache.
+      _GetOfflineVM: function () {
          var self = this;
 
          if (typeof dotnetify.offlineCacheFn === "function") {
@@ -477,20 +480,30 @@ var dotNetify = {};
                if (dotnetify.debug)
                   console.warn("[" + self.VMId + "] using offline data");
 
+               self.IsOffline = true;
                self.UpdateVM(cachedData);
-               if (typeof self.VM["$onOffline"] === "function")
-                  self.VM.$onOffline(true);
-
-               // Once back online, refresh the VM data from the server.
-               $(document).one("offline", function (event, isOffline) {
-                  if (!isOffline) {
-                     var vmArg = self.element.attr("data-vm-arg");
-                     vmArg = vmArg != null ? $.parseJSON(vmArg.replace(/'/g, "\"")) : null;
-                     self.Hub.server.request_VM(self.VMId, vmArg);
-                  }
-               });
             }
          }
+      },
+
+      // Initializes offline mode handling.
+      _ListenToOfflineEvent: function () {
+         var self = this;
+
+         self.IsOffline = false;
+         self.OfflineFn = function (event, isOffline) {
+
+            if (self.VM != null && self.VM.hasOwnProperty("$vmOffline"))
+               self.VM.$vmOffline(isOffline);
+
+            self.IsOffline = isOffline;
+            if (!isOffline)
+               self._RequestVM();
+            else if (self.VM == null)
+               self._GetOfflineVM();
+         };
+
+         $(document).one("offline", self.OfflineFn.bind(self));
       },
 
       // Inject the context with observables mapped from an object.
@@ -610,6 +623,22 @@ var dotNetify = {};
                   throw new Error("unable to resolve " + prop);
                delete iVMUpdate[prop];
                continue;
+            }
+         }
+      },
+
+      // Requests view model data from the server.
+      _RequestVM: function () {
+         var self = this;
+         var vmArg = self.element.attr("data-vm-arg");
+         vmArg = vmArg != null ? $.parseJSON(vmArg.replace(/'/g, "\"")) : null;
+
+         if (dotnetify.isConnected()) {
+            try {
+               self.Hub.server.request_VM(self.VMId, vmArg);
+            }
+            catch (e) {
+               console.error(e);
             }
          }
       },

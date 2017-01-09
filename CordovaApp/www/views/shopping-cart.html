@@ -32,7 +32,9 @@
       </div>
 
       <!-- Place Order button -->
+      <!-- ko if: !$data.$vmOffline() -->
       <a href="#" class="btn btn-block btn-positive" data-bind="vmCommand: PlaceOrderCommand, text: PlaceOrderCaption, css: { disabled: DisablePlaceOrder }"></a>
+      <!-- /ko -->
 
       <my-toaster params="text: OrderPlacedToaster, trigger: OrderPlacedToasterTrigger"></my-toaster>
    </div>
