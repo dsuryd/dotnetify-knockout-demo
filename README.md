@@ -19,6 +19,8 @@ Visit [http://dotnetify.net](http://dotnetify.net) for documentation and live de
 
 Visit [dotNetify github project](https://github.com/dsuryd/dotNetify) for source code.
 
+*** more documentation coming soon ***
+
 ##License
 Licensed under the Apache License, Version 2.0.
 
