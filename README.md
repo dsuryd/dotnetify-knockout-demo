@@ -1,14 +1,23 @@
-#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify App Template
+#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - web & mobile hybrid app template
 
+Combined with Apache Cordova, dotNetify enables rapid development of SignalR-powered web and mobile hybrid applications that are incredibly lightweight on the front-end, and running on a cross-platform .NET back-end.
 
-This is a work in progress...but the goal of this project is to provide a dotNetify-powered application template for sustainable web/mobile application projects, that is, those projects that will have longer life-span and therefore has emphasis on quality attributes such as maintainability, extensibility, and reliability.  Its architecture is typically identified by having high cohesion and low coupling among its components.
+##Highlights
 
-The design strategy being used here are:
-- Onion architecture, which reduces coupling between components through dependency injection.
-- SOLID abstractions that enforce clear separation of concerns.
-- Service/repository pattern at data access layer.
-- MVVM pattern with view models at the back-end.
-- Knockout web components to increase front-end reusability and readability.
+* No need for complicated JS client-side framework to manage your front-end - it's just that simple.
+* No fat controllers - your data is delivered right into your C# view models.
+* Out-of-the-box bi-directional real-time communication on top of WebSocket technology, courtesy of SignalR.
+* Built-in offline support for mobile apps.
 
-The application featured in this template is a single-page-application for ordering food delivery.  Visual Studio 2015 is required.
+##Demo on Android Emulator
+![alt tag](http://dotnetify.net/content/images/android_demo.gif)
+
+##More Info
+
+Visit [http://dotnetify.net](http://dotnetify.net) for documentation and live demos.
+
+Visit [dotNetify github project](https://github.com/dsuryd/dotNetify) for source code.
+
+##License
+Licensed under the Apache License, Version 2.0.
 
