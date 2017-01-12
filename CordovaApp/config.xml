@@ -115,4 +115,5 @@
   <preference name="BackupWebStorage" value="none" />
   <plugin name="cordova-plugin-device" version="1.1.4" />
   <preference name="Orientation" value="portrait" />
+  <preference name="deployment-target" value="" />
 </widget>

@@ -15,9 +15,10 @@ require.config({
       "dnf-router": "libs/dotnetify.router",
       "dnf-binder": "libs/dotnetify.binder",
       "path": "libs/path.min",
+      "fastclick": "libs/fastclick",
       "signalr": "libs/jquery.signalR-2.2.0.min",
       "signalr-hub": "dotnetify-hub",
-      "offline": "offline",    
+      "offline": "offline",
 
       // Layout styling libraries.
       "bootstrap": "libs/bootstrap.min",
@@ -55,6 +56,9 @@ require(['signalr-hub'], function () { $.connection.hub.url = gServerUrl + "sign
 
 // This is needed by bootstrap.
 require(['tether'], function (Tether) { window.Tether = Tether; });
+
+// Remove 300ms click delay in mobile devices using the FastClick library.
+require(['fastclick'], function (fastclick) { fastclick.attach(document.body); });
 
 require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'offline', 'IndexVM'], function ($) {
    $(function () {
