@@ -1,6 +1,7 @@
 ﻿// Base server URL used by menu item components to build absolute path for images,
 // as well as the location of signalR hub.
-var gServerUrl = "http://169.254.80.80:5500/";
+//var gServerUrl = "http://169.254.80.80:5500/"; // For Android emulator.
+var gServerUrl = "http://192.168.96.1:5500/"; // For iOS simulator on my machine.
 
 require.config({
    baseUrl: "scripts",
@@ -66,12 +67,17 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'offline', 'IndexVM'],
 
       // Override routed URL in mobile devices to point to local device path.
       dotnetify.router.overrideUrl = function (iUrl) {
-         return cordova.file.applicationDirectory + "www/views" + iUrl + ".html"
+         return cordova.file.applicationDirectory + "www/views" + iUrl + ".html";
       };
+
+      // If iOS 7.0 or greater, account for the device status bar.
+      if (parseFloat(window.device.version) >= 7.0) {
+         document.body.style.marginTop = "20px";
+      }
 
       // On initial load of the Index page, navigate to the Home section.
       // On ASP.NET web server, this is done by the controller, but must be done manually on Cordova.
-      $("[data-vm='IndexVM'").one("ready", function () {
+      $("[data-vm='IndexVM']").one("ready", function () {
          $(".my-side-nav #Home").click();
       });
 

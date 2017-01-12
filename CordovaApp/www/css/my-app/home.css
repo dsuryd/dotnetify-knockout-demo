@@ -53,3 +53,10 @@
       color: dimgray;
       padding: 0 2em;
    }
+
+@media (max-width: 568px) {
+   #Home .brochure > h1,
+   #HowItWorks h1 {
+      font-size: x-large;
+   }
+}
