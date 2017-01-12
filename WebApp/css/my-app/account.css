@@ -1,8 +1,4 @@
-﻿#Account > div {
-   margin: 1rem;
-}
-
-div#Account.content {
+﻿div#Account.content {
    background-color: #efeff4;
 }
 

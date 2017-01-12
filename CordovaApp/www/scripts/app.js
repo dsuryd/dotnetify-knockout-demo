@@ -77,6 +77,7 @@ require(['jquery', 'knockout', 'dotnetify', 'dnf-router', 'offline', 'IndexVM'],
       // If iOS 7.0 or greater, account for the device status bar.
       if (parseFloat(window.device.version) >= 7.0) {
          document.body.style.marginTop = "20px";
+         document.body.style.height = "calc(100% - 20px)";
       }
 
       // On initial load of the Index page, navigate to the Home section.

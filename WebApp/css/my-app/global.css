@@ -26,6 +26,8 @@ a:focus {
 
 .icon-bars {
    cursor: pointer;
+   padding: 10px;
+   margin-left: -10px;
 }
 
 #MainPage div.content {
@@ -55,16 +57,16 @@ my-header-bar + div {
 
 my-header-bar a.fa.fa-shopping-cart {
    font-size: 1.25em;
-   margin-top: 10px;
-   margin-right: 8px;
+   padding: 10px 20px;
+   margin-right: -10px;
    color: gray;
    position: relative;
 }
 
    my-header-bar a.fa.fa-shopping-cart .tag {
       position: absolute;
-      top: -5px;
-      right: -5px;
+      top: 5px;
+      right: 12px;
       font-size: 50%;
       font-weight: normal;
       border-radius: 50%;

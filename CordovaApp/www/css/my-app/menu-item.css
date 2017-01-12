@@ -6,6 +6,11 @@
     width: 100%;
 }
 
+#MenuItem .bar-nav a {
+   padding: 0 10px;
+   margin-left: -10px;
+}
+
 #MenuItem .card a {
     font-family: Roboto, sans-serif;
     font-size: medium;

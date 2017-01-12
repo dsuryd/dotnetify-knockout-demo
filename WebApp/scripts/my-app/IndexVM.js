@@ -18,3 +18,4 @@ var IndexVM = (function () {
     };
     return IndexVM;
 }());
+//# sourceMappingURL=IndexVM.js.map
