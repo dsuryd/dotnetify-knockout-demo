@@ -9,12 +9,9 @@ Coupled with Apache Cordova, dotNetify enables rapid development of SignalR-powe
 * Built-in offline support for mobile apps - state of visited pages can be cached and used when disconnected.
 * Close to 100% code-reuse between hosted web app and hybrid mobile app.
 
-##Demo on Android Emulator
-![alt tag](http://dotnetify.net/content/images/android_demo.gif)
-
-&nbsp;
-##Demo on iOS Simulator with Offline Mode
-![alt tag](http://dotnetify.net/content/images/ios_offline_demo.gif)
+##Demo
+<img src="http://dotnetify.net/content/images/android_demo.gif" height="500">&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="http://dotnetify.net/content/images/ios_offline_demo.gif" height="500">
 
 ##More Info
 
