@@ -12,6 +12,10 @@ Coupled with Apache Cordova, dotNetify enables rapid development of SignalR-powe
 ##Demo on Android Emulator
 ![alt tag](http://dotnetify.net/content/images/android_demo.gif)
 
+&nbsp;
+##Demo on iOS Simulator with Offline Mode
+![alt tag](http://dotnetify.net/content/images/ios_offline_demo.gif)
+
 ##More Info
 
 Visit [http://dotnetify.net](http://dotnetify.net) for documentation and live demos.
