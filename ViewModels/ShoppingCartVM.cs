@@ -3,7 +3,7 @@ using System.Windows.Input;
 using System.Linq;
 using DotNetify;
 using DotNetify.Routing;
-using Service.Interfaces;
+using Domain.Service.Interfaces;
 using ViewModels.DTO;
 
 namespace ViewModels

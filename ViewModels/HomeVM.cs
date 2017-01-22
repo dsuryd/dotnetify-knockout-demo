@@ -1,6 +1,6 @@
 ﻿using DotNetify;
 using DotNetify.Routing;
-using Service.Interfaces;
+using Domain.Service.Interfaces;
 
 namespace ViewModels
 {

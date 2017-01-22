@@ -3,7 +3,7 @@ using System.Windows.Input;
 using DotNetify;
 using Domain;
 using Domain.Enums;
-using Service.Interfaces;
+using Domain.Service.Interfaces;
 
 namespace ViewModels
 {

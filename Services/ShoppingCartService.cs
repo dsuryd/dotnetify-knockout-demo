@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Threading;
+using System.Security.Claims;
+using System.Security.Principal;
 using Newtonsoft.Json;
 using Domain;
-using Service.Interfaces;
+using Domain.Service.Interfaces;
 
 namespace Services
 {
@@ -12,6 +13,7 @@ namespace Services
    {
       private readonly IMenuService _menuService;
       private readonly IUserCache _cache;
+      private readonly IPrincipal _principal;
 
       private class ShoppingCartItem
       {
@@ -19,10 +21,11 @@ namespace Services
          public int Qty { get; set; }
       }
 
-      public ShoppingCartService(IUserCache cache, IMenuService menuService)
+      public ShoppingCartService(IUserCache cache, IMenuService menuService, ClaimsPrincipal principal)
       {
          _cache = cache;
          _menuService = menuService;
+         _principal = principal;
       }
 
       /// <summary>
@@ -58,7 +61,7 @@ namespace Services
 
       public ShoppingCart GetShoppingCart()
       {
-         var userName = Thread.CurrentPrincipal?.Identity.Name;
+         var userName = _principal.Identity?.Name ?? "guest";
          var key = $"{nameof(ShoppingCart)}_{userName}";
 
          var shoppingCart = _cache.Get<ShoppingCart>(key);

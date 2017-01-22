@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
+using System.Security.Claims;
+using System.Security.Principal;
 using DotNetify;
 using DotNetify.Routing;
-using Service.Interfaces;
+using Domain.Service.Interfaces;
 
 namespace ViewModels
 {
    public class IndexVM : BaseVM, IRoutable
    {
       private readonly IShoppingCartService _shoppingCartService;
+      private readonly IPrincipal _principal;
 
       // Class to hold side navigation items.
       public class SideNavItem
@@ -40,15 +42,17 @@ namespace ViewModels
       public RoutingState RoutingState { get; set; }
 
       // Name of authenticated user that's shown above the side navigation list.
-      public string UserName => Thread.CurrentPrincipal?.Identity?.Name;
+      public string UserName => _principal?.Identity?.Name;
 
       /// <summary>
       /// Constructor.
       /// </summary>
       /// <param name="shoppingCartService">Service for getting shopping cart info.</param>
-      public IndexVM(IShoppingCartService shoppingCartService)
+      /// <param name="principal">Current user.</param>
+      public IndexVM(IShoppingCartService shoppingCartService, ClaimsPrincipal principal)
       {
          _shoppingCartService = shoppingCartService;
+         _principal = principal;
 
          // When shopping cart content is changed, raise the changed event to get the data stored in client-side HTML5 local storage.
          var shoppingCart = _shoppingCartService.GetShoppingCart();

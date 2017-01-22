@@ -1,11 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using DataAccess.Entities;
 using DataAccess.Properties;
 using Domain;
 using Domain.Repository.Interfaces;
-using Newtonsoft.Json;
 
 namespace DataAccess.Repositories
 {
@@ -14,7 +14,6 @@ namespace DataAccess.Repositories
       private IEnumerable<MenuItem> _cache;
 
       public MenuRepository()
-           : base("name=MenuRepository")
       {
       }
 

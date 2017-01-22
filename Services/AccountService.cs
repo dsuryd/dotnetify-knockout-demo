@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
-using Service.Interfaces;
+using System.Security.Claims;
+using System.Security.Principal;
+using Domain.Service.Interfaces;
 using Domain;
 
 namespace Services
@@ -9,10 +10,12 @@ namespace Services
    public class AccountService : IAccountService
    {
       private readonly IUserCache _cache;
+      private readonly IPrincipal _principal;
 
-      public AccountService(IUserCache cache)
+      public AccountService(IUserCache cache, ClaimsPrincipal principal)
       {
          _cache = cache;
+         _principal = principal;
       }
 
       public UserAccount GetAccount()
@@ -24,7 +27,10 @@ namespace Services
             userAccount = new UserAccount();
 
             // Try to set default first and last names by parsing the principal's identity name.
-            var userName = Thread.CurrentPrincipal?.Identity?.Name;
+            var userName = _principal?.Identity?.Name;
+            if (string.IsNullOrEmpty(userName))
+               userName = "Guest";
+
             var nameTokens = userName.Split(' ');
             if (nameTokens.Length > 1)
             {
@@ -44,7 +50,7 @@ namespace Services
 
       private string BuildCacheKey()
       {
-         var userName = Thread.CurrentPrincipal?.Identity?.Name;
+         var userName = _principal?.Identity?.Name;
          return $"{nameof(UserAccount)}_{userName}";
       }
    }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Runtime.Caching;
-using Service.Interfaces;
+using Microsoft.Extensions.Caching.Memory;
+using Domain.Service.Interfaces;
 
 namespace Services
 {
@@ -8,25 +8,21 @@ namespace Services
    {
       private static readonly TimeSpan DEFAULT_CACHE_EXPIRATION = new TimeSpan(0, 20, 0);
 
-      private readonly MemoryCache _cache = new MemoryCache(nameof(UserCache));
-      private readonly TimeSpan _cacheExpiration;
+      private readonly IMemoryCache _cache;
 
-      public UserCache() : this(DEFAULT_CACHE_EXPIRATION)
-      { }
+      public TimeSpan CacheExpiration { get; set; } = DEFAULT_CACHE_EXPIRATION;
 
-      public UserCache(TimeSpan cacheExpiration)
+      public UserCache(IMemoryCache memoryCache)
       {
-         _cacheExpiration = cacheExpiration;
+         _cache = memoryCache;
       }
 
       public T Get<T>(string iKey) => (T)_cache.Get(iKey);
 
-      public void Set<T>(string iKey, T iValue) => _cache.Set(iKey, iValue, GetCacheItemPolicy());
+      public void Set<T>(string iKey, T iValue) => _cache.Set(iKey, iValue, GetCacheEntryOptions());
 
-      private CacheItemPolicy GetCacheItemPolicy() => new CacheItemPolicy
-      {
-         SlidingExpiration = _cacheExpiration,
-         RemovedCallback = i => (i.CacheItem.Value as IDisposable)?.Dispose()
-      };
+      private MemoryCacheEntryOptions GetCacheEntryOptions() => new MemoryCacheEntryOptions()
+         .SetSlidingExpiration(CacheExpiration)
+         .RegisterPostEvictionCallback((key, value, reason, substate) => (value as IDisposable)?.Dispose());
    }
 }
