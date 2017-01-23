@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChartWebApplication", "LiveChartWebApplication\LiveChartWebApplication.csproj", "{DE0E7EE2-0FD2-4A1C-AF9C-16C4766C9E9E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LiveChartWebApplication.Core", "LiveChartWebApplication.Core\LiveChartWebApplication.Core.xproj", "{146BA816-B07B-4811-A4CF-CEECA95D1D95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DE0E7EE2-0FD2-4A1C-AF9C-16C4766C9E9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE0E7EE2-0FD2-4A1C-AF9C-16C4766C9E9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE0E7EE2-0FD2-4A1C-AF9C-16C4766C9E9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{146BA816-B07B-4811-A4CF-CEECA95D1D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{146BA816-B07B-4811-A4CF-CEECA95D1D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{146BA816-B07B-4811-A4CF-CEECA95D1D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{146BA816-B07B-4811-A4CF-CEECA95D1D95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+   "devDependencies": {
+      "webpack": "^1.14.0",
+      "webpack-uglify-js-plugin": "^1.1.9"
+   },
+  "dependencies": {
+     "dotnetify": "^1.1.0"
+  }
+}
