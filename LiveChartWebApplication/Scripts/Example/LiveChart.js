@@ -40,4 +40,4 @@ var LiveChartVM = (function () {
         return new Chart(iElement.getContext('2d')).Line(chartData, { responsive: true, animation: false });
     };
     return LiveChartVM;
-})();
+}());

@@ -1,5 +1,5 @@
 ﻿/* 
-Copyright 2015 Dicky Suryadi
+Copyright 2015-2017 Dicky Suryadi
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,10 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-// Support using RequireJS that loads our app.js, or being placed in <script> tag.
+// Support using AMD or CommonJS that loads our app.js, or being placed in <script> tag.
 (function (factory) {
    if (typeof define === "function" && define["amd"]) {
       define(['jquery', 'knockout', 'dotnetify', 'path'], factory);
+   }
+   else if (typeof exports === "object" && typeof module === "object") {
+      window.Path = require("path");
+      module.exports = factory(require('jquery'), require('knockout'), require('dotnetify'));
    }
    else {
       factory(jQuery, ko, dotnetify);
@@ -28,7 +32,7 @@ limitations under the License.
    // Add plugin functions.
    dotnetify.router =
       {
-         version: "1.0.5",
+         version: "1.1.0",
 
          // URL path that will be parsed when performing routing.
          urlPath: document.location.pathname,
@@ -62,6 +66,9 @@ limitations under the License.
             }
             return false;
          },
+
+         // Optional callback to override a URL before performing routing.
+         overrideUrl: function (iUrl) { return iUrl },
 
          // Push state to HTML history.
          pushState: function (iState, iTitle, iPath) {
@@ -154,7 +161,12 @@ limitations under the License.
                vm.$router.initRoot();
 
                $.each(templates, function (idx, template) {
-                  dotnetify.router.mapTo(vm.$router.toUrl(template.UrlPattern()), function (iParams) {
+                  var mapUrl = vm.$router.toUrl(template.UrlPattern());
+
+                  if (dotnetify.debug)
+                     console.log("router> map " + mapUrl + " to template id=" + template.Id());
+
+                  dotnetify.router.mapTo(mapUrl, function (iParams) {
 
                      dotnetify.router.urlPath = "";
 
@@ -194,8 +206,7 @@ limitations under the License.
                   return;
                }
 
-               // Loads the view template to the target DOM element.
-               $(iTargetSelector).load(iViewUrl, null, function () {
+               var callbackFn = function () {
 
                   // If the view model supports routing, add the root path to the view, to be used
                   // to build the absolute route path, and view model argument if provided.
@@ -218,19 +229,17 @@ limitations under the License.
                   // Call the callback function.  
                   if (typeof iCallbackFn === "function")
                      iCallbackFn.apply(this);
+               };
 
-                  // Load the Javascript module if specified.
-                  if (iJsModuleUrl != null) {
-                     $.getScript(iJsModuleUrl, function () { dotnetify.init() });
-                  }
-                  else
-                     dotnetify.init();
-               });
+               // Provide the opportunity to override the URL.
+               iViewUrl = dotnetify.router.overrideUrl(iViewUrl);
+
+               vm.$loadView(iTargetSelector, iViewUrl, iJsModuleUrl, iVmArg, callbackFn);
+
             }.bind(iScope),
 
             // Routes to a path.
-            manualRouteTo: function( iPath, iTarget, iViewUrl, iJSModuleUrl )
-            {
+            manualRouteTo: function (iPath, iTarget, iViewUrl, iJSModuleUrl) {
                var template = {};
                template.Target = function () { return iTarget }
                template.ViewUrl = function () { return iViewUrl }
@@ -241,6 +250,9 @@ limitations under the License.
             // Routes to a path.
             routeTo: function (iPath, iTemplate, iDisableEvent) {
                var vm = this;
+
+               if (dotnetify.debug)
+                  console.log("router> route '" + iPath + "' to template id=" + iTemplate.Id());
 
                // We can determine whether the view has already been loaded by matching the 'RoutingState.Origin' argument
                // on the existing view model inside that target selector with the path.
@@ -283,7 +295,10 @@ limitations under the License.
                   return false;
 
                // Get the URL path to route.
-               var urlPath = dotNetify.router.urlPath;
+               var urlPath = dotnetify.router.urlPath;
+
+               if (dotnetify.debug)
+                  console.log("router> routing " + urlPath);
 
                // If the URL path matches the root path of this view, use the template with a blank URL pattern if provided.
                if (utils.equal(urlPath, root)) {
@@ -314,8 +329,8 @@ limitations under the License.
                      var template = vm.$router.hasOwnProperty("pathToRoute") && vm.$router.pathToRoute.hasOwnProperty(path) ? vm.$router.pathToRoute[path].$template : null;
                      if (template != null) {
                         // If the URL path is completely routed, clear it.
-                        if (utils.equal(dotNetify.router.urlPath, vm.$router.toUrl(path)))
-                           dotNetify.router.urlPath = "";
+                        if (utils.equal(dotnetify.router.urlPath, vm.$router.toUrl(path)))
+                           dotnetify.router.urlPath = "";
 
                         // If route's not already active, route to it.
                         if (!utils.equal(vm.RoutingState.Active(), path))
@@ -326,7 +341,7 @@ limitations under the License.
                   }
                   else if (dotnetify.router.match(urlPath)) {
                      // If no vmRoute binding matches, try to match with any template's URL pattern.
-                     dotNetify.router.urlPath = "";
+                     dotnetify.router.urlPath = "";
                      return true;
                   }
                }
@@ -372,14 +387,14 @@ limitations under the License.
                   route.Path(path);
                }
             }
-            else
+            else if (route.RedirectRoot() == null)
                throw new Error("vmRoute cannot find route template '" + route.TemplateId() + "' at " + element.outerHTML);
          }
 
          // If the path has a redirect root, the path doesn't belong to the current root and needs to be
          // redirected to a different one.  Set the absolute path to the HREF attribute, and prevent the
-         // default behavior of the anchor click event and instead do push to HTML5 history state and 
-         // call redirect, which would attempt to resolve the path first before resorting to hard browser redirect.
+         // default behavior of the anchor click event and instead do push to HTML5 history state, which 
+         // would attempt to resolve the path first before resorting to hard browser redirect.
          if (route.RedirectRoot() != null) {
 
             // Combine the redirect root with the view model's root.
@@ -405,7 +420,6 @@ limitations under the License.
                .click(function (iEvent) {
                   iEvent.preventDefault();
                   dotnetify.router.pushState({}, "", $(this).attr("href"));
-                  dotnetify.router.redirect(url);
                })
             return;
          }
