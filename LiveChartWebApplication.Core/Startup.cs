@@ -52,7 +52,7 @@ namespace LiveChartWebApplication.Core
          });
 
          // Required by dotNetify.
-        // app.UseWebSockets();
+         app.UseWebSockets();
          app.UseSignalR();
          app.UseDotNetify();
       }
