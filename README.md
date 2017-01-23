@@ -6,7 +6,7 @@ TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https:
 ##Highlights
 
 * No need for complicated client-side framework to manage your front-end - it's just that simple.
-* No need to write ASP.NET API controllers nor client-side AJAX - your data is auto-delivered right from/to your C# view models.
+* No need for ASP.NET API controllers nor client-side AJAX - your data is auto-delivered right from/to your C# view models.
 * Built-in bi-directional real-time communication on top of WebSocket technology, courtesy of SignalR.
 * Built-in offline support for mobile apps - state of visited pages can be cached and used when disconnected.
 * Close to 100% code-reuse between hosted web app and hybrid mobile app.
