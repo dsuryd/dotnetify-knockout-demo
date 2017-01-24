@@ -5,9 +5,9 @@ Example of using [**dotNetify**](http://dotnetify.net) to build a web live chart
 The primary source code only consists of 3 files:
 
 ### ASP.NET Core
-- the C# .NET view model: [/LiveChartVM.cs](https://github.com/dsuryd/dotNetify-example-livechart/blob/master/LiveChartWebApplicationCore/LiveChartVM.cs)
-- the HTML view: [/Views/LiveChart.html](https://github.com/dsuryd/dotNetify-example-livechart/blob/master/LiveChartWebApplicationCore/Views/LiveChart.html)
-- the Typescript code-behind: [/wwwroot/js/LiveChart.ts](https://github.com/dsuryd/dotNetify-example-livechart/blob/master/LiveChartWebApplicationCore/wwwroot/js/LiveChart.ts)
+- the C# .NET view model: [/LiveChartVM.cs](https://github.com/dsuryd/dotNetify-example-livechart/blob/master/LiveChartWebApplication.Core/LiveChartVM.cs)
+- the HTML view: [/Views/LiveChart.html](https://github.com/dsuryd/dotNetify-example-livechart/blob/master/LiveChartWebApplication.Core/Views/LiveChart.html)
+- the Typescript code-behind: [/wwwroot/js/LiveChart.ts](https://github.com/dsuryd/dotNetify-example-livechart/blob/master/LiveChartWebApplication.Core/wwwroot/js/LiveChart.ts)
 
 
 ### ASP.NET 4.5
