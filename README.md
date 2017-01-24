@@ -1,6 +1,6 @@
 #&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - live chart example
 
-Example of using [**dotNetify**](http://dotnetify.net) to build a web live chart with MVVM pattern. See live demo [**here**](http://dotnetify.net/index/livechart).
+Example of using [**dotNetify**](http://dotnetify.net) to build a real-time web chart. See live demo [**here**](http://dotnetify.net/index/livechart).
 
 The primary source code only consists of 3 files:
 
