@@ -1,13 +1,16 @@
-#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - web & mobile hybrid app template
+#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - web / mobile app template
 Coupled with Apache Cordova, dotNetify enables rapid development of SignalR-powered web and mobile hybrid applications that are incredibly lightweight on the front-end, and running on a cross-platform .NET back-end.
+
+TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https://www.microsoft.com/net/core#windowsvs2015), and [WebPack Task Runner](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebPackTaskRunner).
 
 ##Highlights
 
 * No need for complicated client-side framework to manage your front-end - it's just that simple.
-* No fat controllers nor REST APIs to write - your data is auto-delivered right from/to your C# view models.
+* No need for ASP.NET API controllers nor client-side AJAX - data is auto-delivered right from/to C# view models.
 * Built-in bi-directional real-time communication on top of WebSocket technology, courtesy of SignalR.
 * Built-in offline support for mobile apps - state of visited pages can be cached and used when disconnected.
 * Close to 100% code-reuse between hosted web app and hybrid mobile app.
+* Use modern tooling: ASP.NET Core, [Typescript](https://www.typescriptlang.org/), [NPM](https://www.npmjs.com/), [WebPack](https://webpack.github.io/).
 
 ##Android Demo
 <img src="http://dotnetify.net/content/images/android_demo.gif" height="500">
