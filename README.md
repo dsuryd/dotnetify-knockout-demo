@@ -10,7 +10,7 @@ TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https:
 * Built-in bi-directional real-time communication on top of WebSocket technology, courtesy of SignalR.
 * Built-in offline support for mobile apps - state of visited pages can be cached and used when disconnected.
 * Close to 100% code-reuse between hosted web app and hybrid mobile app.
-* Use modern tooling: ASP.NET Core, Typescript, NPM, WebPack.
+* Use modern tooling: ASP.NET Core, [Typescript](https://www.typescriptlang.org/), [NPM](https://www.npmjs.com/), [WebPack](https://webpack.github.io/).
 
 ##Android Demo
 <img src="http://dotnetify.net/content/images/android_demo.gif" height="500">
