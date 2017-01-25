@@ -12,8 +12,10 @@
    $(document).on("offline", function (event, isOffline) {
       if (isOffline)
          $(".offline").show();
-      else
+      else {
          $(".offline").hide();
+         dotnetify.init();
+      }
    });
 
    // Initial cached view model data for the offline mode.

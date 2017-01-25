@@ -22,6 +22,7 @@ Running on Android Emulator:
    Launch the WebApp and test the website is running on "http://169.254.80.80:5500/".
 
 - In WebApp/lib/app.mobile.js, set gServerUrl to "http://169.254.80.80:5500/".
+- In CordovaApp/www/index.html, include the IP address in both http and ws protocols to the "Content-Security-Policy" meta tag.
 - Execute webpack bundling for "config:mobile" from Task Runner Explorer window.  It will update the bundle.mobile.min.js in CordovaApp project.
 - Start debugging on a VS Emulator.
 
