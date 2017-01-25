@@ -1,5 +1,5 @@
 #&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - web / mobile app template
-Coupled with Apache Cordova, dotNetify enables rapid development of SignalR-powered web and mobile hybrid applications that are incredibly lightweight on the front-end, and running on a cross-platform .NET Core back-end.
+Coupled with Apache Cordova, [dotNetify](http://dotnetify.net) enables rapid development of SignalR-powered web and mobile hybrid applications that are incredibly lightweight on the front-end, and running on a cross-platform .NET Core back-end.
 
 TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https://www.microsoft.com/net/core#windowsvs2015), and [WebPack Task Runner](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebPackTaskRunner).
 
@@ -22,9 +22,9 @@ TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https:
 
 ##More Info
 
-Visit [http://dotnetify.net](http://dotnetify.net) for documentation and live demos.
+Visit [http://dotnetify.net](http://dotnetify.net) for documentation and other live demos.
 
-Visit [dotNetify github project](https://github.com/dsuryd/dotNetify) for source code.
+Visit [dotNetify github project](https://github.com/dsuryd/dotNetify) for core library's source code.
 
 *** work in progress - more documentation coming soon ***
 
