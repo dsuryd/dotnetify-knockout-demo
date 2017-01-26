@@ -10,7 +10,7 @@
    },
    "dependencies": {
       "bootstrap": "^4.0.0-alpha.6",
-      "dotnetify": "^1.1.1",
+      "dotnetify": "^1.1.2",
       "snapjs": "^1.2.1",
       "tether": "^1.4.0",
       "velocity-animate": "^1.4.0",
