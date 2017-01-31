@@ -1,13 +1,13 @@
 ﻿<div class="col-lg-3 col-sm-4 col-xs-12">
    <div class="card">
       <div>
-         <span class="card-added" data-bind="html: itemAdded"></span>
-         <img class="card-img-top" data-bind="attr: {src: gServerUrl + $data.imageUrl(), alt: name }, vmRoute: route">
+         <span class="card-added" data-bind="html: ItemAdded"></span>
+         <img class="card-img-top" data-bind="attr: {src: gServerUrl + $data.ImageUrl(), alt: Name }, vmRoute: Route">
       </div>
       <div class="card-block">
-         <h4 class="card-title" data-bind="html: name"></h4>
-         <div class="card-price pull-left" data-bind="html: price"></div>
-         <a href="#" class="btn btn-primary pull-right fa fa-plus" data-bind="vmCommand: add"></a>
+         <h4 class="card-title" data-bind="html: Name"></h4>
+         <div class="card-price pull-left" data-bind="html: Price"></div>
+         <a href="#" class="btn btn-primary pull-right fa fa-plus" data-bind="vmCommand: AddCommand"></a>
       </div>
    </div>
 </div>

@@ -1,7 +1,7 @@
 ﻿// Base server URL used by menu item components to build absolute path for images.
 // In cordova app, this should be set to specific server address.
-//gServerUrl = "http://169.254.80.80:5500/"; // For Android emulator.
-gServerUrl = "http://192.168.96.1:5500/"; // For iOS simulator on my machine.
+gServerUrl = "http://169.254.80.80:5500/"; // For Android emulator.
+//gServerUrl = "http://192.168.96.1:5500/"; // For iOS simulator on my machine.
 
 // Global variables required by various modules.
 $ = jQuery = require("jquery");

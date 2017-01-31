@@ -10,19 +10,19 @@
 
          <my-tab params="id: 'tab-breakfast', caption: BreakfastTabCaption">
             <my-menu params="menuItems: BreakfastMenu">
-               <my-menu-item params="id: Id, imageUrl: ImageUrl, name: Name, price: Price, itemAdded: ItemAdded, route: Route, add: AddCommand"></my-menu-item>
+               <my-menu-item params="menuItem: $data"></my-menu-item>
             </my-menu>
          </my-tab>
 
          <my-tab params="id: 'tab-lunch', caption: LunchTabCaption">
             <my-menu params="menuItems: LunchMenu">
-               <my-menu-item params="id: Id, imageUrl: ImageUrl, name: Name, price: Price, itemAdded: ItemAdded, route: Route, add: AddCommand"></my-menu-item>
+               <my-menu-item params="menuItem: $data"></my-menu-item>
             </my-menu>
          </my-tab>
 
          <my-tab params="id: 'tab-dinner', caption: DinnerTabCaption">
             <my-menu params="menuItems: DinnerMenu">
-               <my-menu-item params="id: Id, imageUrl: ImageUrl, name: Name, price: Price, itemAdded: ItemAdded, route: Route, add: AddCommand"></my-menu-item>
+               <my-menu-item params="menuItem: $data"></my-menu-item>
             </my-menu>
          </my-tab>
 

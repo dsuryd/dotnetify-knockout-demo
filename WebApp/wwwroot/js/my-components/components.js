@@ -90,8 +90,8 @@ limitations under the License.
    ko.components.register('my-menu-item', {
       viewModel: function (params)
       {
-         for (prop in params)
-            this[prop] = params[prop];
+         for (prop in params.menuItem)
+            this[prop] = params.menuItem[prop];
       },
       template: require('raw-loader!my-components/component-my-menu-item.html')
    });
