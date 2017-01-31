@@ -55,7 +55,7 @@ namespace Services
             GetShoppingCart()
             .GetOrders()
             .ToList()
-            .Select(i => new { ItemId = i.Key, Qty = i.Value })
+            .Select(i => new { ItemId = i.MenuItemId, Qty = i.Quantity })
          );
       }
 

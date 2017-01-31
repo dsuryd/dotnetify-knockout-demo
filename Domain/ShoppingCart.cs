@@ -6,18 +6,18 @@ namespace Domain
 {
    public class ShoppingCart
    {
-      private Dictionary<int, int> _orders = new Dictionary<int, int>();
+      private Dictionary<int, Order> _orders = new Dictionary<int, Order>();
 
-      public int OrderCount => _orders.Select(i => i.Value).Sum();
+      public int OrderCount => _orders.Select(i => i.Value.Quantity).Sum();
 
       public event EventHandler<int> Changed;
 
       public void AddOrder(MenuItem menuItem, int quantity = 1)
       {
          if (_orders.ContainsKey(menuItem.Id))
-            _orders[menuItem.Id] += quantity;
+            _orders[menuItem.Id].Quantity += quantity;
          else
-            _orders.Add(menuItem.Id, quantity);
+            _orders.Add(menuItem.Id, new Order { MenuItemId = menuItem.Id, Quantity = quantity });
 
          Changed?.Invoke(this, menuItem.Id);
       }
@@ -28,18 +28,15 @@ namespace Domain
          Changed?.Invoke(this, 0);
       }
 
-      public IEnumerable<KeyValuePair<int, int>> GetOrders() => _orders.AsEnumerable();
+      public IEnumerable<Order> GetOrders() => _orders.Values;
 
-      public int GetOrderCount(MenuItem menuItem)
-      {
-         return _orders.ContainsKey(menuItem.Id) ? _orders[menuItem.Id] : 0;
-      }
+      public int GetOrderCount(MenuItem menuItem) => _orders.ContainsKey(menuItem.Id) ? _orders[menuItem.Id].Quantity : 0;
 
       public void RemoveOrder(MenuItem menuItem)
       {
          if (_orders.ContainsKey(menuItem.Id))
          {
-            if (--_orders[menuItem.Id] == 0)
+            if (--_orders[menuItem.Id].Quantity == 0)
                _orders.Remove(menuItem.Id);
 
             Changed?.Invoke(this, menuItem.Id);

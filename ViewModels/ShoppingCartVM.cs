@@ -56,18 +56,18 @@ namespace ViewModels
       /// </summary>
       private IEnumerable<ShoppingCartItemDTO> GetShoppingCartItems()
       {
-         var cartItems = _shoppingCartService.GetShoppingCart().GetOrders();
-         return cartItems.ToList().Select(i =>
+         var orders = _shoppingCartService.GetShoppingCart().GetOrders();
+         return orders.ToList().Select(i =>
          {
-            var menuItem = _menuService.GetMenuItem(i.Key);
+            var menuItem = _menuService.GetMenuItem(i.MenuItemId);
             return new ShoppingCartItemDTO
             {
-               Id = i.Key,
-               Qty = i.Value,
+               Id = i.MenuItemId,
+               Qty = i.Quantity,
                Name = menuItem.Name,
                Price = $"${menuItem.Price}",
                ImageUrl = "/images/menu-items/" + menuItem.ImageUri,
-               RemoveCommand = new Command(() => OnRemove(i.Key))
+               RemoveCommand = new Command(() => OnRemove(i.MenuItemId))
             };
          });
       }
