@@ -20,7 +20,7 @@ TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https:
 ##iOS Demo with Offline Mode
 <img src="http://dotnetify.net/content/images/ios_offline_demo.gif" height="500">
 
-##More Info
+##Documentation
 
 Visit [http://dotnetify.net](http://dotnetify.net) for documentation and other live demos.
 
