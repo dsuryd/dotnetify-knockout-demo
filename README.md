@@ -1,4 +1,4 @@
-#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - live chart example
+# &nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - live chart example (Knockout)
 
 Example of using [**dotNetify**](http://dotnetify.net) to build a real-time web chart. See live demo [**here**](http://dotnetify.net/index/livechart).
 
