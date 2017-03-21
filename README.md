@@ -1,4 +1,4 @@
-#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - dynamic LINQ example
+# &nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - dynamic LINQ example (Knockout)
 
 Example of using **[dotNetify](http://dotnetify.net)** to build incremental web search by entering LINQ expression.  
 See live demo here: **[AFI Top 100 American Films](http://dotnetify.net/index/AFITop100)**.
