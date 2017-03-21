@@ -1,4 +1,4 @@
-#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - bunny pen example
+# &nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - bunny pen example (Knockout)
 
 Example of using **[dotNetify](http://dotnetify.net)** to build an interactive, real-time, multi-user web application.  
 See live demo here: **[Bunny Pen](http://dotnetify.net/index/BunnyPen)**.
