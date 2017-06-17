@@ -1,7 +1,7 @@
 # &nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - web / mobile app template (Knockout)
 Coupled with Apache Cordova, [dotNetify](http://dotnetify.net) enables rapid development of SignalR-powered web and mobile hybrid applications that are incredibly lightweight on the front-end, and running on a cross-platform .NET Core back-end.
 
-TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https://www.microsoft.com/net/core#windowsvs2015), and [WebPack Task Runner](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebPackTaskRunner).
+To run this, you will need [Visual Studio 2017](https://www.microsoft.com/net/core#windowsvs2017), and [WebPack Task Runner](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebPackTaskRunner).  Run Visual Studio as administrator.
 
 ## Highlights
 
