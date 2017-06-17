@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "CordovaApp", "CordovaApp\CordovaApp.jsproj", "{736A2A76-AB21-43C9-A095-5E5128CB635F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApp", "WebApp\WebApp.xproj", "{DCF8C726-4F19-44D0-B0AC-B7B00DB30F3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{DCF8C726-4F19-44D0-B0AC-B7B00DB30F3D}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Domain", "Domain\Domain.xproj", "{52163253-FB0C-4BF9-A262-2D3DE6B82B9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{52163253-FB0C-4BF9-A262-2D3DE6B82B9E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataAccess", "DataAccess\DataAccess.xproj", "{99056E0A-EC7E-4912-92C8-10656F5E1C15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{99056E0A-EC7E-4912-92C8-10656F5E1C15}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Services", "Services\Services.xproj", "{FEF2EB7B-9DBE-44BE-AE99-7F0A4644F75E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{FEF2EB7B-9DBE-44BE-AE99-7F0A4644F75E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ViewModels", "ViewModels\ViewModels.xproj", "{F0222784-726F-447E-B0B1-E02402604AD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "ViewModels\ViewModels.csproj", "{F0222784-726F-447E-B0B1-E02402604AD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
