@@ -1,9 +1,9 @@
-#&nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - web / mobile app template
+# &nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify - web / mobile app template (Knockout)
 Coupled with Apache Cordova, [dotNetify](http://dotnetify.net) enables rapid development of SignalR-powered web and mobile hybrid applications that are incredibly lightweight on the front-end, and running on a cross-platform .NET Core back-end.
 
 TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https://www.microsoft.com/net/core#windowsvs2015), and [WebPack Task Runner](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebPackTaskRunner).
 
-##Highlights
+## Highlights
 
 * No complicated client-side framework to manage your front-end - it's just that simple.
 * No ASP.NET API controllers, no client-side AJAX - data is auto-delivered right from/to C# view models.
@@ -14,20 +14,18 @@ TO run this, you will need [Visual Studio 2015 Update 3, .NET Core Tools](https:
 * DDD and SOLID principles on the back-end for maintainability and extensibility.
 * Use modern tooling: ASP.NET Core, [Typescript](https://www.typescriptlang.org/), [NPM](https://www.npmjs.com/), [WebPack](https://webpack.github.io/).
 
-##Android Demo
+## Android Demo
 <img src="http://dotnetify.net/content/images/android_demo.gif" height="500">
 
-##iOS Demo with Offline Mode
+## iOS Demo with Offline Mode
 <img src="http://dotnetify.net/content/images/ios_offline_demo.gif" height="500">
 
-##More Info
+## Documentation
 
 Visit [http://dotnetify.net](http://dotnetify.net) for documentation and other live demos.
 
 Visit [dotNetify github project](https://github.com/dsuryd/dotNetify) for core library's source code.
 
-*** work in progress - more documentation coming soon ***
-
-##License
+## License
 Licensed under the Apache License, Version 2.0.
 
