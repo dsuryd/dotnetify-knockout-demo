@@ -1,5 +1,5 @@
 # &nbsp;![alt tag](http://dotnetify.net/content/images/greendot.png) dotNetify Knockout Demo
-DotNetify makes it super easy to connect your Knockout app to a cross-platform .NET back-end on Visual Studio 2017 and get real-time two-way communication with WebSockets for free!
+DotNetify makes it super easy to connect your [Knockout](http://knockoutjs.com/) app to a cross-platform .NET back-end on Visual Studio and get real-time two-way communication with WebSockets for free!
 
 #### BunnyPen
 A simple real-time, interactive multi-user example.
