@@ -1,0 +1,114 @@
+﻿[
+   {
+      "Id": 1,
+      "Name": "Bagels and Cream Cheese",
+      "Description": "Authentic New York-style bagels.  Start the day with freshly baked batches and your favorite cream cheese.",
+      "Price": 7.49,
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_bagel.jpg"
+   },
+   {
+      "Id": 2,
+      "Name": "Kellog's Honey Buzz Cereal",
+      "Description": "A bowl of Honey Smacks with honey, toasted pecans and banana chips.",
+      "Price": 6.99,
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_cereal.jpg"
+   },
+   {
+      "Id": 3,
+      "Name": "Chocolate Macadamia Croissant",
+      "Description": "Chocolate croissant, sprinkled with macadmia nut cookie. Always baked fresh!",
+      "Price": 7.99,
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_croissant.jpg"
+   },
+   {
+      "Id": 4,
+      "Name": "King & Country's Breakfast",
+      "Description": "A Southern-style sausage patty, fluffy eggs and aged Cheddar cheese are served on a perfectly toasty English muffin.",
+      "Price": 11.99,
+      "Type": "Breakfast",
+      "ImageUri": "breakfast_sausage_egg.jpg"
+   },
+   {
+      "Id": 5,
+      "Name": "Grilled Cheese Sandwich",
+      "Description": "The classic all american cheese grilled cheese sandwich grilled up on white bread.",
+      "Price": 9.49,
+      "Type": "Lunch",
+      "ImageUri": "lunch_cheese_sandwich.jpg"
+   },
+   {
+      "Id": 6,
+      "Name": "Maui Burger",
+      "Description": "Black pepper-crusted burger with pepper jack cheese, jalapeno, lettuce and tomato.",
+      "Price": 13.99,
+      "Type": "Lunch",
+      "ImageUri": "lunch_hamburger.jpg"
+   },
+   {
+      "Id": 7,
+      "Name": "Ultimate Supreme Pizza",
+      "Description": "Hand-tossed pizza topped with pepperoni, turkey sausage, beef, mushrooms, red onions and green peppers.",
+      "Price": 13.50,
+      "Type": "Lunch",
+      "ImageUri": "lunch_pizza.jpg"
+   },
+   {
+      "Id": 8,
+      "Name": "Spaghetti Marinara",
+      "Description": "Made from scratch recipe of fresh onions, tomatoes, carrots, and garlic sauteed in olive oil and Italian seasonings.",
+      "Price": 11.75,
+      "Type": "Lunch",
+      "ImageUri": "lunch_spaghetti.jpg"
+   },
+   {
+      "Id": 9,
+      "Name": "Spinach Sweet Crisp",
+      "Description": "Baby spinach, freshly sliced oranges, grapes, cranberries, onions and creamy mozzarella cheese.",
+      "Price": 10.49,
+      "Type": "Lunch",
+      "ImageUri": "lunch_spinach_salad.jpg"
+   },
+   {
+      "Id": 10,
+      "Name": "Orange Shrimp and Broccoli",
+      "Description": "Perfect quick and easy meal for a busy weeknight or for entertaining guests. The sweet and tangy orange sauce only has 4 ingredients and the garlic sesame fried rice elevates the dish into something special.",
+      "Price": 13.50,
+      "Type": "Dinner",
+      "ImageUri": "dinner_broccoli_shrimp.jpg"
+   },
+   {
+      "Id": 11,
+      "Name": "BBQ Chicken",
+      "Description": "Tangy-sweet kebabs, made with boneless, skinless chicken thighs and red onion, can be grilled or baked.",
+      "Price": 14.49,
+      "Type": "Dinner",
+      "ImageUri": "dinner_grilled_chicken.jpg"
+   },
+   {
+      "Id": 12,
+      "Name": "Alaskan Grilled Salmon",
+      "Description": "Filet grilled to perfection and topped with garlic-herb butter. Served with parmesan-garlic broccoli and yellow rice.",
+      "Price": 13.99,
+      "Type": "Dinner",
+      "ImageUri": "dinner_salmon.jpg"
+   },
+   {
+      "Id": 13,
+      "Name": "New York Steak",
+      "Description": "19 ounces of sheer perfection—full-bodied and full of flavor.",
+      "Price": 27.99,
+      "Type": "Dinner",
+      "ImageUri": "dinner_steak.jpg"
+   },
+   {
+      "Id": 14,
+      "Name": "Mongolian Stir Fry",
+      "Description": "Wok-fired classics of coconut curry vegetables",
+      "Price": 12.49,
+      "Type": "Dinner",
+      "ImageUri": "dinner_stir_fry.jpg"
+   }
+]

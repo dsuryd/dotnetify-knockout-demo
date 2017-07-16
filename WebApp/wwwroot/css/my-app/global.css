@@ -1,0 +1,183 @@
+﻿
+body {
+   font-family: roboto, sans-serif;
+}
+
+h1.title {
+   font-size: large;
+   font-weight: bold;
+   color: dimgray;
+}
+
+a:hover,
+a:active,
+a:focus {
+   text-decoration: none;
+}
+
+.bar-nav {
+   background-color: rgba(247,247,247,.98);
+   border-bottom: 0;
+}
+
+.content {
+   background-color: #efeff4;
+}
+
+.icon-bars {
+   cursor: pointer;
+   padding: 10px;
+   margin-left: -10px;
+}
+
+#MainPage div.content {
+   background-color: white;
+}
+
+#RightDrawer {
+   display: none;
+   z-index: 2;
+}
+
+.btn-round {
+   width: 24px;
+   height: 24px;
+   border-radius: 18%;
+   text-align: center;
+   padding-top: 2px;
+}
+
+my-header-bar header.bar {
+   box-shadow: 0 0 4px dimgray;
+}
+
+my-header-bar + div {
+   padding-top: 60px;
+}
+
+my-header-bar a.fa.fa-shopping-cart {
+   font-size: 1.25em;
+   padding: 10px 20px;
+   margin-right: -10px;
+   color: gray;
+   position: relative;
+}
+
+   my-header-bar a.fa.fa-shopping-cart .tag {
+      position: absolute;
+      top: 5px;
+      right: 12px;
+      font-size: 50%;
+      font-weight: normal;
+      border-radius: 50%;
+      padding: .25em .45em;
+      opacity: 0.8;
+      background-color: #ffbb33;
+      color: black;
+   }
+
+my-toaster div.toaster {
+   visibility: hidden;
+   opacity: 0;
+   color: white;
+   background-color: #5bc0de;
+   padding: 1.5rem;
+   border: 1px solid #46b8da;
+   border-radius: 4px;
+   box-shadow: 0 0 8px dimgray;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
+   transform: translateX(-50%) translateY(-50%) scale(0.7);
+   transition: visibility 0s linear .25s, opacity .25s ease-in-out, all .25s;
+   -webkit-transition: visibility 0s linear .25s, opacity .25s ease-in-out, all .25s;
+}
+
+   my-toaster div.toaster.show {
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
+      -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+      transform: translateX(-50%) translateY(-50%) scale(1);
+   }
+
+.offline {
+   display: none;
+   position: absolute;
+   width: 8em;
+   top: 7px;
+   left: calc( 50% - 4em);
+   text-align: center;
+   z-index: 999;
+   background-color: orangered;
+   color: white;
+   padding: 5px 10px;
+   border-radius: 5px;
+   opacity: .9;
+}
+
+/* Animated loader, courtesy of Luke Haas: https://projects.lukehaas.me/css-loaders/ */
+.loader,
+.loader:before,
+.loader:after {
+   border-radius: 50%;
+   width: 2.5em;
+   height: 2.5em;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+   -webkit-animation: loadAnim 1.8s infinite ease-in-out;
+   animation: loadAnim 1.8s infinite ease-in-out;
+}
+
+.loader {
+   color: silver;
+   position: absolute;
+   top: calc( 50% - 2.5em);
+   left: calc(50% - 2.5em);
+   z-index: 999;
+   font-size: 10px;
+   text-indent: -9999em;
+   -webkit-transform: translateZ(0);
+   -ms-transform: translateZ(0);
+   transform: translateZ(0);
+   -webkit-animation-delay: -0.16s;
+   animation-delay: -0.16s;
+}
+
+   .loader:before,
+   .loader:after {
+      content: '';
+      position: absolute;
+      top: 0;
+   }
+
+   .loader:before {
+      left: -3.5em;
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+   }
+
+   .loader:after {
+      left: 3.5em;
+   }
+
+@-webkit-keyframes loadAnim {
+   0%, 80%, 100% {
+      box-shadow: 0 2.5em 0 -1.3em;
+   }
+
+   40% {
+      box-shadow: 0 2.5em 0 0;
+   }
+}
+
+@keyframes loadAnim {
+   0%, 80%, 100% {
+      box-shadow: 0 2.5em 0 -1.3em;
+   }
+
+   40% {
+      box-shadow: 0 2.5em 0 0;
+   }
+}

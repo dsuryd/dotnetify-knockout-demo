@@ -1,0 +1,126 @@
+﻿
+my-menu-item .card {
+   border-color: #bbb;
+}
+
+   my-menu-item .card > div {
+      position: relative;
+   }
+
+   my-menu-item .card img {
+      width: 100%;
+      cursor: pointer;
+   }
+
+   my-menu-item .card .card-added {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(255,187,51,.6);
+   }
+
+my-menu-item .card-title {
+   font-weight: bold;
+   font-size: medium;
+   font-size: 1vw;
+   padding-bottom: 10px;
+   border-bottom: 1px solid dimgray;
+}
+
+my-menu-item .card-price {
+   color: #666666;
+}
+
+@media (max-width: 992px) {
+   my-menu-item .card-title,
+   my-menu-item .card-price {
+      font-size: small;
+   }
+}
+
+@media (max-width: 544px) {
+   my-menu-item .card-title,
+   my-menu-item .card-price {
+      font-size: small;
+   }
+}
+
+.tab-breakfast .slide {
+   left: 2%;
+}
+
+.tab-lunch .slide {
+   left: calc((90% / 3) * 1 + 5% );
+}
+
+.tab-dinner .slide {
+   left: calc((90% / 3) * 2 + 8% );
+}
+
+.tab-breakfast input[id=tab-breakfast] ~ .tab-label-content label,
+.tab-lunch input[id=tab-lunch] ~ .tab-label-content label,
+.tab-dinner input[id=tab-dinner] ~ .tab-label-content label {
+   opacity: 1;
+}
+
+.tab-breakfast input[id=tab-breakfast] ~ .tab-label-content .tab-content,
+.tab-lunch input[id=tab-lunch] ~ .tab-label-content .tab-content,
+.tab-dinner input[id=tab-dinner] ~ .tab-label-content .tab-content {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0s;
+}
+
+my-tab-panel .tab-panel {
+   width: 100%;
+   position: relative;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+}
+
+   my-tab-panel .tab-panel label {
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+   }
+
+   my-tab-panel .tab-panel .slide {
+      background: #00E17D;
+      width: calc(90% / 3);
+      height: 4px;
+      position: absolute;
+      top: calc(100% - 4px);
+      -webkit-transition: left 0.3s ease-out;
+      transition: left 0.3s ease-out;
+   }
+
+my-tab {
+   width: 100%;
+}
+
+   my-tab input[type="radio"][name="tabs"] {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+   }
+
+   my-tab .tab-label-content {
+      width: 100%;
+   }
+
+      my-tab .tab-label-content label {
+         opacity: .5;
+      }
+
+      my-tab .tab-label-content .tab-content {
+         position: absolute;
+         top: 50px;
+         left: 0px;
+         line-height: 130%;
+         opacity: 0;
+         visibility: hidden;
+         transition: visibility 0s linear .25s, opacity .25s ease-in-out;
+         -webkit-transition: visibility 0s linear .25s, opacity .25s ease-in-out;
+      }

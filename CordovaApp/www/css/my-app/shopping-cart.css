@@ -1,0 +1,74 @@
+﻿#ShoppingCart header + div {
+   padding-top: 60px;
+}
+
+div#ShoppingCart.content {
+   background-color: #efeff4;
+}
+
+#ShoppingCart .card {
+   max-width: 1000px;
+   margin: 0 auto;
+}
+
+#ShoppingCart .card-title {
+   border-bottom: solid 2px #FFBB33;
+   padding-bottom: .25em;
+}
+
+#ShoppingCart .btn-block {
+   max-width: 1000px;
+   margin: .5em auto;
+}
+
+#ShoppingCartList td {
+   padding: .5em;
+}
+
+   #ShoppingCartList td > img {
+      padding-left: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 4px;
+   }
+
+   #ShoppingCartList td:nth-child(2) {
+      width: 80%;
+   }
+
+      #ShoppingCartList td:nth-child(2) > span ~ span {
+         font-size: medium;
+         color: #666666;
+      }
+
+   #ShoppingCartList td:nth-child(3) {
+      text-align: center;
+   }
+
+      #ShoppingCartList td:nth-child(3) > span:first-child {
+         font-size: small;
+         color: #DD9900;
+      }
+
+      #ShoppingCartList td:nth-child(3) > a {
+         display: none;
+      }
+
+@media (max-width: 544px) {
+
+   #ShoppingCartList td:nth-child(2) > span:first-child {
+      font-size: medium;
+   }
+   #ShoppingCartList td:nth-child(2) > span ~ span {
+      font-size: small;
+   }
+
+   #ShoppingCartList td:nth-child(3) > a {
+      display: block;
+      margin-top: .4em;
+   }
+
+   #ShoppingCartList td:nth-child(4) {
+      display: none;
+   }
+}

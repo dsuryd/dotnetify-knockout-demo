@@ -1,0 +1,62 @@
+﻿
+#Home .brochure {
+   margin-top: 45px;
+   height: 65%;
+   background-image: url("../../images/home.jpg");
+   background-position: center center;
+   background-size: cover;
+   text-align: center;
+}
+
+   #Home .brochure > h1 {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      color: white;
+      font-size: xx-large;
+      font-weight: bolder;
+      text-shadow: 2px 2px rgba(0,0,0,.5);
+   }
+
+   #Home .brochure > div {
+      position: absolute;
+      left: 50%;
+      top: calc(35% + 6rem);
+   }
+
+      #Home .brochure > div > a {
+         position: relative;
+         left: -50%;
+         padding: .75rem 1rem;
+         color: white;
+         border-radius: 3px;
+         background-color: rgba(0,225,125,.5);
+      }
+
+#HowItWorks {
+   text-align: center;
+   margin-top: 2rem;
+}
+
+   #HowItWorks h1:after {
+      content: "";
+      position: absolute;
+      left: calc( 50% - 60px);
+      top: 3rem;
+      background-color: dimgray;
+      height: 2px;
+      width: 120px;
+   }
+
+   #HowItWorks p {
+      margin-top: 2rem;
+      color: dimgray;
+      padding: 0 2em;
+   }
+
+@media (max-width: 568px) {
+   #Home .brochure > h1,
+   #HowItWorks h1 {
+      font-size: x-large;
+   }
+}

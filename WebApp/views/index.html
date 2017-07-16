@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>DotNetify App</title>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="/css/my-app/_master.css" rel="stylesheet">
+   <script src="/lib/bundle.min.js"></script>
+</head>
+
+<body data-vm="IndexVM">
+
+   <!-- Side navigation drawer (courtesy of snap.js) -->
+   <div class="snap-drawers content">
+      <div class="snap-drawer snap-drawer-left">
+         <!-- Title -->
+         <div class="table-view-cell" data-bind="text: UserName"></div>
+         <!-- Navigation items -->
+         <ul class="my-side-nav table-view" data-bind="foreach: SideNav">
+            <my-nav-item params="icon: Icon, caption: Caption, url: Route, nav: 'navigate-right'" />
+         </ul>
+         <!-- Sign out button -->
+         <nav class="bar bar-footer">
+            <a class="btn btn-block btn-primary" href="/login"><span>Sign Out</span></a>
+         </nav>
+      </div>
+   </div>
+
+   <!-- Main page  -->
+   <div id="MainPage" class="snap-content">
+      <div class="content">
+         <div class="loader">Loading...</div>
+      </div>
+   </div>
+
+    <!-- Right drawer -->
+   <div id="RightDrawer" class="snap-content">
+   </div>
+
+   <div class="offline">Offline Mode</div>
+
+   <!-- Required for client-side routing to shopping cart page -->
+   <input type="hidden" data-bind="vmRoute: CartRoute" />
+</body>
+</html>

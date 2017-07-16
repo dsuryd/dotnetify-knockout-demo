@@ -1,0 +1,19 @@
+{
+   "version": "1.0.0",
+   "name": "dotnetify-app-template",
+   "private": true,
+   "devDependencies": {
+      "webpack": "^1.14.0",
+      "raw-loader": "^0.5.1",
+      "exports-loader": "^0.6.3",
+      "webpack-uglify-js-plugin": "^1.1.9"
+   },
+   "dependencies": {
+      "bootstrap": "^4.0.0-alpha.6",
+      "dotnetify": "^1.1.2",
+      "snapjs": "^1.2.1",
+      "tether": "^1.4.0",
+      "velocity-animate": "^1.4.0",
+      "fastclick": "^1.0.6"
+   }
+}

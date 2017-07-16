@@ -1,0 +1,32 @@
+﻿<div id="Menu" class="content" data-vm="MenuVM">
+
+   <my-header-bar params="title: PageTitle">
+      <my-cart-icon params="route: CartRoute, orderCount: OrderCount"></my-cart-icon>
+   </my-header-bar>
+
+   <!-- Menu panel with 3 tabs for breakfast, lunch and dinner -->
+   <div>
+      <my-tab-panel params="selected: ActiveTab">
+
+         <my-tab params="id: 'tab-breakfast', caption: BreakfastTabCaption">
+            <my-menu params="menuItems: BreakfastMenu">
+               <my-menu-item params="menuItem: $data"></my-menu-item>
+            </my-menu>
+         </my-tab>
+
+         <my-tab params="id: 'tab-lunch', caption: LunchTabCaption">
+            <my-menu params="menuItems: LunchMenu">
+               <my-menu-item params="menuItem: $data"></my-menu-item>
+            </my-menu>
+         </my-tab>
+
+         <my-tab params="id: 'tab-dinner', caption: DinnerTabCaption">
+            <my-menu params="menuItems: DinnerMenu">
+               <my-menu-item params="menuItem: $data"></my-menu-item>
+            </my-menu>
+         </my-tab>
+
+      </my-tab-panel>
+   </div>
+
+</div>

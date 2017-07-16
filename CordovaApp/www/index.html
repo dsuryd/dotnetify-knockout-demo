@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <title>DotNetify Mobile Demo</title>
+   <meta name="format-detection" content="telephone=no">
+   <meta name="msapplication-tap-highlight" content="no">
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://192.168.96.1:5500 ws://192.168.96.1:5500 http://169.254.80.80:5500 ws://169.254.80.80:5500 https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; media-src *">
+   <link href="css/my-app/_master.css" rel="stylesheet">
+   <script type="text/javascript" src="cordova.js"></script>
+   <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+   <script src="scripts/bundle.mobile.min.js"></script>
+</head>
+
+<body data-vm="IndexVM">
+
+   <!-- Side navigation drawer (courtesy of snap.js) -->
+   <div class="snap-drawers content">
+      <div class="snap-drawer snap-drawer-left">
+         <!-- Title -->
+         <div class="table-view-cell" data-bind="text: UserName"></div>
+         <!-- Navigation items -->
+         <ul class="my-side-nav table-view" data-bind="foreach: SideNav">
+            <my-nav-item params="icon: Icon, caption: Caption, url: Route, nav: 'navigate-right'" />
+         </ul>
+         <!-- Sign out button -->
+         <nav class="bar bar-footer">
+            <a class="btn btn-block btn-primary" href="/login"><span>Sign Out</span></a>
+         </nav>
+      </div>
+   </div>
+
+   <!-- Main page  -->
+   <div id="MainPage" class="snap-content">
+      <div class="content">
+         <div class="loader">Loading...</div>
+      </div>
+   </div>
+
+    <!-- Right drawer -->
+   <div id="RightDrawer" class="snap-content">
+   </div>
+
+   <div class="offline">Offline Mode</div>
+
+   <!-- Required for client-side routing to shopping cart page -->
+   <input type="hidden" data-bind="vmRoute: CartRoute" />
+</body>
+</html>
