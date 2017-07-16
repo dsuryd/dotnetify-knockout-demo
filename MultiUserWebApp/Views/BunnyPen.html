@@ -1,0 +1,25 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>dotNetify - Multi-User Example</title>
+   <link href="/Content/bootstrap.min.css" rel="stylesheet">
+   <script src="Scripts/pixi.min.js"></script>
+   <script src="Scripts/Example/BunnyPen.js"></script>
+   <script src="/Scripts/require.js" data-main="/Scripts/app"></script>
+
+</head>
+<body>
+   <div class="container" data-vm="BunnyPenVM">
+      <div class="header clearfix">
+         <h3>Example: Bunny Pen</h3>
+      </div>
+      <div class="well">
+         Open this page on multiple browser instances or on different PCs.  Drag the bunny around and watch it moves on the other browsers too.
+      </div>
+      <center id="PenArea">
+      </center>
+   </div>
+
+   <script src="Scripts/Example/Renderer.js"></script>
+</body>
+</html>
