@@ -29,14 +29,11 @@ namespace LiveChartWebApplication.Core
          services.AddMvc();
 
          // SignalR and Memory Cache are required by dotNetify.
-         services.AddSignalR(options => options.Hubs.EnableDetailedErrors = true);
+         services.AddSignalR();
          services.AddMemoryCache();
 
          // Add dotNetify services.
          services.AddDotNetify();
-
-         // Tell dotNetify which assembly to resolve the view models.
-         VMController.RegisterAssembly(this.GetType().GetTypeInfo().Assembly);
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,17 +41,21 @@ namespace LiveChartWebApplication.Core
       {
          app.UseStaticFiles();
 
+         // Required by dotNetify.
+         app.UseWebSockets();
+         app.UseSignalR(routes => routes.MapDotNetifyHub());
+         app.UseDotNetify(config =>
+         {
+            // Tell dotNetify which assembly to resolve the view models.
+            config.RegisterAssembly(GetType().GetTypeInfo().Assembly);
+         });
+
          app.UseMvc(routes =>
          {
             routes.MapRoute(
                    name: "default",
                    template: "{controller=Home}/{action=Index}/{id?}");
          });
-
-         // Required by dotNetify.
-         app.UseWebSockets();
-         app.UseSignalR();
-         app.UseDotNetify();
       }
    }
 }

@@ -15,7 +15,7 @@ namespace LiveChartWebApplication
          AreaRegistration.RegisterAllAreas();
          RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-         VMController.RegisterAssembly(typeof(MvcApplication).Assembly);
+         VMController.RegisterAssembly<BaseVM>(typeof(MvcApplication).Assembly);
       }
    }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Timers;
 using DotNetify;
+using System.Linq;
+using System.Reactive.Linq;
 
 namespace LiveChartWebApplication
 {
@@ -9,45 +10,31 @@ namespace LiveChartWebApplication
    /// </summary>
    public class LiveChartVM : BaseVM
    {
-      private Timer _timer = new Timer(1000);
-      private Random _random = new Random();
+      private IDisposable subscription;
 
-      public double[] Data
-      {
-         get { return Get<double[]>(); }
-         set { Set(value); }
-      }
-
-      /// <summary>
-      /// Constructor.
-      /// </summary>
       public LiveChartVM()
       {
+         var _random = new Random();
+
          // Create initial data for the chart.
-         Data = new double[20];
-         for (int i = 0; i < 20; i++)
-            Data[i] = _random.Next(1, 100);
+         var initialData = Enumerable.Range(0, 20).Select(_ => _random.Next(1, 100)).ToArray();
+         var dataProperty = AddProperty("Data", initialData);
 
          // Run a timer every second to update the chart.
-         _timer.Elapsed += Timer_Elapsed;
-         _timer.Start();
+         subscription = Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+         {
+            var newData = new int[] { _random.Next(1, 100) };
+            dataProperty.OnNext(newData);
+
+            // This is a base method to cause changed properties from all active view models to be pushed to the browser.
+            PushUpdates();
+         });
       }
 
       public override void Dispose()
       {
-         _timer.Stop();
-         _timer.Elapsed -= Timer_Elapsed;
-
-         // Call base.Dispose to raise Disposed event.
+         subscription?.Dispose();
          base.Dispose();
-      }
-
-      private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-      {
-         Data = new double[] { _random.Next(1, 100) };
-
-         // This is a base method to cause changed properties from all active view models to be pushed to the browser.
-         PushUpdates();
       }
    }
 }

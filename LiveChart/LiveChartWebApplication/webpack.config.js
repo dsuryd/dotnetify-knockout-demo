@@ -1,11 +1,10 @@
 ﻿"use strict";
 
-let webpack = require('webpack');
-
+var webpack = require("webpack");
 module.exports = {
-   entry: "./wwwroot/lib/app.js",
+   entry: "./Scripts/app.js",
    output: {
-      filename: "wwwroot/lib/bundle.min.js"
+      filename: "./Scripts/bundle.js"
    },
    resolve: {
       modules: ["src", "node_modules"],
@@ -16,6 +15,6 @@ module.exports = {
       }
    },
    plugins: [
-    new webpack.optimize.UglifyJsPlugin({ minimize: true })
+      new webpack.optimize.UglifyJsPlugin({ minimize: true })
    ]
 };
